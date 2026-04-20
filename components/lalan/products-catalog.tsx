@@ -201,15 +201,21 @@ function ProductCard({ product, onOpen, featured }: { product: Product; onOpen: 
 }
 
 // ── Main Catalog ──────────────────────────────────────────────
+const INITIAL_VISIBLE = 6; // 2 rows × 3 cols (xl)
+
 export default function ProductsCatalog() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [finderOpen, setFinderOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   const filtered = useMemo(
     () => activeCategory === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === activeCategory),
     [activeCategory]
   );
+
+  const visible = showAll ? filtered : filtered.slice(0, INITIAL_VISIBLE);
+  const hiddenCount = filtered.length - INITIAL_VISIBLE;
 
   return (
     <>
@@ -243,7 +249,7 @@ export default function ProductsCatalog() {
                 return (
                   <button
                     key={cat.id}
-                    onClick={() => setActiveCategory(cat.id)}
+                    onClick={() => { setActiveCategory(cat.id); setShowAll(false); }}
                     className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all duration-200"
                     style={{
                       background: active ? 'rgba(114,194,110,0.12)' : 'transparent',
@@ -292,7 +298,7 @@ export default function ProductsCatalog() {
               return (
                 <button
                   key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
+                  onClick={() => { setActiveCategory(cat.id); setShowAll(false); }}
                   className="px-4 py-1.5 rounded-full text-xs font-bold transition-all"
                   style={{
                     background: active ? 'linear-gradient(135deg,#1c6d24,#005c14)' : 'rgba(255,255,255,0.05)',
@@ -342,7 +348,7 @@ export default function ProductsCatalog() {
 
           {/* Product grid — editorial / asymmetric */}
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-20">
-            {filtered.map((product, i) => (
+            {visible.map((product, i) => (
               <ProductCard
                 key={product.id}
                 product={product}
@@ -351,6 +357,53 @@ export default function ProductsCatalog() {
               />
             ))}
           </div>
+
+          {/* Show more / less */}
+          {hiddenCount > 0 && (
+            <div className="mt-20 flex flex-col items-center gap-4">
+              <button
+                onClick={() => setShowAll(v => !v)}
+                className="group flex items-center gap-3 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: showAll ? 'rgba(255,255,255,0.05)' : 'linear-gradient(135deg,#1c6d24,#005c14)',
+                  color: 'white',
+                  boxShadow: showAll ? 'none' : '0 8px 24px rgba(28,109,36,0.4)',
+                }}
+              >
+                {showAll ? (
+                  <>
+                    Daha Az Göster
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M18 15l-6-6-6 6" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    {hiddenCount} Ürün Daha Gör
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </>
+                )}
+              </button>
+              {!showAll && (
+                <div className="flex gap-2">
+                  {Array.from({ length: Math.ceil(filtered.length / INITIAL_VISIBLE) }).map((_, i) => (
+                    <span
+                      key={i}
+                      className="rounded-full"
+                      style={{
+                        width: i === 0 ? 20 : 8,
+                        height: 8,
+                        background: i === 0 ? '#72c26e' : 'rgba(172,199,255,0.2)',
+                        transition: 'all 0.3s',
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
