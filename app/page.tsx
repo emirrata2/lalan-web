@@ -201,12 +201,54 @@ export default function Home() {
               </div>
             }
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?auto=format&w=1400&q=85"
-              alt="Lalan eldiven üretim tesisi"
-              className="w-full h-full object-cover object-center"
-            />
+            {/* Product showcase grid */}
+            <div className="h-full w-full flex flex-col gap-2 md:gap-3 p-2 md:p-3 overflow-hidden" style={{ background: '#000d1f' }}>
+
+              {/* Top: use-case banner */}
+              <div className="rounded-xl md:rounded-2xl overflow-hidden flex-shrink-0" style={{ height: '38%' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/products/kolaj.png"
+                  alt="Lalan eldiven kullanım sahneleri"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Bottom: 5 product cards */}
+              <div className="grid grid-cols-5 gap-2 md:gap-3 flex-1 min-h-0">
+                {[
+                  { src: '/products/industrial/nitrofl-330-15sd.jpg',   label: 'NitroFL™',       sub: 'Endüstriyel' },
+                  { src: '/products/neo/neo-armor-ultra.jpg',           label: 'NEO ARMOR',      sub: 'Neo Serisi'  },
+                  { src: '/products/industrial/duonpfl-330-24sd.jpg',   label: 'DUONPFL™',       sub: 'Kimyasal'    },
+                  { src: '/products/neo/neo-classic-044-f38.jpg',       label: 'NEO CLASSIC',    sub: 'Neo Serisi'  },
+                  { src: '/products/industrial/naturafl-300-11bf.jpg',  label: 'NaturaFL™',      sub: 'Lateks'      },
+                ].map(({ src, label, sub }) => (
+                  <div
+                    key={src}
+                    className="rounded-xl md:rounded-2xl flex flex-col overflow-hidden"
+                    style={{ background: 'rgba(255,255,255,0.05)' }}
+                  >
+                    <div className="flex-1 flex items-center justify-center p-1 md:p-2 min-h-0">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={src}
+                        alt={label}
+                        className="w-full h-full object-contain"
+                        style={{ mixBlendMode: 'lighten' }}
+                      />
+                    </div>
+                    <div className="px-1.5 pb-1.5 md:px-2 md:pb-2 hidden sm:block">
+                      <div className="text-white font-black truncate" style={{ fontFamily: 'var(--font-manrope)', fontSize: 'clamp(7px, 1vw, 11px)' }}>
+                        {label}
+                      </div>
+                      <div className="truncate font-medium" style={{ color: '#72c26e', fontSize: 'clamp(6px, 0.8vw, 9px)' }}>
+                        {sub}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </ContainerScroll>
         </div>
       </section>
