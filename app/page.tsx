@@ -366,8 +366,8 @@ export default function Home() {
                 className="absolute -bottom-8 -right-4 md:-right-8 p-6 rounded-xl hidden sm:block"
                 style={{ background: 'rgba(0,15,46,0.92)', backdropFilter: 'blur(16px)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(172,199,255,0.12)' }}
               >
-                <div className="font-black text-white text-3xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>25k+</div>
-                <div className="text-[10px] font-bold uppercase tracking-widest leading-snug mt-1 max-w-[120px]" style={{ color: '#72c26e' }}>Hektar Yönetilen Plantasyon</div>
+                <div className="font-black text-white text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.652 m²</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest leading-snug mt-1 max-w-[120px]" style={{ color: '#72c26e' }}>Yönetilen Alan</div>
               </div>
             </Reveal>
             <Reveal className="md:col-span-7 md:pl-12 pt-4 md:pt-16" direction="right">

@@ -85,8 +85,8 @@ export default function SustainabilitySection() {
               className="absolute -bottom-6 -left-6 p-5 rounded-xl shadow-2xl"
               style={{ background: 'rgba(0,79,17,0.9)', backdropFilter: 'blur(12px)', border: '1px solid rgba(163,246,156,0.2)' }}
             >
-              <div className="text-[#a3f69c] font-black text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>25k+</div>
-              <div className="text-[#88d982] text-xs uppercase font-bold tracking-widest leading-tight mt-1">Hektar<br/>Yönetilen Alan</div>
+              <div className="text-[#a3f69c] font-black text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.652 m²</div>
+              <div className="text-[#88d982] text-xs uppercase font-bold tracking-widest leading-tight mt-1">Yönetilen Alan</div>
             </div>
           </div>
 
