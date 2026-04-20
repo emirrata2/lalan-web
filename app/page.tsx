@@ -8,6 +8,7 @@ import { GradientBackground } from '@/components/ui/gradient-background';
 import ProductsCatalog from '@/components/lalan/products-catalog';
 import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
 import { LALAN_MARKERS } from '@/lib/lalan-markers';
+import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 
 const DARK_GRADIENTS = [
   'linear-gradient(160deg, #000f2e 0%, #002c62 50%, #001a08 100%)',
@@ -170,6 +171,43 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Scroll Showcase ── */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.15)' }} />
+        <div className="relative z-10">
+          <ContainerScroll
+            titleComponent={
+              <div className="mb-8">
+                <span
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase mb-6"
+                  style={{ background: 'rgba(0,79,17,0.85)', color: '#72c26e', border: '1px solid rgba(163,246,156,0.25)' }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#72c26e] animate-pulse inline-block" />
+                  Üretimden Elinize
+                </span>
+                <h2
+                  className="font-black text-white leading-tight tracking-tight"
+                  style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+                >
+                  Her Ortam İçin{' '}
+                  <span style={{ color: '#72c26e' }}>Mükemmel Koruma</span>
+                </h2>
+                <p className="mt-4 text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: 'rgba(172,199,255,0.7)' }}>
+                  Kauçuk plantasyonlarından ileri üretim tesislerimize — 30'dan fazla model, her sektöre özel.
+                </p>
+              </div>
+            }
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?auto=format&w=1400&q=85"
+              alt="Lalan eldiven üretim tesisi"
+              className="w-full h-full object-cover object-center"
+            />
+          </ContainerScroll>
         </div>
       </section>
 
