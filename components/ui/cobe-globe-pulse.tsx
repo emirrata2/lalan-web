@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { useEffect, useRef, useCallback } from "react"
 import createGlobe from "cobe"
@@ -81,7 +81,7 @@ export function GlobePulse({
         mapBrightness: 7,
         // Lalan brand colors: navy base, green markers, blue glow
         baseColor:   [0.0,  0.10, 0.25],
-        markerColor: [0.44, 0.76, 0.43],   // #72c26e green
+        markerColor: [0.557, 0.776, 0.247],   // #8ec63f green
         glowColor:   [0.0,  0.17, 0.38],   // deep blue glow
         markerElevation: 0,
         markers: markers.map(m => ({ location: m.location, size: 0.04, id: m.id })),
@@ -90,7 +90,7 @@ export function GlobePulse({
           from: [6.93, 79.85] as [number, number],
           to:   m.location,
         })),
-        arcColor:  [0.44, 0.76, 0.43],
+        arcColor:  [0.557, 0.776, 0.247],
         arcWidth:  0.6,
         arcHeight: 0.4,
         opacity:   0.75,
@@ -146,43 +146,46 @@ export function GlobePulse({
         }}
       />
       {/* Pulse rings rendered via CSS anchor (browser-native where supported) */}
-      {markers.map(m => (
-        <div
-          key={m.id}
-          style={{
-            position: "absolute",
-            // @ts-ignore CSS Anchor Positioning
-            positionAnchor: `--cobe-${m.id}`,
-            bottom: "anchor(center)",
-            left: "anchor(center)",
-            translate: "-50% 50%",
-            width: 36, height: 36,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            pointerEvents: "none",
-            opacity: `var(--cobe-visible-${m.id}, 0)`,
-            filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 6px))`,
-            transition: "opacity 0.4s, filter 0.4s",
-          }}
-        >
-          {/* two staggered rings */}
-          <span style={{
-            position: "absolute", inset: 0,
-            border: "1.5px solid #72c26e", borderRadius: "50%", opacity: 0,
-            animation: `pulse-ring 2.2s ease-out infinite ${m.delay}s`,
-          }} />
-          <span style={{
-            position: "absolute", inset: 0,
-            border: "1.5px solid #72c26e", borderRadius: "50%", opacity: 0,
-            animation: `pulse-ring 2.2s ease-out infinite ${m.delay + 0.7}s`,
-          }} />
-          {/* dot */}
-          <span style={{
-            width: 8, height: 8,
-            background: "#72c26e", borderRadius: "50%",
-            boxShadow: "0 0 0 2px #000d1f, 0 0 0 4px #72c26e88",
-          }} />
-        </div>
-      ))}
+      {markers.map(m => {
+        const color = m.highlight ? "#5c93d6" : "#8ec63f"
+        const shadow = m.highlight ? "#5c93d688" : "#8ec63f88"
+        const size = m.highlight ? 44 : 36
+        return (
+          <div
+            key={m.id}
+            style={{
+              position: "absolute",
+              positionAnchor: `--cobe-${m.id}`,
+              bottom: "anchor(center)",
+              left: "anchor(center)",
+              translate: "-50% 50%",
+              width: size, height: size,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              pointerEvents: "none",
+              opacity: `var(--cobe-visible-${m.id}, 0)`,
+              filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 6px))`,
+              transition: "opacity 0.4s, filter 0.4s",
+            }}
+          >
+            <span style={{
+              position: "absolute", inset: 0,
+              border: `1.5px solid ${color}`, borderRadius: "50%", opacity: 0,
+              animation: `pulse-ring 2.2s ease-out infinite ${m.delay}s`,
+            }} />
+            <span style={{
+              position: "absolute", inset: 0,
+              border: `1.5px solid ${color}`, borderRadius: "50%", opacity: 0,
+              animation: `pulse-ring 2.2s ease-out infinite ${m.delay + 0.7}s`,
+            }} />
+            <span style={{
+              width: m.highlight ? 10 : 8,
+              height: m.highlight ? 10 : 8,
+              background: color, borderRadius: "50%",
+              boxShadow: `0 0 0 2px #000d1f, 0 0 0 4px ${shadow}`,
+            }} />
+          </div>
+        )
+      })}
     </div>
   )
 }

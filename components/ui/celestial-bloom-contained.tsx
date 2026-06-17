@@ -66,8 +66,8 @@ export default function CelestialBloomContained({ className }: { className?: str
         vec2 uv = (gl_FragCoord.xy * 2.0 - iResolution.xy)
                   / min(iResolution.x, iResolution.y);
 
-        // Shift UV by mouse — bloom follows cursor (stronger offset)
-        vec2 mouseOffset = iMouse * 0.55;
+        // Shift UV by mouse — bloom follows cursor
+        vec2 mouseOffset = iMouse * 0.78;
         vec2 uvShifted   = uv - mouseOffset;
 
         float t      = iTime * 0.7;
@@ -103,13 +103,13 @@ export default function CelestialBloomContained({ className }: { className?: str
         float coreGlow = smoothstep(0.18, 0.0, radius);
         color = mix(color, coreTint, coreGlow * 1.0);
 
-        // Brighter cursor highlight
-        float cursorGlow = smoothstep(0.35, 0.0, mouseDist);
-        color = mix(color, coreTint * 1.4, cursorGlow * 0.55);
+        // Brighter cursor highlight — larger radius
+        float cursorGlow = smoothstep(0.50, 0.0, mouseDist);
+        color = mix(color, coreTint * 1.4, cursorGlow * 0.60);
 
         // Wider cursor aura ring
-        float aura = smoothstep(0.45, 0.30, mouseDist) * smoothstep(0.10, 0.30, mouseDist);
-        color = mix(color, lushGreen * 1.2, aura * 0.25);
+        float aura = smoothstep(0.60, 0.38, mouseDist) * smoothstep(0.10, 0.38, mouseDist);
+        color = mix(color, lushGreen * 1.2, aura * 0.30);
 
         float twinkle = smoothstep(0.96, 1.0, fbm(uv * 12.0 + t * 0.2));
         color = mix(color, coreTint, twinkle * (1.0 - coreGlow) * 0.9);
@@ -146,9 +146,9 @@ export default function CelestialBloomContained({ className }: { className?: str
     onResize();
 
     renderer.setAnimationLoop(() => {
-      // Smooth lerp toward mouse target (0.10 = snappier follow)
-      mouseSmooth.x += (mouseTarget.x - mouseSmooth.x) * 0.10;
-      mouseSmooth.y += (mouseTarget.y - mouseSmooth.y) * 0.10;
+      // Smooth lerp toward mouse target
+      mouseSmooth.x += (mouseTarget.x - mouseSmooth.x) * 0.22;
+      mouseSmooth.y += (mouseTarget.y - mouseSmooth.y) * 0.22;
       uniforms.iMouse.value.set(mouseSmooth.x, mouseSmooth.y);
       uniforms.iTime.value = clock.getElapsedTime();
       renderer.render(scene, camera);

@@ -1,41 +1,79 @@
-import LalanNav from '@/components/lalan/nav';
+﻿import LalanNav from '@/components/lalan/nav';
+import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
+import GloveFinderSection from '@/components/lalan/glove-finder-section';
 import SustainabilitySection from '@/components/lalan/sustainability';
 import Counter from '@/components/lalan/counter';
 import Reveal from '@/components/lalan/reveal';
 import ContactForm from '@/components/lalan/contact-form';
 import CelestialBloomContained from '@/components/ui/celestial-bloom-contained';
+import MouseSpotlight from '@/components/ui/mouse-spotlight';
 import { GradientBackground } from '@/components/ui/gradient-background';
-import ProductsCatalog from '@/components/lalan/products-catalog';
 import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
 import { LALAN_MARKERS } from '@/lib/lalan-markers';
-import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+import { CERTIFICATES } from '@/lib/certificates';
 
+// Palet: üst = koyu lacivert → alt = açık yeşil. Animasyon bu yönü korur.
 const DARK_GRADIENTS = [
-  'linear-gradient(160deg, #000f2e 0%, #002c62 50%, #001a08 100%)',
-  'linear-gradient(160deg, #001a08 0%, #003885 50%, #000f2e 100%)',
-  'linear-gradient(160deg, #000f2e 0%, #004f11 45%, #001233 100%)',
-  'linear-gradient(160deg, #001233 0%, #002c62 50%, #001a08 100%)',
-  'linear-gradient(160deg, #000f2e 0%, #002c62 50%, #001a08 100%)',
+  'linear-gradient(to bottom, #010810, #3a6418)',
+  'linear-gradient(to bottom, #01080e, #366016)',
+  'linear-gradient(to bottom, #020a12, #3c6618)',
+  'linear-gradient(to bottom, #010710, #346014)',
 ];
-
 
 const globalStats = [
-  { end: '75+', label: 'İhracat Ülkesi' },
-  { end: '12', label: 'Üretim Tesisi' },
-  { end: '5', label: 'Küresel Ofis' },
-  { end: '1B+', label: 'Yıllık Eldiven' },
+  { end: '75+',       label: 'İhracat Ülkesi' },
+  { end: '7',         label: 'Üretim Tesisi' },
+  { end: '5',         label: 'Küresel Ofis' },
+  { end: '1 milyar+', label: 'Yıllık Eldiven' },
 ];
+
 
 export default function Home() {
   return (
     <GradientBackground
       gradients={DARK_GRADIENTS}
-      animationDuration={14}
+      animationDuration={18}
       animationDelay={0}
       className="min-h-screen"
       style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#e8edf5' }}
     >
+      {/* Full-page mouse spotlight — fixed, covers entire scroll */}
+      <MouseSpotlight />
+
       <LalanNav />
+
+      {/* ── Kurumsal Tanıtım Videosu (scroll-driven expansion) ── */}
+      <ScrollExpandMedia
+        mediaType="video"
+        mediaSrc="https://www.youtube.com/watch?v=Z98qsjP0LJE"
+        bgImageSrc="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&w=1920&q=85"
+        scrollToExpand="Kaydırarak Keşfet"
+        startTime={62}
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <p
+            className="text-lg md:text-xl leading-relaxed mb-8"
+            style={{ color: 'rgba(200,212,232,0.85)', fontFamily: 'var(--font-inter), sans-serif' }}
+          >
+            Türkiye ve MENA bölgesinin yetkili distribütörü olarak Lalan Rubbers&apos;ın
+            dünya standartlarındaki koruyucu eldiven çözümlerini sizinle buluşturuyoruz.
+          </p>
+          <a
+            href="/products"
+            className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+            style={{
+              background: 'linear-gradient(135deg,#003608 0%,#005c14 100%)',
+              boxShadow: '0 8px 24px rgba(0,79,17,0.45)',
+              border: '1px solid rgba(142,198,63,0.3)',
+            }}
+          >
+            Ürünleri Keşfet
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </ScrollExpandMedia>
 
       {/* ── Hero ── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -51,10 +89,10 @@ export default function Home() {
               <div style={{ opacity: 0, animation: 'fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) forwards' }}>
                 <span
                   className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase mb-8"
-                  style={{ background: 'rgba(0,79,17,0.85)', color: '#72c26e', border: '1px solid rgba(163,246,156,0.25)' }}
+                  style={{ background: 'rgba(0,79,17,0.85)', color: '#8ec63f', border: '1px solid rgba(175,220,120,0.25)' }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#72c26e] animate-pulse inline-block" />
-                  1940'tan Bu Yana Öncülük
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#8ec63f] animate-pulse inline-block" />
+                  1940&apos;tan Bu Yana Öncülük
                 </span>
               </div>
 
@@ -68,7 +106,7 @@ export default function Home() {
                 }}
               >
                 Endüstrinin{' '}
-                <span style={{ color: '#72c26e' }}>Simyageri</span>
+                <span style={{ color: '#8ec63f' }}>Simyageri</span>
               </h1>
 
               <p
@@ -79,9 +117,9 @@ export default function Home() {
                   animation: 'fadeUp 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
                 }}
               >
-                Sürdürülebilir kauçuk çözümlerinde lider. Plantasyondan
-                hassas mühendislik ürünlerine, küresel kauçuk tedarik zincirini
-                yeniden tanımlıyoruz.
+                Sürdürülebilir kauçuk çözümlerinde dünya lideri. Plantasyondan
+                hassas mühendislik ürünlerine, Lalan Group küresel kauçuk
+                tedarik zincirini yeniden tanımlıyor.
               </p>
 
               <div
@@ -89,21 +127,15 @@ export default function Home() {
                 style={{ opacity: 0, animation: 'fadeUp 0.9s 0.65s cubic-bezier(0.16,1,0.3,1) forwards' }}
               >
                 <a
-                  href="#products"
+                  href="/products"
                   className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                  style={{ background: 'linear-gradient(135deg,#003608 0%,#005c14 100%)', boxShadow: '0 8px 24px rgba(0,79,17,0.45)', border: '1px solid rgba(114,194,110,0.3)' }}
+                  style={{ background: 'linear-gradient(135deg,#003608 0%,#005c14 100%)', boxShadow: '0 8px 24px rgba(0,79,17,0.45)', border: '1px solid rgba(142,198,63,0.3)' }}
                 >
                   Ürünleri Keşfet
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <a
-                  href="#about"
-                  className="inline-flex items-center gap-2 font-bold px-8 py-4 rounded-lg text-base text-white transition-all duration-200"
-                  style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.15)' }}
-                >
-                  Hikayemiz
-                </a>
               </div>
+
             </div>
 
             {/* Sağ: Ürün videosu */}
@@ -118,12 +150,12 @@ export default function Home() {
                   maxWidth: '480px',
                   aspectRatio: '9/16',
                   maxHeight: '520px',
-                  boxShadow: '0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(114,194,110,0.15)',
+                  boxShadow: '0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(142,198,63,0.15)',
                   background: '#000d1f',
                 }}
               >
                 <video
-                  src="/videos/naturasl.mp4"
+                  src="/videos/naturafl-300-15bf.mp4"
                   autoPlay
                   loop
                   muted
@@ -136,12 +168,12 @@ export default function Home() {
                     className="flex items-center gap-3 px-4 py-3 rounded-xl"
                     style={{ background: 'rgba(0,15,46,0.85)', backdropFilter: 'blur(12px)', border: '1px solid rgba(172,199,255,0.15)' }}
                   >
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(114,194,110,0.2)' }}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#72c26e" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(142,198,63,0.2)' }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8ec63f" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <div>
-                      <div className="text-white font-bold text-xs">NaturaSL™ 300-11BF</div>
-                      <div className="text-[10px]" style={{ color: '#72c26e' }}>Genel Kullanım Eldiveni</div>
+                      <div className="text-white font-bold text-xs">NaturaFL™ 300-15BF</div>
+                      <div className="text-[10px]" style={{ color: '#8ec63f' }}>Gıdaya Uygun · Kobalt Mavi</div>
                     </div>
                   </div>
                 </div>
@@ -161,8 +193,8 @@ export default function Home() {
               {[
                 { n: '80+', l: 'Yıllık Yenilik' },
                 { n: '75+', l: 'İhracat Ülkesi' },
-                { n: '15k+', l: 'Küresel Çalışan' },
-                { n: '1B+', l: 'Yıllık Eldiven' },
+                { n: '12.000+', l: 'Küresel Çalışan' },
+                { n: '1 milyar+', l: 'Yıllık Eldiven' },
               ].map(({ n, l }, i) => (
                 <div key={l} className="flex-1 min-w-[120px] px-6 py-4 text-center" style={{ borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                   <div className="font-black text-white text-xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>{n}</div>
@@ -172,113 +204,21 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* Hero → sonraki section geçiş fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-10" style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 100%)' }} />
       </section>
 
-      {/* ── Scroll Showcase ── */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.15)' }} />
-        <div className="relative z-10">
-          <ContainerScroll
-            titleComponent={
-              <div className="mb-8">
-                <span
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase mb-6"
-                  style={{ background: 'rgba(0,79,17,0.85)', color: '#72c26e', border: '1px solid rgba(163,246,156,0.25)' }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#72c26e] animate-pulse inline-block" />
-                  Üretimden Elinize
-                </span>
-                <h2
-                  className="font-black text-white leading-tight tracking-tight"
-                  style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(2rem, 5vw, 4rem)' }}
-                >
-                  Her Ortam İçin{' '}
-                  <span style={{ color: '#72c26e' }}>Mükemmel Koruma</span>
-                </h2>
-                <p className="mt-4 text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: 'rgba(172,199,255,0.7)' }}>
-                  Kauçuk plantasyonlarından ileri üretim tesislerimize — 30'dan fazla model, her sektöre özel.
-                </p>
-              </div>
-            }
-          >
-            {/* Product showcase grid */}
-            <div className="h-full w-full flex flex-col gap-2 md:gap-3 p-2 md:p-3 overflow-hidden" style={{ background: '#000d1f' }}>
-
-              {/* Top: use-case banner */}
-              <div className="rounded-xl md:rounded-2xl overflow-hidden flex-shrink-0" style={{ height: '38%' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/products/kolaj.png"
-                  alt="Lalan eldiven kullanım sahneleri"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Bottom: 5 product cards */}
-              <div className="grid grid-cols-5 gap-2 md:gap-3 flex-1 min-h-0">
-                {[
-                  { src: '/products/industrial/nitrofl-330-15sd.jpg',   label: 'NitroFL™',       sub: 'Endüstriyel' },
-                  { src: '/products/neo/neo-armor-ultra.jpg',           label: 'NEO ARMOR',      sub: 'Neo Serisi'  },
-                  { src: '/products/industrial/duonpfl-330-24sd.jpg',   label: 'DUONPFL™',       sub: 'Kimyasal'    },
-                  { src: '/products/neo/neo-classic-044-f38.jpg',       label: 'NEO CLASSIC',    sub: 'Neo Serisi'  },
-                  { src: '/products/industrial/naturafl-300-11bf.jpg',  label: 'NaturaFL™',      sub: 'Lateks'      },
-                ].map(({ src, label, sub }) => (
-                  <div
-                    key={src}
-                    className="rounded-xl md:rounded-2xl flex flex-col overflow-hidden"
-                    style={{ background: 'rgba(255,255,255,0.05)' }}
-                  >
-                    <div className="flex-1 flex items-center justify-center p-1 md:p-2 min-h-0">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={src}
-                        alt={label}
-                        className="w-full h-full object-contain"
-                        style={{ mixBlendMode: 'lighten' }}
-                      />
-                    </div>
-                    <div className="px-1.5 pb-1.5 md:px-2 md:pb-2 hidden sm:block">
-                      <div className="text-white font-black truncate" style={{ fontFamily: 'var(--font-manrope)', fontSize: 'clamp(7px, 1vw, 11px)' }}>
-                        {label}
-                      </div>
-                      <div className="truncate font-medium" style={{ color: '#72c26e', fontSize: 'clamp(6px, 0.8vw, 9px)' }}>
-                        {sub}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ContainerScroll>
-        </div>
+      {/* ── Eldiven Bulucu ── */}
+      <section id="glove-finder" className="relative section-fade" style={{ scrollMarginTop: '80px' }}>
+        <GloveFinderSection />
       </section>
 
-      {/* ── Ürünler & Eldiven Bulucu ── */}
-      <section id="products" className="py-28 md:py-36 relative">
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.3)' }} />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
-          <Reveal className="mb-12">
-            <div className="text-xs font-bold uppercase tracking-[0.15em] mb-4" style={{ color: '#72c26e' }}>Ürünlerimiz</div>
-            <h2
-              className="font-black text-white tracking-tight"
-              style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)' }}
-            >
-              Tüm Ürün Kataloğu
-            </h2>
-            <p className="max-w-[56ch] mt-4 leading-relaxed" style={{ color: 'rgba(172,199,255,0.7)' }}>
-              30'dan fazla eldiven modeli — endüstriyel, ev tipi ve tek kullanımlık kategorilerde. Eldiven Bulucu ile size özel modeli saniyeler içinde bulun.
-            </p>
-          </Reveal>
-          <ProductsCatalog />
-        </div>
-      </section>
 
       {/* ── Sürdürülebilirlik (Aurora shader) ── */}
       <SustainabilitySection />
 
       {/* ── Küresel Varlık ── */}
-      <section className="py-28 md:py-36 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.2)' }} />
+      <section className="py-28 md:py-36 relative overflow-hidden section-fade">
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -286,7 +226,7 @@ export default function Home() {
             <Reveal direction="left">
               <div className="relative max-w-[540px] mx-auto lg:mx-0">
                 {/* Glow halo */}
-                <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, rgba(114,194,110,0.12) 0%, transparent 70%)', transform: 'scale(1.15)' }} />
+                <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, rgba(142,198,63,0.12) 0%, transparent 70%)', transform: 'scale(1.15)' }} />
                 <GlobePulse
                   markers={LALAN_MARKERS}
                   speed={0.002}
@@ -297,7 +237,7 @@ export default function Home() {
 
             {/* Sağ: Başlık + Stats + Lokasyonlar */}
             <Reveal direction="right">
-              <div className="text-xs font-bold uppercase tracking-[0.15em] mb-4" style={{ color: '#72c26e' }}>
+              <div className="text-xs font-bold uppercase tracking-[0.15em] mb-4" style={{ color: '#8ec63f' }}>
                 Dünya Genelinde
               </div>
               <h2
@@ -307,7 +247,7 @@ export default function Home() {
                 Küresel Varlık
               </h2>
               <p className="leading-relaxed mb-10" style={{ color: 'rgba(172,199,255,0.7)' }}>
-                Sri Lanka merkezimizden Avrupa, ABD ve Asya'daki ofislerimize kadar 75'ten fazla ülkeye ihracat yapıyoruz.
+                Lalan Group, Sri Lanka merkezinden Avrupa, ABD ve Asya&apos;daki ofislerine kadar 75&apos;ten fazla ülkeye ihracat gerçekleştirmektedir.
               </p>
 
               {/* Sayaçlar */}
@@ -325,23 +265,30 @@ export default function Home() {
 
               {/* Lokasyon listesi */}
               <div className="space-y-2">
-                {LALAN_MARKERS.map(m => (
-                  <div
-                    key={m.id}
-                    className="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-colors"
-                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(172,199,255,0.07)' }}
-                  >
-                    <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: m.id === 'lk' ? '#72c26e' : 'rgba(172,199,255,0.5)' }} />
-                    <span className="text-sm font-medium" style={{ color: m.id === 'lk' ? 'white' : 'rgba(172,199,255,0.7)' }}>
-                      {m.label}
-                    </span>
-                    {m.id === 'lk' && (
-                      <span className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: 'rgba(114,194,110,0.15)', color: '#72c26e', border: '1px solid rgba(114,194,110,0.25)' }}>
-                        Merkez
+                {LALAN_MARKERS.map(m => {
+                  const isHQ = m.id === 'lk';
+                  const isUs = m.id === 'tr';
+                  return (
+                    <div
+                      key={m.id}
+                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl"
+                      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(172,199,255,0.07)' }}
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full flex-shrink-0"
+                        style={{ background: isHQ ? '#8ec63f' : isUs ? '#5c93d6' : 'rgba(172,199,255,0.4)' }}
+                      />
+                      <span className="text-sm font-medium" style={{ color: isHQ || isUs ? 'white' : 'rgba(172,199,255,0.7)' }}>
+                        {m.label}
                       </span>
-                    )}
-                  </div>
-                ))}
+                      {isHQ && (
+                        <span className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0" style={{ background: 'rgba(142,198,63,0.15)', color: '#8ec63f', border: '1px solid rgba(142,198,63,0.25)' }}>
+                          Merkez
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </Reveal>
           </div>
@@ -349,12 +296,11 @@ export default function Home() {
       </section>
 
       {/* ── Hakkımızda ── */}
-      <section id="about" className="py-28 md:py-36 relative">
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.25)' }} />
+      <section id="about" className="py-28 md:py-36 relative section-fade" style={{ scrollMarginTop: '80px' }}>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             <Reveal className="md:col-span-5 relative" direction="left">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden" style={{ boxShadow: '0 32px 64px rgba(0,0,0,0.5)', border: '1px solid rgba(114,194,110,0.15)' }}>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden" style={{ boxShadow: '0 32px 64px rgba(0,0,0,0.5)', border: '1px solid rgba(142,198,63,0.15)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   alt="Kauçuk plantasyonu"
@@ -367,38 +313,88 @@ export default function Home() {
                 style={{ background: 'rgba(0,15,46,0.92)', backdropFilter: 'blur(16px)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(172,199,255,0.12)' }}
               >
                 <div className="font-black text-white text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.652 m²</div>
-                <div className="text-[10px] font-bold uppercase tracking-widest leading-snug mt-1 max-w-[120px]" style={{ color: '#72c26e' }}>Yönetilen Alan</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest leading-snug mt-1 max-w-[120px]" style={{ color: '#8ec63f' }}>Yönetilen Alan</div>
               </div>
             </Reveal>
             <Reveal className="md:col-span-7 md:pl-12 pt-4 md:pt-16" direction="right">
-              <div className="text-xs font-bold uppercase tracking-[0.15em] mb-4" style={{ color: '#72c26e' }}>Hakkımızda</div>
-              <h2 className="font-black text-white mb-8 tracking-tight" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)' }}>
-                Yenilikçiliğe Köklü Bir Miras
+              <h2 className="font-black text-white mb-3 tracking-tight" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(2.4rem, 5vw, 3.8rem)' }}>
+                Lalan
               </h2>
+              <div className="text-sm font-bold uppercase tracking-[0.15em] mb-8" style={{ color: '#8ec63f' }}>Lalan Hakkında</div>
               <div className="space-y-5 text-base md:text-lg leading-relaxed" style={{ color: 'rgba(200,212,232,0.85)' }}>
-                <p>Lalan Group, kauçuk sektöründe temel uzmanlıkla çok sektörlü bir konglomerattır. Dikey entegre operasyonlarımız, geniş kauçuk plantasyonlarından dünya standartlarındaki üretim tesislerine uzanır.</p>
-                <p>Beş kıtadaki varlığımızla, ham lateksi yüksek performanslı koruyucu ekipmana ve endüstriyel çözümlere dönüştürme sanatında uzmanlaştık.</p>
+                <p>Lalan Group, kauçuk sektöründe dikey entegre yapısıyla faaliyet gösteren çok sektörlü bir konglomerattır. Geniş kauçuk plantasyonlarından dünya standartlarındaki üretim tesislerine uzanan operasyonlarıyla sektörde öncü konumdadır.</p>
+                <p>Beş kıtada kurumsal varlığını sürdüren Lalan, ham lateksi yüksek performanslı koruyucu ekipmana ve endüstriyel çözümlere dönüştürme konusunda küresel otorite olarak tanınmaktadır.</p>
               </div>
               <div className="grid grid-cols-3 gap-8 pt-10 mt-10" style={{ borderTop: '1px solid rgba(172,199,255,0.12)' }}>
-                {[{ n: '80+', l: 'Yıl' }, { n: '15k+', l: 'Çalışan' }, { n: '5', l: 'Kıta' }].map(({ n, l }) => (
+                {[{ n: '80+', l: 'Yıl' }, { n: '12.000+', l: 'Çalışan' }, { n: '5', l: 'Kıta' }].map(({ n, l }) => (
                   <div key={l}>
                     <span className="block text-white font-black text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>{n}</span>
-                    <span className="block text-xs font-bold uppercase tracking-wider mt-1" style={{ color: '#72c26e' }}>{l}</span>
+                    <span className="block text-xs font-bold uppercase tracking-wider mt-1" style={{ color: '#8ec63f' }}>{l}</span>
                   </div>
                 ))}
               </div>
+              <div className="mt-10">
+                <a
+                  href="/lalan-hakkinda"
+                  className="inline-flex items-center gap-2 font-bold text-sm transition-all duration-200 hover:gap-3"
+                  style={{ color: '#8ec63f' }}
+                >
+                  Lalan Hakkında Daha Fazla
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
             </Reveal>
           </div>
+
+        </div>
+      </section>
+
+      {/* ── Sertifikalar ── */}
+      <section id="certificates" className="py-28 md:py-36 relative section-fade">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+          <Reveal className="max-w-2xl mb-16">
+            <div className="text-xs font-bold uppercase tracking-[0.15em] mb-4" style={{ color: '#8ec63f' }}>
+              Kalite & Uyumluluk
+            </div>
+            <h2
+              className="font-black text-white tracking-tight mb-4"
+              style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)' }}
+            >
+              Sertifikalar
+            </h2>
+            <p className="leading-relaxed" style={{ color: 'rgba(172,199,255,0.7)' }}>
+              Lalan Rubbers&apos;ın uluslararası kalite, güvenlik ve sürdürülebilirlik standartlarına bağlılığı bağımsız kuruluşlar tarafından belgelenmiştir.
+            </p>
+          </Reveal>
+
+          <Reveal>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-5">
+              {CERTIFICATES.map(cert => (
+                <div
+                  key={cert.name}
+                  className="flex flex-col items-center gap-3 p-5 rounded-2xl text-center transition-all duration-200 hover:-translate-y-1"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(172,199,255,0.1)' }}
+                >
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center p-2 flex-shrink-0" style={{ background: 'rgba(255,255,255,0.92)' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={cert.img} alt={cert.name} className="w-full h-full object-contain" />
+                  </div>
+                  <span className="text-xs font-bold leading-snug" style={{ color: 'rgba(200,212,232,0.85)' }}>
+                    {cert.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── İletişim ── */}
-      <section id="contact" className="py-28 md:py-36 relative">
-        <div className="absolute inset-0" style={{ background: 'rgba(0,5,20,0.45)' }} />
+      <section id="contact" className="py-28 md:py-36 relative section-fade">
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <Reveal direction="left">
-              <div className="text-xs font-bold uppercase tracking-[0.15em] mb-6" style={{ color: '#72c26e' }}>İletişime Geç</div>
+              <div className="text-xs font-bold uppercase tracking-[0.15em] mb-6" style={{ color: '#8ec63f' }}>İletişime Geç</div>
               <h2
                 className="font-black text-white mb-6 leading-tight"
                 style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}
@@ -410,11 +406,11 @@ export default function Home() {
               </p>
               <div className="space-y-5">
                 {[
-                  { path: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', text: 'info@lalanrubbers.com' },
+                  { path: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', text: 'info@lalanmena.com' },
                 ].map(({ path, text }) => (
                   <div key={text} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(114,194,110,0.12)', border: '1px solid rgba(114,194,110,0.2)' }}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#72c26e" strokeWidth="1.8"><path d={path} /></svg>
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(142,198,63,0.12)', border: '1px solid rgba(142,198,63,0.2)' }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8ec63f" strokeWidth="1.8"><path d={path} /></svg>
                     </div>
                     <span className="text-white font-medium">{text}</span>
                   </div>
@@ -434,10 +430,10 @@ export default function Home() {
           <div>
             <div className="flex items-center gap-3 mb-5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/lalanlogo.png" alt="Lalan" width={96} height={36} className="object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/logos/lalanmenalogo.svg" alt="Lalan Mena" width={120} height={40} className="object-contain" />
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(172,199,255,0.6)' }}>
-              Dikey kauçuk entegrasyonunda küresel otorite. Plantasyondan avucunuza kadar.
+              LALAN Rubbers ürünlerinin Türkiye ve MENA bölgesi yetkili distribütörü.
             </p>
             <div className="flex gap-3">
               {['linkedin', 'twitter', 'youtube'].map(s => (
@@ -457,15 +453,35 @@ export default function Home() {
             </div>
           </div>
           {[
-            { title: 'Hızlı Bağlantılar', links: ['Sri Lanka Merkez', 'Sürdürülebilirlik', 'Küresel Operasyonlar', 'Kariyer'] },
-            { title: 'Ürünler', links: ['Kimyasal Direnç', 'Medikal Koruma', 'Genel Kullanım', 'Özel Çözümler'] },
+            {
+              title: 'Hızlı Bağlantılar',
+              links: [
+                { label: 'Tüm Ürünler', href: '/products' },
+                { label: 'Plantasyonlar', href: '/plantasyonlar' },
+                { label: 'Sürdürülebilirlik', href: '/surdurulebilirlik' },
+                { label: 'Tarihçe', href: '/tarihce' },
+                { label: 'Sertifikalar', href: '/sertifikalar' },
+                { label: 'Sunumlar & Kataloglar', href: '/sunumlar' },
+              ],
+            },
+            {
+              title: 'Ürünler',
+              links: [
+                { label: 'Kimyasal Eldivenler', href: '/products/category/chemical' },
+                { label: 'Tek Kullanımlık', href: '/products/category/disposable' },
+                { label: 'Gıdaya Uygun', href: '/products/category/food-safe' },
+                { label: 'Endüstriyel', href: '/products/category/industrial' },
+                { label: 'Ev Tipi', href: '/products/category/household' },
+                { label: 'Dikişsiz İş Eldiveni', href: '/products/category/seamless' },
+              ],
+            },
           ].map(({ title, links }) => (
             <div key={title}>
               <h4 className="font-bold text-white mb-5 text-sm">{title}</h4>
               <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a className="text-sm transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.6)' }} href="#">{link}</a>
+                {links.map(({ label, href }) => (
+                  <li key={label}>
+                    <a className="text-sm transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.6)' }} href={href}>{label}</a>
                   </li>
                 ))}
               </ul>
@@ -491,7 +507,7 @@ export default function Home() {
           className="max-w-7xl mx-auto px-6 md:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4"
           style={{ borderTop: '1px solid rgba(172,199,255,0.06)' }}
         >
-          <p className="text-xs" style={{ color: 'rgba(172,199,255,0.4)' }}>© 2024 Lalan Rubbers (Pvt) Ltd. Endüstrinin Simyageri.</p>
+          <p className="text-xs" style={{ color: 'rgba(172,199,255,0.4)' }}>© 2026 Lalan Mena — Türkiye & MENA Bölgesi Yetkili Distribütörü</p>
           <div className="flex gap-6">
             <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.4)' }} href="#">Gizlilik Politikası</a>
             <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.4)' }} href="#">Kullanım Koşulları</a>

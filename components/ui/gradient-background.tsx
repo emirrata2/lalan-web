@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import type React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -13,11 +13,11 @@ type GradientBackgroundProps = React.ComponentProps<'div'> & {
 };
 
 const Default_Gradients = [
-  'linear-gradient(135deg, #000f2e 0%, #002c62 50%, #003608 100%)',
-  'linear-gradient(135deg, #002c62 0%, #004f11 60%, #000f2e 100%)',
-  'linear-gradient(135deg, #003608 0%, #00418c 50%, #000f2e 100%)',
-  'linear-gradient(135deg, #00418c 0%, #003608 50%, #000f2e 100%)',
-  'linear-gradient(135deg, #000f2e 0%, #002c62 50%, #003608 100%)',
+  'linear-gradient(135deg, #000f2e 0%, #5c93d6 50%, #003608 100%)',
+  'linear-gradient(135deg, #5c93d6 0%, #004f11 60%, #000f2e 100%)',
+  'linear-gradient(135deg, #003608 0%, #3a73bc 50%, #000f2e 100%)',
+  'linear-gradient(135deg, #3a73bc 0%, #003608 50%, #000f2e 100%)',
+  'linear-gradient(135deg, #000f2e 0%, #5c93d6 50%, #003608 100%)',
 ];
 
 export function GradientBackground({

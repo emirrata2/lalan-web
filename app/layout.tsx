@@ -15,16 +15,16 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Lalan Rubbers | The Industrial Alchemist",
+  title: "Lalan MENA | Lalan Rubbers Türkiye & MENA Distribütörü",
   description:
-    "Leading the way in sustainable rubber solutions. From plantation to precision-engineered products, we redefine the global rubber supply chain.",
+    "Lalan Rubbers ürünlerinin Türkiye ve MENA bölgesi yetkili distribütörü. Kimyasal direnç, gıdaya uygun ve tek kullanımlık koruyucu eldiven çözümleri.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
+    <html lang="tr" className={`${inter.variable} ${manrope.variable}`}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

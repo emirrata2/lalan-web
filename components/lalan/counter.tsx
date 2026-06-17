@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useRef } from 'react';
 
@@ -55,7 +55,7 @@ export default function Counter({ end, label }: CounterProps) {
       >
         {display}
       </span>
-      <span className="block text-xs font-bold uppercase tracking-widest mt-2" style={{ color: '#72c26e' }}>
+      <span className="block text-xs font-bold uppercase tracking-widest mt-2" style={{ color: '#8ec63f' }}>
         {label}
       </span>
     </div>

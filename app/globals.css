@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -53,8 +53,8 @@
   --font-label: var(--font-inter), sans-serif;
 
   /* ── Lalan brand colors ── */
-  --color-lalan-primary: #002c62;
-  --color-lalan-primary-container: #00418c;
+  --color-lalan-primary: #5c93d6;
+  --color-lalan-primary-container: #3a73bc;
   --color-lalan-on-primary: #ffffff;
   --color-lalan-on-primary-container: #88b0ff;
   --color-lalan-primary-fixed: #d7e2ff;
@@ -73,7 +73,7 @@
   --color-lalan-tertiary: #003608;
   --color-lalan-tertiary-container: #004f11;
   --color-lalan-on-tertiary: #ffffff;
-  --color-lalan-on-tertiary-container: #72c26e;
+  --color-lalan-on-tertiary-container: #8ec63f;
   --color-lalan-tertiary-fixed: #a3f69c;
   --color-lalan-tertiary-fixed-dim: #88d982;
   --color-lalan-outline: #737782;
@@ -132,7 +132,7 @@
 
 /* Lalan utility classes */
 .industrial-gradient {
-  background: linear-gradient(135deg, #002c62 0%, #00418c 100%);
+  background: linear-gradient(135deg, #5c93d6 0%, #3a73bc 100%);
 }
 .glass-nav {
   background: rgba(251, 249, 249, 0.85);
@@ -145,11 +145,11 @@
 
 /* Product card hover shadow */
 .product-card {
-  box-shadow: 0 2px 8px rgba(0,44,98,0.06);
+  box-shadow: 0 2px 8px rgba(92,147,214,0.06);
   transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 .product-card:hover {
-  box-shadow: 0 24px 48px rgba(0,44,98,0.14);
+  box-shadow: 0 24px 48px rgba(92,147,214,0.14);
   transform: translateY(-4px);
 }
 
@@ -167,15 +167,35 @@
   font-family: var(--font-inter), sans-serif;
 }
 .lalan-input:focus {
-  border-bottom-color: #002c62;
+  border-bottom-color: #5c93d6;
 }
 
 /* Newsletter button hover */
 .newsletter-btn:hover {
-  background: #00418c !important;
+  background: #3a73bc !important;
 }
 
 /* Footer icon buttons */
 .footer-icon-btn:hover {
   background: #e9e8e7 !important;
+}
+
+/* Section edge fades — üst ve alt kenar geçişlerini yumuşatır */
+.section-fade::before,
+.section-fade::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 2;
+}
+.section-fade::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%);
+}
+.section-fade::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
 }

@@ -1,146 +1,145 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
+import Link from 'next/link';
 import { PRODUCTS, type Product } from '@/lib/products';
-import GloveFinder from './glove-finder';
 
-const CAT_FILTERS = [
-  { id: 'all',        label: 'Tüm Ürünler' },
-  { id: 'industrial', label: 'Endüstriyel' },
-  { id: 'neo',        label: 'Neo Serisi' },
-  { id: 'household',  label: 'Genel Kullanım' },
+// ── Filter definitions ────────────────────────────────────────
+
+const CAT_OPTIONS = [
+  { id: 'food-safe',  label: 'Gıdaya Uygun' },
+  { id: 'chemical',   label: 'Kimyasal' },
   { id: 'disposable', label: 'Tek Kullanımlık' },
-];
+  { id: 'industrial', label: 'Endüstriyel' },
+  { id: 'household',  label: 'Ev Tipi' },
+  { id: 'seamless',   label: 'Dikişsiz İş Eldiveni' },
+] as const;
 
-// ── Collapsible filter group ──────────────────────────────────
-function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(true);
+const MAT_OPTIONS = [
+  { id: 'natural',  label: 'Doğal Lateks' },
+  { id: 'nitrile',  label: 'Nitril Kauçuk' },
+  { id: 'nbr',      label: 'NBR Kauçuk' },
+] as const;
+
+const PROP_OPTIONS = [
+  { id: 'chemical',  label: 'Kimyasal Direnç' },
+  { id: 'water-oil', label: 'Su & Yağ Geçirmez' },
+  { id: 'cut',       label: 'Kesme Dayanımı' },
+  { id: 'abrasion',  label: 'Aşınma Direnci' },
+  { id: 'precision', label: 'Hassas İş' },
+] as const;
+
+const ENV_OPTIONS = [
+  { id: 'heavy-industry',    label: 'Ağır Sanayi' },
+  { id: 'assembly-general',  label: 'Genel Montaj' },
+  { id: 'lab-precision',     label: 'Lab & Hassas' },
+  { id: 'food-kitchen',      label: 'Gıda & Mutfak' },
+  { id: 'cleaning-household',label: 'Ev Temizliği' },
+] as const;
+
+const MATERIAL_LABEL: Record<string, string> = {
+  natural:              'Doğal Lateks',
+  nitrile:              'Nitril Kauçuk',
+  nbr:                  'NBR Kauçuk',
+  'disposable-nitrile': 'Tek Kull. Nitril',
+};
+
+// ── Generic helpers ───────────────────────────────────────────
+
+function toggleSet<T>(prev: Set<T>, item: T): Set<T> {
+  const next = new Set(prev);
+  next.has(item) ? next.delete(item) : next.add(item);
+  return next;
+}
+
+// ── Collapsible filter section ────────────────────────────────
+function Section({ title, children, defaultOpen = true }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
     <div style={{ borderTop: '1px solid rgba(172,199,255,0.07)' }}>
       <button
         onClick={() => setOpen(v => !v)}
-        className="w-full flex items-center justify-between px-5 py-3"
+        className="w-full flex items-center justify-between px-5 py-3.5 text-left"
       >
         <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: 'rgba(172,199,255,0.45)' }}>
           {title}
         </span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(172,199,255,0.35)" strokeWidth="2.5"
-          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
+        <svg
+          width="12" height="12" viewBox="0 0 24 24" fill="none"
+          stroke="rgba(172,199,255,0.35)" strokeWidth="2.5"
+          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}
+        >
           <path d="M6 9l6 6 6-6" />
         </svg>
       </button>
-      {open && <div className="px-4 pb-4">{children}</div>}
+      {open && <div className="px-4 pb-3 space-y-0.5">{children}</div>}
     </div>
   );
 }
 
-// ── Product Modal ─────────────────────────────────────────────
-function ProductModal({ product, onClose }: { product: Product; onClose: () => void }) {
+// ── Checkbox pill ─────────────────────────────────────────────
+function CheckPill({
+  active, onClick, count, children,
+}: {
+  active: boolean; onClick: () => void; count?: number; children: React.ReactNode;
+}) {
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: 'rgba(0,5,20,0.88)', backdropFilter: 'blur(20px)' }}
-      onClick={onClose}
+    <button
+      onClick={onClick}
+      className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left transition-all duration-150"
+      style={{ background: active ? 'rgba(142,198,63,0.1)' : 'transparent' }}
     >
-      <div
-        className="relative w-full max-w-2xl rounded-3xl overflow-hidden"
+      {/* Custom checkbox */}
+      <span
+        className="flex-shrink-0 w-4 h-4 rounded flex items-center justify-center transition-all duration-150"
         style={{
-          background: 'linear-gradient(160deg, #000f2e 0%, #001a40 100%)',
-          border: '1px solid rgba(172,199,255,0.12)',
-          boxShadow: '0 40px 80px rgba(0,0,0,0.7)',
-          maxHeight: '90vh',
-          overflowY: 'auto',
+          background: active ? '#8ec63f' : 'transparent',
+          border: `1.5px solid ${active ? '#8ec63f' : 'rgba(172,199,255,0.25)'}`,
         }}
-        onClick={e => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-          style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(172,199,255,0.15)' }}
-        >✕</button>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2">
-          <div className="flex items-center justify-center p-8" style={{ background: 'rgba(255,255,255,0.03)', minHeight: '280px' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={product.img} alt={product.name} className="max-h-56 w-full object-contain" />
-          </div>
-          <div className="p-7 flex flex-col justify-between">
-            <div>
-              <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3"
-                style={{ background: 'rgba(114,194,110,0.12)', color: '#72c26e', border: '1px solid rgba(114,194,110,0.25)' }}>
-                {product.categoryLabel}
-              </span>
-              <h2 className="font-black text-white text-xl leading-tight mb-3" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
-                {product.name}
-              </h2>
-              <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(200,212,232,0.75)' }}>
-                {product.desc}
-              </p>
-              <div className="grid grid-cols-2 gap-2 mb-5">
-                {Object.entries(product.specs).map(([k, v]) => (
-                  <div key={k} className="p-2.5 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)' }}>
-                    <div className="text-[9px] font-bold uppercase tracking-wider mb-0.5" style={{ color: 'rgba(172,199,255,0.5)' }}>{k}</div>
-                    <div className="text-xs font-bold text-white">{v}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {product.features.map(f => (
-                  <span key={f} className="text-[11px] font-bold px-2.5 py-1 rounded-full"
-                    style={{ background: 'rgba(114,194,110,0.1)', color: '#72c26e', border: '1px solid rgba(114,194,110,0.2)' }}>
-                    {f}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="flex gap-3 mt-6">
-              <a
-                href="#contact"
-                onClick={onClose}
-                className="flex-1 text-center py-3 rounded-full text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5"
-                style={{ background: 'linear-gradient(135deg,#1c6d24,#005c14)', boxShadow: '0 4px 16px rgba(28,109,36,0.4)' }}
-              >
-                Teklif İste
-              </a>
-              <button
-                onClick={onClose}
-                className="px-5 py-3 rounded-full text-sm font-bold transition-colors"
-                style={{ background: 'rgba(255,255,255,0.05)', color: 'rgba(172,199,255,0.7)' }}
-              >
-                Kapat
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        {active && (
+          <svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#000f2e" strokeWidth="2.5">
+            <path d="M2 6l3 3 5-5" />
+          </svg>
+        )}
+      </span>
+      <span
+        className="flex-1 text-sm font-semibold leading-tight"
+        style={{ color: active ? '#8ec63f' : 'rgba(172,199,255,0.65)' }}
+      >
+        {children}
+      </span>
+      {count !== undefined && (
+        <span
+          className="text-[10px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
+          style={{
+            background: active ? 'rgba(142,198,63,0.2)' : 'rgba(172,199,255,0.07)',
+            color: active ? '#8ec63f' : 'rgba(172,199,255,0.35)',
+          }}
+        >
+          {count}
+        </span>
+      )}
+    </button>
   );
 }
 
-// ── Product Card — editorial style ───────────────────────────
-function ProductCard({ product, onOpen, featured }: { product: Product; onOpen: (p: Product) => void; featured?: boolean }) {
+// ── Product card ──────────────────────────────────────────────
+function ProductCard({ product }: { product: Product }) {
   const [hovered, setHovered] = useState(false);
-
-  const MATERIAL_LABEL: Record<string, string> = {
-    natural: 'Doğal Lateks',
-    nitrile: 'Nitril Kauçuk',
-    nbr: 'NBR Kauçuk',
-    'disposable-nitrile': 'Nitril / Tek Kullanımlık',
-  };
-
   return (
-    <div
-      className={`cursor-pointer select-none${featured ? ' sm:col-span-2 xl:col-span-2' : ''}`}
+    <Link
+      href={`/products/${product.id}`}
+      className="block select-none"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => onOpen(product)}
     >
-      {/* Image container */}
       <div
         className="relative overflow-hidden rounded-3xl"
         style={{
-          aspectRatio: featured ? '16/9' : '4/5',
+          aspectRatio: '1/1',
           background: 'rgba(255,255,255,0.04)',
-          transition: 'transform 0.7s cubic-bezier(0.16,1,0.3,1)',
+          border: `1px solid ${hovered ? 'rgba(142,198,63,0.22)' : 'rgba(172,199,255,0.07)'}`,
+          transition: 'transform 0.65s cubic-bezier(0.16,1,0.3,1), border-color 0.25s',
           transform: hovered ? 'scale(1.02)' : 'scale(1)',
         }}
       >
@@ -148,9 +147,28 @@ function ProductCard({ product, onOpen, featured }: { product: Product; onOpen: 
         <img
           src={product.img}
           alt={product.name}
-          className="w-full h-full object-contain p-6 transition-transform duration-700"
-          style={{ transform: hovered ? 'scale(1.08)' : 'scale(1)' }}
+          className="w-full h-full object-contain p-6"
+          style={{
+            mixBlendMode: 'lighten',
+            transition: 'transform 0.65s cubic-bezier(0.16,1,0.3,1)',
+            transform: hovered ? 'scale(1.08)' : 'scale(1)',
+          }}
         />
+
+        {/* Category badge */}
+        <div className="absolute top-4 left-4">
+          <span
+            className="text-[9px] font-bold px-2.5 py-1 rounded-full"
+            style={{
+              background: 'rgba(0,8,28,0.82)',
+              color: 'rgba(172,199,255,0.7)',
+              border: '1px solid rgba(172,199,255,0.12)',
+              backdropFilter: 'blur(8px)',
+            }}
+          >
+            {product.categoryLabel}
+          </span>
+        </div>
 
         {/* Hover overlay */}
         <div
@@ -159,257 +177,306 @@ function ProductCard({ product, onOpen, featured }: { product: Product; onOpen: 
             background: 'rgba(0,8,28,0.62)',
             backdropFilter: 'blur(4px)',
             opacity: hovered ? 1 : 0,
-            transition: 'opacity 0.4s',
+            transition: 'opacity 0.35s',
           }}
         >
           <span
             className="font-bold text-[#000f2e] text-xs uppercase tracking-widest px-8 py-3 rounded-full"
             style={{
-              background: '#72c26e',
-              transform: hovered ? 'translateY(0)' : 'translateY(14px)',
-              transition: 'transform 0.4s cubic-bezier(0.16,1,0.3,1)',
-              boxShadow: '0 8px 24px rgba(114,194,110,0.4)',
+              background: '#8ec63f',
+              boxShadow: '0 8px 24px rgba(142,198,63,0.4)',
+              transition: 'transform 0.35s cubic-bezier(0.16,1,0.3,1)',
+              transform: hovered ? 'translateY(0)' : 'translateY(12px)',
             }}
           >
-            Detayları Gör
+            İncele
           </span>
         </div>
       </div>
 
-      {/* Info below image */}
-      <div className="mt-6 flex justify-between items-start gap-3">
-        <div>
-          <h3
-            className="font-black text-white leading-tight"
-            style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: featured ? '1.35rem' : '1.05rem' }}
-          >
-            {product.name}
-          </h3>
-          <p className="text-xs font-medium uppercase tracking-wider mt-1.5" style={{ color: 'rgba(172,199,255,0.45)' }}>
-            {MATERIAL_LABEL[product.material] ?? product.material}
-          </p>
-        </div>
-        <span
-          className="text-[10px] font-bold px-3 py-1 rounded-full flex-shrink-0 mt-0.5"
-          style={{ background: 'rgba(114,194,110,0.1)', color: '#72c26e' }}
+      <div className="mt-5">
+        <h3
+          className="font-black text-white leading-tight"
+          style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: '1.05rem' }}
         >
-          {product.categoryLabel}
-        </span>
+          {product.name}
+        </h3>
+        <p className="text-xs font-medium uppercase tracking-wider mt-1.5" style={{ color: 'rgba(172,199,255,0.4)' }}>
+          {MATERIAL_LABEL[product.material] ?? product.material}
+        </p>
+        <div className="flex flex-wrap gap-1.5 mt-3">
+          {product.features.slice(0, 2).map(f => (
+            <span
+              key={f}
+              className="text-[10px] font-bold px-2.5 py-1 rounded-full"
+              style={{ background: 'rgba(142,198,63,0.08)', color: '#8ec63f' }}
+            >
+              {f}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+    </Link>
+  );
+}
+
+// ── Active filter chip (shown above grid) ─────────────────────
+function ActiveChip({ label, onRemove }: { label: string; onRemove: () => void }) {
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold"
+      style={{ background: 'rgba(142,198,63,0.12)', color: '#8ec63f', border: '1px solid rgba(142,198,63,0.2)' }}
+    >
+      {label}
+      <button onClick={onRemove} className="hover:opacity-70 transition-opacity leading-none" style={{ fontSize: '0.75rem' }}>×</button>
+    </span>
   );
 }
 
 // ── Main Catalog ──────────────────────────────────────────────
-const INITIAL_VISIBLE = 6; // 2 rows × 3 cols (xl)
+const PAGE_SIZE = 9;
 
 export default function ProductsCatalog() {
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [finderOpen, setFinderOpen] = useState(false);
-  const [showAll, setShowAll] = useState(false);
+  const [selCats,  setSelCats]  = useState<Set<string>>(new Set());
+  const [selMats,  setSelMats]  = useState<Set<string>>(new Set());
+  const [selProps, setSelProps] = useState<Set<string>>(new Set());
+  const [selEnvs,  setSelEnvs]  = useState<Set<string>>(new Set());
+  const [showAll, setShowAll]   = useState(false);
 
-  const filtered = useMemo(
-    () => activeCategory === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === activeCategory),
-    [activeCategory]
-  );
+  const toggleCat  = useCallback((id: string) => { setSelCats(p  => toggleSet(p, id)); setShowAll(false); }, []);
+  const toggleMat  = useCallback((id: string) => { setSelMats(p  => toggleSet(p, id)); setShowAll(false); }, []);
+  const toggleProp = useCallback((id: string) => { setSelProps(p => toggleSet(p, id)); setShowAll(false); }, []);
+  const toggleEnv  = useCallback((id: string) => { setSelEnvs(p  => toggleSet(p, id)); setShowAll(false); }, []);
 
-  const visible = showAll ? filtered : filtered.slice(0, INITIAL_VISIBLE);
-  const hiddenCount = filtered.length - INITIAL_VISIBLE;
+  const resetAll = useCallback(() => {
+    setSelCats(new Set()); setSelMats(new Set());
+    setSelProps(new Set()); setSelEnvs(new Set());
+    setShowAll(false);
+  }, []);
+
+  const hasFilters = selCats.size > 0 || selMats.size > 0 || selProps.size > 0 || selEnvs.size > 0;
+
+  // OR within group, AND between groups
+  const filtered = useMemo(() => PRODUCTS.filter(p => {
+    if (selCats.size  > 0 && !selCats.has(p.category))                         return false;
+    if (selMats.size  > 0 && !selMats.has(p.material))                         return false;
+    if (selProps.size > 0 && !p.props.some(x => selProps.has(x)))              return false;
+    if (selEnvs.size  > 0 && !p.env.some(x => selEnvs.has(x)))                return false;
+    return true;
+  }), [selCats, selMats, selProps, selEnvs]);
+
+  const visible     = showAll ? filtered : filtered.slice(0, PAGE_SIZE);
+  const hiddenCount = filtered.length - PAGE_SIZE;
+
+  // Count helpers — how many products remain if we toggle an option on
+  const catCount  = (id: string) => PRODUCTS.filter(p => p.category === id).length;
+  const matCount  = (id: string) => PRODUCTS.filter(p => p.material  === id).length;
+  const propCount = (id: string) => PRODUCTS.filter(p => p.props.includes(id as Product['props'][number])).length;
+  const envCount  = (id: string) => PRODUCTS.filter(p => p.env.includes(id as Product['env'][number])).length;
+
+  // Build active chip labels for the summary bar
+  const activeChips = [
+    ...Array.from(selCats).map(id => ({
+      label: CAT_OPTIONS.find(o => o.id === id)?.label ?? id,
+      remove: () => toggleCat(id),
+    })),
+    ...Array.from(selMats).map(id => ({
+      label: MAT_OPTIONS.find(o => o.id === id)?.label ?? id,
+      remove: () => toggleMat(id),
+    })),
+    ...Array.from(selProps).map(id => ({
+      label: PROP_OPTIONS.find(o => o.id === id)?.label ?? id,
+      remove: () => toggleProp(id),
+    })),
+    ...Array.from(selEnvs).map(id => ({
+      label: ENV_OPTIONS.find(o => o.id === id)?.label ?? id,
+      remove: () => toggleEnv(id),
+    })),
+  ];
 
   return (
-    <>
-      <div className="flex gap-10 xl:gap-14 items-start">
+    <div className="flex gap-10 xl:gap-14 items-start">
 
-        {/* ── Sidebar ──────────────────────────────────────── */}
-        <aside
-          className="hidden lg:flex flex-col w-60 xl:w-64 flex-shrink-0 sticky top-24 rounded-3xl overflow-hidden"
-          style={{
-            background: 'rgba(0,8,28,0.65)',
-            backdropFilter: 'blur(24px)',
-            border: '1px solid rgba(172,199,255,0.08)',
-          }}
-        >
-          {/* Sidebar header */}
-          <div className="px-5 py-5">
+      {/* ── Sidebar ──────────────────────────────────────────── */}
+      <aside
+        className="hidden lg:flex flex-col w-60 xl:w-68 flex-shrink-0 sticky top-24 rounded-3xl overflow-hidden"
+        style={{
+          background: 'rgba(0,8,28,0.65)',
+          backdropFilter: 'blur(24px)',
+          border: '1px solid rgba(172,199,255,0.08)',
+          maxHeight: 'calc(100vh - 7rem)',
+          overflowY: 'auto',
+        }}
+      >
+        {/* Header */}
+        <div className="px-5 py-5 flex items-center justify-between" style={{ borderBottom: '1px solid rgba(172,199,255,0.07)' }}>
+          <div>
             <p className="font-black text-white text-sm" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
               Filtrele
             </p>
             <p className="text-[10px] font-bold uppercase tracking-[0.15em] mt-0.5" style={{ color: 'rgba(172,199,255,0.4)' }}>
-              Seçimi Daralt
+              {filtered.length} / {PRODUCTS.length} ürün
             </p>
           </div>
-
-          {/* Category filter */}
-          <FilterGroup title="Kategori">
-            <div className="space-y-0.5">
-              {CAT_FILTERS.map(cat => {
-                const count = cat.id === 'all' ? PRODUCTS.length : PRODUCTS.filter(p => p.category === cat.id).length;
-                const active = activeCategory === cat.id;
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => { setActiveCategory(cat.id); setShowAll(false); }}
-                    className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all duration-200"
-                    style={{
-                      background: active ? 'rgba(114,194,110,0.12)' : 'transparent',
-                      color: active ? '#72c26e' : 'rgba(172,199,255,0.6)',
-                    }}
-                  >
-                    <span className="text-sm font-bold">{cat.label}</span>
-                    <span
-                      className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-                      style={{
-                        background: active ? 'rgba(114,194,110,0.2)' : 'rgba(172,199,255,0.08)',
-                        color: active ? '#72c26e' : 'rgba(172,199,255,0.4)',
-                      }}
-                    >
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </FilterGroup>
-
-          {/* Eldiven Bulucu CTA */}
-          <div className="px-4 py-4" style={{ borderTop: '1px solid rgba(172,199,255,0.07)' }}>
+          {hasFilters && (
             <button
-              onClick={() => setFinderOpen(v => !v)}
-              className="w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5"
-              style={{
-                background: finderOpen ? 'rgba(114,194,110,0.12)' : 'linear-gradient(135deg,#1c6d24,#005c14)',
-                color: finderOpen ? '#72c26e' : 'white',
-                boxShadow: finderOpen ? 'none' : '0 4px 16px rgba(28,109,36,0.4)',
-              }}
+              onClick={resetAll}
+              className="text-[10px] font-bold px-2.5 py-1 rounded-full transition-opacity hover:opacity-70"
+              style={{ background: 'rgba(255,80,80,0.12)', color: 'rgba(255,130,130,0.9)', border: '1px solid rgba(255,80,80,0.2)' }}
             >
-              {finderOpen ? '✕ Kapat' : '🔍 Eldiven Bulucu'}
+              Sıfırla
             </button>
-          </div>
-        </aside>
-
-        {/* ── Main Content ─────────────────────────────────── */}
-        <div className="flex-1 min-w-0">
-
-          {/* Mobile category tabs */}
-          <div className="flex flex-wrap gap-2 mb-8 lg:hidden">
-            {CAT_FILTERS.map(cat => {
-              const active = activeCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => { setActiveCategory(cat.id); setShowAll(false); }}
-                  className="px-4 py-1.5 rounded-full text-xs font-bold transition-all"
-                  style={{
-                    background: active ? 'linear-gradient(135deg,#1c6d24,#005c14)' : 'rgba(255,255,255,0.05)',
-                    color: active ? 'white' : 'rgba(172,199,255,0.65)',
-                    border: `1px solid ${active ? 'rgba(114,194,110,0.3)' : 'rgba(172,199,255,0.1)'}`,
-                  }}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Mobile Eldiven Bulucu button */}
-          <div className="mb-6 lg:hidden">
-            <button
-              onClick={() => setFinderOpen(v => !v)}
-              className="w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white"
-              style={{ background: 'linear-gradient(135deg,#1c6d24,#005c14)', boxShadow: '0 4px 16px rgba(28,109,36,0.4)' }}
-            >
-              🔍 Eldiven Bulucu
-            </button>
-          </div>
-
-          {/* Eldiven Bulucu panel */}
-          {finderOpen && (
-            <div
-              className="mb-12 p-6 rounded-3xl"
-              style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(114,194,110,0.15)' }}
-            >
-              <GloveFinder onProductClick={p => { setSelectedProduct(p); setFinderOpen(false); }} />
-            </div>
-          )}
-
-          {/* Sort / count bar */}
-          <div
-            className="flex items-center justify-between mb-12 pb-5"
-            style={{ borderBottom: '1px solid rgba(172,199,255,0.07)' }}
-          >
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(172,199,255,0.4)' }}>
-              {filtered.length} ürün listeleniyor
-            </p>
-            <p className="text-[10px] font-bold uppercase tracking-widest hidden sm:block" style={{ color: 'rgba(172,199,255,0.25)' }}>
-              {CAT_FILTERS.find(c => c.id === activeCategory)?.label}
-            </p>
-          </div>
-
-          {/* Product grid — editorial / asymmetric */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-20">
-            {visible.map((product, i) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onOpen={setSelectedProduct}
-                featured={i === 0 && activeCategory === 'all'}
-              />
-            ))}
-          </div>
-
-          {/* Show more / less */}
-          {hiddenCount > 0 && (
-            <div className="mt-20 flex flex-col items-center gap-4">
-              <button
-                onClick={() => setShowAll(v => !v)}
-                className="group flex items-center gap-3 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-1"
-                style={{
-                  background: showAll ? 'rgba(255,255,255,0.05)' : 'linear-gradient(135deg,#1c6d24,#005c14)',
-                  color: 'white',
-                  boxShadow: showAll ? 'none' : '0 8px 24px rgba(28,109,36,0.4)',
-                }}
-              >
-                {showAll ? (
-                  <>
-                    Daha Az Göster
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M18 15l-6-6-6 6" />
-                    </svg>
-                  </>
-                ) : (
-                  <>
-                    {hiddenCount} Ürün Daha Gör
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </>
-                )}
-              </button>
-              {!showAll && (
-                <div className="flex gap-2">
-                  {Array.from({ length: Math.ceil(filtered.length / INITIAL_VISIBLE) }).map((_, i) => (
-                    <span
-                      key={i}
-                      className="rounded-full"
-                      style={{
-                        width: i === 0 ? 20 : 8,
-                        height: 8,
-                        background: i === 0 ? '#72c26e' : 'rgba(172,199,255,0.2)',
-                        transition: 'all 0.3s',
-                      }}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
           )}
         </div>
-      </div>
 
-      {selectedProduct && (
-        <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
-      )}
-    </>
+        {/* Kategori */}
+        <Section title="Kategori">
+          {CAT_OPTIONS.map(o => (
+            <CheckPill key={o.id} active={selCats.has(o.id)} onClick={() => toggleCat(o.id)} count={catCount(o.id)}>
+              {o.label}
+            </CheckPill>
+          ))}
+        </Section>
+
+        {/* Malzeme */}
+        <Section title="Malzeme">
+          {MAT_OPTIONS.map(o => (
+            <CheckPill key={o.id} active={selMats.has(o.id)} onClick={() => toggleMat(o.id)} count={matCount(o.id)}>
+              {o.label}
+            </CheckPill>
+          ))}
+        </Section>
+
+        {/* Koruma Özellikleri */}
+        <Section title="Koruma Özellikleri">
+          {PROP_OPTIONS.map(o => (
+            <CheckPill key={o.id} active={selProps.has(o.id)} onClick={() => toggleProp(o.id)} count={propCount(o.id)}>
+              {o.label}
+            </CheckPill>
+          ))}
+        </Section>
+
+        {/* Kullanım Ortamı */}
+        <Section title="Kullanım Ortamı" defaultOpen={false}>
+          {ENV_OPTIONS.map(o => (
+            <CheckPill key={o.id} active={selEnvs.has(o.id)} onClick={() => toggleEnv(o.id)} count={envCount(o.id)}>
+              {o.label}
+            </CheckPill>
+          ))}
+        </Section>
+      </aside>
+
+      {/* ── Main Content ─────────────────────────────────────── */}
+      <div className="flex-1 min-w-0">
+
+        {/* Mobile filter chips */}
+        <div className="lg:hidden mb-6 space-y-3">
+          <div className="flex flex-wrap gap-2">
+            {CAT_OPTIONS.map(o => (
+              <button
+                key={o.id}
+                onClick={() => toggleCat(o.id)}
+                className="px-3.5 py-1.5 rounded-full text-xs font-bold transition-all"
+                style={{
+                  background: selCats.has(o.id) ? 'rgba(142,198,63,0.18)' : 'rgba(255,255,255,0.05)',
+                  color: selCats.has(o.id) ? '#8ec63f' : 'rgba(172,199,255,0.65)',
+                  border: `1px solid ${selCats.has(o.id) ? 'rgba(142,198,63,0.3)' : 'rgba(172,199,255,0.1)'}`,
+                }}
+              >
+                {o.label}
+              </button>
+            ))}
+          </div>
+          {hasFilters && (
+            <button onClick={resetAll} className="text-xs font-bold" style={{ color: 'rgba(255,130,130,0.8)' }}>
+              Filtreleri temizle ×
+            </button>
+          )}
+        </div>
+
+        {/* Active filter summary bar */}
+        {activeChips.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-7">
+            {activeChips.map((chip, i) => (
+              <ActiveChip key={i} label={chip.label} onRemove={chip.remove} />
+            ))}
+          </div>
+        )}
+
+        {/* Count bar */}
+        <div
+          className="flex items-center justify-between mb-10 pb-5"
+          style={{ borderBottom: '1px solid rgba(172,199,255,0.07)' }}
+        >
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(172,199,255,0.4)' }}>
+            {filtered.length} ürün listeleniyor
+          </p>
+          {hasFilters && (
+            <button
+              onClick={resetAll}
+              className="hidden lg:block text-[10px] font-bold uppercase tracking-wider transition-colors hover:text-white"
+              style={{ color: 'rgba(172,199,255,0.35)' }}
+            >
+              Tüm filtreleri kaldır ×
+            </button>
+          )}
+        </div>
+
+        {/* Empty state */}
+        {filtered.length === 0 && (
+          <div className="flex flex-col items-center py-24 gap-4">
+            <div className="text-4xl mb-2" style={{ opacity: 0.3 }}>◈</div>
+            <p className="text-lg font-bold text-white">Bu kombinasyona uygun ürün yok</p>
+            <p className="text-sm" style={{ color: 'rgba(172,199,255,0.5)' }}>
+              Seçili filtreler çok kısıtlayıcı olabilir. Bazı seçimleri kaldırın.
+            </p>
+            <button
+              onClick={resetAll}
+              className="mt-2 px-6 py-2.5 rounded-full text-sm font-bold transition-all hover:-translate-y-0.5"
+              style={{ background: 'rgba(142,198,63,0.15)', color: '#8ec63f', border: '1px solid rgba(142,198,63,0.25)' }}
+            >
+              Tüm Ürünleri Göster
+            </button>
+          </div>
+        )}
+
+        {/* Product grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-14">
+          {visible.map(p => <ProductCard key={p.id} product={p} />)}
+        </div>
+
+        {/* Pagination — show more */}
+        {filtered.length > PAGE_SIZE && (
+          <div className="mt-16 flex flex-col items-center gap-3">
+            <button
+              onClick={() => setShowAll(v => !v)}
+              className="flex items-center gap-3 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: showAll ? 'rgba(255,255,255,0.05)' : 'linear-gradient(135deg,#1c6d24,#005c14)',
+                color: 'white',
+                boxShadow: showAll ? 'none' : '0 8px 24px rgba(28,109,36,0.4)',
+              }}
+            >
+              {showAll ? (
+                <>
+                  Daha Az Göster
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 15l-6-6-6 6" /></svg>
+                </>
+              ) : (
+                <>
+                  {hiddenCount} Ürün Daha Göster
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M6 9l6 6 6-6" /></svg>
+                </>
+              )}
+            </button>
+            {!showAll && (
+              <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'rgba(172,199,255,0.3)' }}>
+                {visible.length} / {filtered.length} gösteriliyor
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
