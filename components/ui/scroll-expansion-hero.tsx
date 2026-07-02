@@ -207,13 +207,11 @@ const ScrollExpandMedia = ({
 
   /* ── size: start small, end = exact viewport ── */
   const NAV_H   = 80; // fixed nav bar height in px
-  const startW  = winSize.mobile ? Math.min(300, winSize.w * 0.88) : Math.min(480, winSize.w * 0.38);
+  const startW  = winSize.mobile ? winSize.w * 0.9 : winSize.w * 0.72;
   const startH  = startW * (9 / 16);
 
   const mediaWidth  = startW + scrollProgress * (winSize.w - startW);
   const mediaHeight = startH + scrollProgress * (winSize.h - startH);
-  const mediaScaleX = mediaWidth  / winSize.w;
-  const mediaScaleY = mediaHeight / winSize.h;
 
   /* vertical center offset: push down by half nav height when small, return to 0 when fullscreen */
   const navOffset      = (1 - scrollProgress) * (NAV_H / 2);
@@ -256,11 +254,11 @@ const ScrollExpandMedia = ({
               <div
                 className="absolute z-0 transition-none"
                 style={{
-                  width:        `${winSize.w}px`,
-                  height:       `${winSize.h}px`,
+                  width:        `${mediaWidth}px`,
+                  height:       `${mediaHeight}px`,
                   top:          '50%',
                   left:         '50%',
-                  transform:    `translate(-50%, calc(-50% + ${navOffset}px)) scale(${mediaScaleX}, ${mediaScaleY})`,
+                  transform:    `translate(-50%, calc(-50% + ${navOffset}px))`,
                   transformOrigin: 'center center',
                   boxShadow:    scrollProgress < 0.98 ? '0px 0px 50px rgba(0,0,0,0.4)' : 'none',
                   borderRadius: `${(1 - scrollProgress) * 16}px`,
