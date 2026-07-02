@@ -14,10 +14,28 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const SITE_URL = "https://lalanmena.com";
+const SITE_TITLE = "Lalan MENA | Lalan Rubbers Türkiye & MENA Distribütörü";
+const SITE_DESCRIPTION =
+  "Lalan Rubbers ürünlerinin Türkiye ve MENA bölgesi yetkili distribütörü. Kimyasal direnç, gıdaya uygun ve tek kullanımlık koruyucu eldiven çözümleri.";
+
 export const metadata: Metadata = {
-  title: "Lalan MENA | Lalan Rubbers Türkiye & MENA Distribütörü",
-  description:
-    "Lalan Rubbers ürünlerinin Türkiye ve MENA bölgesi yetkili distribütörü. Kimyasal direnç, gıdaya uygun ve tek kullanımlık koruyucu eldiven çözümleri.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: "Lalan MENA",
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({
