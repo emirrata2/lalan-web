@@ -45,3 +45,5 @@ public/videos/lalan-kurumsal.mp4
 
 # claude memory
 .claude/
+
+.vercel
