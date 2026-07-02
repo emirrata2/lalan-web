@@ -15,7 +15,6 @@ const MATERIAL_LABEL: Record<string, string> = {
   natural: 'Doğal Lateks',
   nitrile: 'Nitril Kauçuk',
   nbr: 'NBR Kauçuk',
-  'disposable-nitrile': 'Nitril / Tek Kullanımlık',
 };
 
 const CATEGORIES: Record<string, { label: string; desc: string }> = {

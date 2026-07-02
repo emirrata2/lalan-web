@@ -11,11 +11,14 @@ export default function ContactForm() {
       </h3>
       <form className="space-y-5" onSubmit={e => e.preventDefault()}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {[{ label: 'Ad Soyad', type: 'text' }, { label: 'E-posta Adresi', type: 'email' }].map(({ label, type }) => (
-            <div key={label} className="space-y-1.5">
-              <label className="text-[10px] font-bold uppercase tracking-[0.12em]" style={{ color: 'rgba(172,199,255,0.6)' }}>{label}</label>
+          {[{ id: 'contact-name', label: 'Ad Soyad', type: 'text' }, { id: 'contact-email', label: 'E-posta Adresi', type: 'email' }].map(({ id, label, type }) => (
+            <div key={id} className="space-y-1.5">
+              <label htmlFor={id} className="text-[10px] font-bold uppercase tracking-[0.12em]" style={{ color: 'rgba(172,199,255,0.85)' }}>{label}</label>
               <input
+                id={id}
+                name={id}
                 type={type}
+                required
                 className="w-full px-4 py-3 rounded-lg text-sm text-white outline-none transition-all duration-200"
                 style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(172,199,255,0.12)', fontFamily: 'var(--font-inter), sans-serif' }}
                 onFocus={e => (e.currentTarget.style.borderColor = 'rgba(142,198,63,0.5)')}
@@ -25,8 +28,10 @@ export default function ContactForm() {
           ))}
         </div>
         <div className="space-y-1.5">
-          <label className="text-[10px] font-bold uppercase tracking-[0.12em]" style={{ color: 'rgba(172,199,255,0.6)' }}>Konu</label>
+          <label htmlFor="contact-subject" className="text-[10px] font-bold uppercase tracking-[0.12em]" style={{ color: 'rgba(172,199,255,0.85)' }}>Konu</label>
           <select
+            id="contact-subject"
+            name="subject"
             className="w-full px-4 py-3 rounded-lg text-sm text-white outline-none cursor-pointer transition-all duration-200"
             style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(172,199,255,0.12)', fontFamily: 'var(--font-inter), sans-serif' }}
           >
@@ -37,9 +42,12 @@ export default function ContactForm() {
           </select>
         </div>
         <div className="space-y-1.5">
-          <label className="text-[10px] font-bold uppercase tracking-[0.12em]" style={{ color: 'rgba(172,199,255,0.6)' }}>Mesaj</label>
+          <label htmlFor="contact-message" className="text-[10px] font-bold uppercase tracking-[0.12em]" style={{ color: 'rgba(172,199,255,0.85)' }}>Mesaj</label>
           <textarea
+            id="contact-message"
+            name="message"
             rows={4}
+            required
             className="w-full px-4 py-3 rounded-lg text-sm text-white outline-none resize-none transition-all duration-200"
             style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(172,199,255,0.12)', fontFamily: 'var(--font-inter), sans-serif' }}
             onFocus={e => (e.currentTarget.style.borderColor = 'rgba(142,198,63,0.5)')}

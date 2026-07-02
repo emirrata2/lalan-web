@@ -226,7 +226,7 @@ export default function SertifikalarPage() {
 
         {/* Politika Belgeleri */}
         <div className="mt-16 mb-4">
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-2 h-2 rounded-full" style={{ background: '#8ec63f' }} />
             <h2
               className="font-bold text-white text-base uppercase tracking-wider"
@@ -235,79 +235,115 @@ export default function SertifikalarPage() {
               Politika Belgeleri
             </h2>
             <div className="flex-1 h-px" style={{ background: 'rgba(172,199,255,0.07)' }} />
+            <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full" style={{ background: 'rgba(142,198,63,0.1)', color: '#8ec63f', border: '1px solid rgba(142,198,63,0.2)' }}>
+              34 Belge
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                title: 'Sağlık & İş Güvenliği Politikası',
-                code: 'LRP.CP.12',
-                desc: 'Tüm üretim tesislerinde çalışan sağlığı ve iş güvenliğine ilişkin Lalan\'ın kurumsal politika belgesi.',
-                file: '/documents/quality/lalan-health-safety-policy.pdf',
-                size: '476 KB',
-                color: '#5c93d6',
-              },
-              {
-                title: 'Ücret & Maaş Politikası',
-                code: 'LRP.CP.21',
-                desc: 'Lalan\'ın adil ücretlendirme, asgari ücret uyumu ve çalışan haklarına ilişkin ücret politikası belgesi.',
-                file: '/documents/quality/lalan-wages-policy.pdf',
-                size: '443 KB',
-                color: '#a56dc8',
-              },
-              {
-                title: 'Agri Bölümü Kalite Politikaları 2022',
-                code: 'Agri / FSC® Uyum',
-                desc: 'Plantasyon ve tarım operasyonlarında çevre, kimyasal kullanım ve FSC uyumuna dair güncel politika belgesi.',
-                file: '/documents/plantations/lalan-agri-policies-2022.pdf',
-                size: '1 MB',
-                color: '#8ec63f',
-              },
-            ].map((doc) => (
-              <a
-                key={doc.file}
-                href={doc.file}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col gap-4 p-6 rounded-2xl transition-all duration-200 hover:-translate-y-1"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(172,199,255,0.08)', textDecoration: 'none' }}
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: `rgba(${doc.color === '#5c93d6' ? '92,147,214' : doc.color === '#a56dc8' ? '165,109,200' : '142,198,63'},0.12)`, border: `1px solid ${doc.color}30` }}
+          {[
+            {
+              group: 'Kalite & Genel',
+              color: '#8ec63f',
+              items: [
+                { code: 'Kalite Politikası', title: 'Kalite Politikası', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/7472f29a-quality-policy-rev-03-08.04.2021-english-and-sinhala.pdf' },
+                { code: 'Tüm Politikalar', title: 'Tüm Politikalar Özeti 2022', file: 'https://www.lalanrubbers.com/wp-content/uploads/2023/06/policies-of-lalan-rubbers-pvt-ltd-2022.pdf' },
+              ],
+            },
+            {
+              group: 'İş Etiği & Hukuk',
+              color: '#5c93d6',
+              items: [
+                { code: 'LRP.CP.02', title: 'Rüşvet & Yolsuzluk Karşıtı', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/609ef161-lrp.cp_.02-anti-bribery-corruption-policy.pdf' },
+                { code: 'LRP.CP.05', title: 'Etik Ticaret', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/9c386092-lrp.cp_.05-ethical-trading-policy.pdf' },
+                { code: 'LRP.CP.08', title: 'Özgür İstihdam', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/1a041227-lrp.cp_.08-free-employment-policy.pdf' },
+                { code: 'LRP.CP.09', title: 'Sendika Özgürlüğü', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/d6d97af0-lrp.cp_.09-freedom-of-association-policy.pdf' },
+                { code: 'LRP.CP.29', title: 'Disiplin', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/7ceffd9d-lrp.cp_.29-dicipilinary-policy.pdf' },
+                { code: 'LRP.CP.34', title: 'Gizlilik & Raporlama Mekanizması', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/002e5864-lrp.cp_.34-confidentiality-reporting-mechanism.pdf' },
+              ],
+            },
+            {
+              group: 'Sosyal & İnsan Hakları',
+              color: '#a56dc8',
+              items: [
+                { code: 'LRP.CP.03', title: 'Çocuk İşçiliği Karşıtı', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/f355d741-lrp.cp_.03-child-labour-policy.pdf' },
+                { code: 'LRP.CP.07', title: 'Zorla Çalıştırma Karşıtı', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/d0e1ed9e-lrp.cp_.07-forcedprison-bonded-labour-policy.pdf' },
+                { code: 'LRP.CP.11', title: 'Taciz Karşıtı', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/403ca3ca-lrp.cp_.11-harassment-policy.pdf' },
+                { code: 'LRP.CP.16', title: 'Ayrım Gözetmeme', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/c0360c6f-lrp.cp_.16-non-discrimination-policy.pdf' },
+                { code: 'LRP.CP.18', title: 'İşçi-Yönetim İlişkileri', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/1afb1e67-lrp.cp_.18-labour-management-policy.pdf' },
+                { code: 'LRP.CP.20', title: 'Sosyal Sorumluluk', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/e3bea7ef-lrp.cp_.20-social-accountability-policy.pdf' },
+                { code: 'LRP.CP.21', title: 'Ücret & Maaş', file: '/documents/quality/lalan-wages-policy.pdf' },
+                { code: 'LRP.CP.24', title: 'Çalışma Saatleri', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/4938341a-lrp.cp_.24-working-hours-policy.pdf' },
+                { code: 'LRP.CP.25', title: 'Genç Çalışanlar', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/0543e507-lrp.cp_.25-young-workers-policy.pdf' },
+                { code: 'LRP.CP.26', title: 'İşe Alım & Emeklilik', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/1c93f56d-lrp.cp_.26-recruitment-retirement-policy.pdf' },
+                { code: 'LRP.CP.30', title: 'Şikayet Politikası (Sinhala)', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/f03d7b50-lrp.cp_.30-grievance-policy-sinhala.pdf', lang: 'SI' },
+                { code: 'LRP.CP.32', title: 'İnsan Hakları', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/133fe920-lrp.cp_.32-human-rights-policy.pdf' },
+                { code: 'LRP.CP.33', title: 'Çalışan Veri Gizliliği', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/126c365e-lrp.cp_.33-employee-data-privacy-policy.pdf' },
+              ],
+            },
+            {
+              group: 'Çevre & Sürdürülebilirlik',
+              color: '#72c26e',
+              items: [
+                { code: 'LRP.CP.06', title: 'Çevre Politikası', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/ee781697-lrp.cp_.06-environmental-policy.pdf' },
+                { code: 'LRP.CP.22', title: 'Atık Yönetimi', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/5f5fdc2a-lrp.cp_.22-waste-management-policy.pdf' },
+                { code: 'LRP.CP.23', title: 'Su Yönetimi', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/f922891c-lrp.cp_.23-water-management-policy.pdf' },
+                { code: 'LRP.CP.31', title: 'Hava Emisyonu', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/0465cae1-lrp.cp_.31-air-emission-policy.pdf' },
+              ],
+            },
+            {
+              group: 'Tesis & Üretim Güvenliği',
+              color: '#c87c00',
+              items: [
+                { code: 'LRP.CP.01', title: 'Alkol & Uyuşturucu', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/b5e5ea34-lrp.cp_.01-alcohol-drug-policy.pdf' },
+                { code: 'LRP.CP.04', title: 'Temizlik', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/5bc50e3a-lrp.cp_.04-cleaning-policy.pdf' },
+                { code: 'LRP.CP.10', title: 'Cam & Kırılgan Malzeme', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/89a4731a-lrp.cp_.10-glass-brittle-material-breakage-policy.pdf' },
+                { code: 'LRP.CP.12', title: 'İş Sağlığı & Güvenliği', file: '/documents/quality/lalan-health-safety-policy.pdf' },
+                { code: 'LRP.CP.13', title: 'Hijyen', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/c2eac4aa-lrp.cp_.13-hygiene-policy.pdf' },
+                { code: 'LRP.CP.14', title: 'Metal Kontrol', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/1f07039c-lrp.cp_.14-metal-policy.pdf' },
+                { code: 'LRP.CP.15', title: 'Sigara Yasağı', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/180df572-lrp.cp_.15-non-smoking-policy.pdf' },
+                { code: 'LRP.CP.17', title: 'Kişisel İlaç', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/54fbb603-lrp.cp_.17-personal-medicine-policy.pdf' },
+                { code: 'LRP.CP.19', title: 'Güvenlik', file: 'https://www.lalanrubbers.com/wp-content/uploads/2021/10/8e007a98-lrp.cp_.19-security-policy.pdf' },
+              ],
+            },
+          ].map(({ group, color, items }) => (
+            <div key={group} className="mb-8">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: color }} />
+                <span className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: 'rgba(172,199,255,0.45)' }}>{group}</span>
+                <div className="flex-1 h-px" style={{ background: 'rgba(172,199,255,0.05)' }} />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                {items.map((doc) => (
+                  <a
+                    key={doc.file}
+                    href={doc.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-150 hover:-translate-y-px"
+                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(172,199,255,0.07)', textDecoration: 'none' }}
                   >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={doc.color} strokeWidth="1.8">
-                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                      <polyline points="14 2 14 8 20 8"/>
-                      <line x1="12" y1="18" x2="12" y2="12"/>
-                      <polyline points="9 15 12 18 15 15"/>
-                    </svg>
-                  </div>
-                  <div className="flex gap-2 flex-shrink-0">
-                    <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-md" style={{ background: 'rgba(172,199,255,0.07)', color: 'rgba(172,199,255,0.5)' }}>PDF</span>
-                    <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-md" style={{ background: 'rgba(172,199,255,0.07)', color: 'rgba(172,199,255,0.5)' }}>EN</span>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <p className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: doc.color }}>{doc.code}</p>
-                  <h3 className="font-bold text-white text-sm mb-2 leading-snug" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>{doc.title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(172,199,255,0.5)' }}>{doc.desc}</p>
-                </div>
-                <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid rgba(172,199,255,0.06)' }}>
-                  <span className="text-[10px] font-medium" style={{ color: 'rgba(172,199,255,0.35)' }}>{doc.size}</span>
-                  <span className="text-[11px] font-bold flex items-center gap-1.5 transition-colors group-hover:text-white" style={{ color: '#8ec63f' }}>
-                    İndir
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <span
+                      className="flex-shrink-0 text-[9px] font-black uppercase tracking-wide px-2 py-1 rounded-md whitespace-nowrap"
+                      style={{ background: `${color}18`, color, border: `1px solid ${color}30` }}
+                    >
+                      {doc.code}
+                    </span>
+                    <span className="flex-1 text-xs font-semibold leading-snug min-w-0 truncate" style={{ color: 'rgba(200,212,232,0.8)' }}>
+                      {doc.title}
+                    </span>
+                    {'lang' in doc && (
+                      <span className="flex-shrink-0 text-[9px] font-bold px-1.5 py-0.5 rounded" style={{ background: 'rgba(172,199,255,0.07)', color: 'rgba(172,199,255,0.4)' }}>SI</span>
+                    )}
+                    <svg className="flex-shrink-0 opacity-30 group-hover:opacity-100 transition-opacity" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5">
                       <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
                       <polyline points="7 10 12 15 17 10"/>
                       <line x1="12" y1="15" x2="12" y2="3"/>
                     </svg>
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* CTA */}

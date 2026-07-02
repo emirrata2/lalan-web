@@ -51,38 +51,6 @@
   --font-headline: var(--font-manrope), sans-serif;
   --font-body: var(--font-inter), sans-serif;
   --font-label: var(--font-inter), sans-serif;
-
-  /* ── Lalan brand colors ── */
-  --color-lalan-primary: #5c93d6;
-  --color-lalan-primary-container: #3a73bc;
-  --color-lalan-on-primary: #ffffff;
-  --color-lalan-on-primary-container: #88b0ff;
-  --color-lalan-primary-fixed: #d7e2ff;
-  --color-lalan-primary-fixed-dim: #acc7ff;
-  --color-lalan-surface: #fbf9f9;
-  --color-lalan-surface-bright: #fbf9f9;
-  --color-lalan-surface-dim: #dbdad9;
-  --color-lalan-surface-variant: #e3e2e2;
-  --color-lalan-surface-container-lowest: #ffffff;
-  --color-lalan-surface-container-low: #f5f3f3;
-  --color-lalan-surface-container: #efeded;
-  --color-lalan-surface-container-high: #e9e8e7;
-  --color-lalan-surface-container-highest: #e3e2e2;
-  --color-lalan-on-surface: #1b1c1c;
-  --color-lalan-on-surface-variant: #434751;
-  --color-lalan-tertiary: #003608;
-  --color-lalan-tertiary-container: #004f11;
-  --color-lalan-on-tertiary: #ffffff;
-  --color-lalan-on-tertiary-container: #8ec63f;
-  --color-lalan-tertiary-fixed: #a3f69c;
-  --color-lalan-tertiary-fixed-dim: #88d982;
-  --color-lalan-outline: #737782;
-  --color-lalan-outline-variant: #c3c6d3;
-  --color-lalan-secondary: #48626e;
-  --color-lalan-on-secondary: #ffffff;
-  --color-lalan-secondary-container: #cbe7f5;
-  --color-lalan-inverse-surface: #303031;
-  --color-lalan-inverse-on-surface: #f2f0f0;
 }
 
 :root {
@@ -131,9 +99,6 @@
 }
 
 /* Lalan utility classes */
-.industrial-gradient {
-  background: linear-gradient(135deg, #5c93d6 0%, #3a73bc 100%);
-}
 .glass-nav {
   background: rgba(251, 249, 249, 0.85);
   backdrop-filter: blur(24px);

@@ -40,14 +40,17 @@ const MATERIAL_LABEL: Record<string, string> = {
   natural:              'Doğal Lateks',
   nitrile:              'Nitril Kauçuk',
   nbr:                  'NBR Kauçuk',
-  'disposable-nitrile': 'Tek Kull. Nitril',
 };
 
 // ── Generic helpers ───────────────────────────────────────────
 
 function toggleSet<T>(prev: Set<T>, item: T): Set<T> {
   const next = new Set(prev);
-  next.has(item) ? next.delete(item) : next.add(item);
+  if (next.has(item)) {
+    next.delete(item);
+  } else {
+    next.add(item);
+  }
   return next;
 }
 
@@ -84,7 +87,9 @@ function CheckPill({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
+      aria-pressed={active}
       className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-left transition-all duration-150"
       style={{ background: active ? 'rgba(142,198,63,0.1)' : 'transparent' }}
     >
@@ -299,13 +304,11 @@ export default function ProductsCatalog() {
 
       {/* ── Sidebar ──────────────────────────────────────────── */}
       <aside
-        className="hidden lg:flex flex-col w-60 xl:w-68 flex-shrink-0 sticky top-24 rounded-3xl overflow-hidden"
+        className="hidden lg:flex flex-col w-60 xl:w-68 flex-shrink-0 sticky top-24 self-start rounded-3xl overflow-hidden"
         style={{
           background: 'rgba(0,8,28,0.65)',
           backdropFilter: 'blur(24px)',
           border: '1px solid rgba(172,199,255,0.08)',
-          maxHeight: 'calc(100vh - 7rem)',
-          overflowY: 'auto',
         }}
       >
         {/* Header */}
@@ -357,7 +360,7 @@ export default function ProductsCatalog() {
         </Section>
 
         {/* Kullanım Ortamı */}
-        <Section title="Kullanım Ortamı" defaultOpen={false}>
+        <Section title="Kullanım Ortamı">
           {ENV_OPTIONS.map(o => (
             <CheckPill key={o.id} active={selEnvs.has(o.id)} onClick={() => toggleEnv(o.id)} count={envCount(o.id)}>
               {o.label}
@@ -375,7 +378,9 @@ export default function ProductsCatalog() {
             {CAT_OPTIONS.map(o => (
               <button
                 key={o.id}
+                type="button"
                 onClick={() => toggleCat(o.id)}
+                aria-pressed={selCats.has(o.id)}
                 className="px-3.5 py-1.5 rounded-full text-xs font-bold transition-all"
                 style={{
                   background: selCats.has(o.id) ? 'rgba(142,198,63,0.18)' : 'rgba(255,255,255,0.05)',

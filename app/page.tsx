@@ -1,14 +1,15 @@
-﻿import LalanNav from '@/components/lalan/nav';
+﻿import Link from 'next/link';
+import LalanNav from '@/components/lalan/nav';
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
 import GloveFinderSection from '@/components/lalan/glove-finder-section';
 import SustainabilitySection from '@/components/lalan/sustainability';
 import Counter from '@/components/lalan/counter';
 import Reveal from '@/components/lalan/reveal';
 import ContactForm from '@/components/lalan/contact-form';
-import CelestialBloomContained from '@/components/ui/celestial-bloom-contained';
+import NewsletterForm from '@/components/lalan/newsletter-form';
 import MouseSpotlight from '@/components/ui/mouse-spotlight';
 import { GradientBackground } from '@/components/ui/gradient-background';
-import { GlobePulse } from '@/components/ui/cobe-globe-pulse';
+import { CelestialBloomContained, GlobePulse } from '@/components/ui/lazy-effects';
 import { LALAN_MARKERS } from '@/lib/lalan-markers';
 import { CERTIFICATES } from '@/lib/certificates';
 
@@ -45,34 +46,11 @@ export default function Home() {
       {/* ── Kurumsal Tanıtım Videosu (scroll-driven expansion) ── */}
       <ScrollExpandMedia
         mediaType="video"
-        mediaSrc="https://www.youtube.com/watch?v=Z98qsjP0LJE"
+        mediaSrc="/videos/lalan-our-people.mp4"
         bgImageSrc="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&w=1920&q=85"
         scrollToExpand="Kaydırarak Keşfet"
         startTime={62}
       >
-        <div className="max-w-3xl mx-auto text-center">
-          <p
-            className="text-lg md:text-xl leading-relaxed mb-8"
-            style={{ color: 'rgba(200,212,232,0.85)', fontFamily: 'var(--font-inter), sans-serif' }}
-          >
-            Türkiye ve MENA bölgesinin yetkili distribütörü olarak Lalan Rubbers&apos;ın
-            dünya standartlarındaki koruyucu eldiven çözümlerini sizinle buluşturuyoruz.
-          </p>
-          <a
-            href="/products"
-            className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-            style={{
-              background: 'linear-gradient(135deg,#003608 0%,#005c14 100%)',
-              boxShadow: '0 8px 24px rgba(0,79,17,0.45)',
-              border: '1px solid rgba(142,198,63,0.3)',
-            }}
-          >
-            Ürünleri Keşfet
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
       </ScrollExpandMedia>
 
       {/* ── Hero ── */}
@@ -126,14 +104,14 @@ export default function Home() {
                 className="flex flex-wrap gap-4"
                 style={{ opacity: 0, animation: 'fadeUp 0.9s 0.65s cubic-bezier(0.16,1,0.3,1) forwards' }}
               >
-                <a
+                <Link
                   href="/products"
                   className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
                   style={{ background: 'linear-gradient(135deg,#003608 0%,#005c14 100%)', boxShadow: '0 8px 24px rgba(0,79,17,0.45)', border: '1px solid rgba(142,198,63,0.3)' }}
                 >
                   Ürünleri Keşfet
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
+                </Link>
               </div>
 
             </div>
@@ -141,15 +119,11 @@ export default function Home() {
             {/* Sağ: Ürün videosu */}
             <div
               style={{ opacity: 0, animation: 'fadeUp 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) forwards' }}
-              className="hidden lg:flex items-center justify-center"
+              className="flex items-center justify-center mt-10 lg:mt-0"
             >
               <div
-                className="relative rounded-2xl overflow-hidden"
+                className="relative rounded-2xl overflow-hidden w-full aspect-video max-h-[220px] lg:aspect-[9/16] lg:max-h-[520px] lg:max-w-[480px]"
                 style={{
-                  width: '100%',
-                  maxWidth: '480px',
-                  aspectRatio: '9/16',
-                  maxHeight: '520px',
                   boxShadow: '0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(142,198,63,0.15)',
                   background: '#000d1f',
                 }}
@@ -164,18 +138,19 @@ export default function Home() {
                 />
                 {/* Overlay badge */}
                 <div className="absolute bottom-4 left-4 right-4">
-                  <div
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl"
+                  <Link
+                    href="/products/naturafl-300-15bf"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl transition-colors hover:border-[rgba(142,198,63,0.4)]"
                     style={{ background: 'rgba(0,15,46,0.85)', backdropFilter: 'blur(12px)', border: '1px solid rgba(172,199,255,0.15)' }}
                   >
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(142,198,63,0.2)' }}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8ec63f" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
                     <div>
                       <div className="text-white font-bold text-xs">NaturaFL™ 300-15BF</div>
                       <div className="text-[10px]" style={{ color: '#8ec63f' }}>Gıdaya Uygun · Kobalt Mavi</div>
                     </div>
-                  </div>
+                    <svg className="ml-auto flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(172,199,255,0.5)" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -191,7 +166,7 @@ export default function Home() {
               style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(16px)', border: '1px solid rgba(172,199,255,0.08)', borderBottom: 'none' }}
             >
               {[
-                { n: '80+', l: 'Yıllık Yenilik' },
+                { n: '80+', l: 'Yıllık Deneyim' },
                 { n: '75+', l: 'İhracat Ülkesi' },
                 { n: '12.000+', l: 'Küresel Çalışan' },
                 { n: '1 milyar+', l: 'Yıllık Eldiven' },
@@ -312,7 +287,7 @@ export default function Home() {
                 className="absolute -bottom-8 -right-4 md:-right-8 p-6 rounded-xl hidden sm:block"
                 style={{ background: 'rgba(0,15,46,0.92)', backdropFilter: 'blur(16px)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(172,199,255,0.12)' }}
               >
-                <div className="font-black text-white text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.652 m²</div>
+                <div className="font-black text-white text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.559 m²</div>
                 <div className="text-[10px] font-bold uppercase tracking-widest leading-snug mt-1 max-w-[120px]" style={{ color: '#8ec63f' }}>Yönetilen Alan</div>
               </div>
             </Reveal>
@@ -489,28 +464,18 @@ export default function Home() {
           ))}
           <div>
             <h4 className="font-bold text-white mb-5 text-sm">Bülten</h4>
-            <p className="text-sm mb-4 leading-relaxed" style={{ color: 'rgba(172,199,255,0.6)' }}>En son yeniliklerimizden haberdar olun.</p>
-            <div className="flex rounded-lg overflow-hidden" style={{ border: '1px solid rgba(172,199,255,0.15)' }}>
-              <input
-                type="email"
-                placeholder="e-posta@adresiniz.com"
-                className="lalan-input flex-1 rounded-none"
-                style={{ background: 'rgba(255,255,255,0.05)', color: 'white', borderBottom: 'none' }}
-              />
-              <button type="button" className="px-4 text-white newsletter-btn transition-colors" style={{ background: '#003608' }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
+            <p className="text-sm mb-4 leading-relaxed" style={{ color: 'rgba(172,199,255,0.75)' }}>En son yeniliklerimizden haberdar olun.</p>
+            <NewsletterForm />
           </div>
         </div>
         <div
           className="max-w-7xl mx-auto px-6 md:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4"
           style={{ borderTop: '1px solid rgba(172,199,255,0.06)' }}
         >
-          <p className="text-xs" style={{ color: 'rgba(172,199,255,0.4)' }}>© 2026 Lalan Mena — Türkiye & MENA Bölgesi Yetkili Distribütörü</p>
+          <p className="text-xs" style={{ color: 'rgba(172,199,255,0.7)' }}>© 2026 Lalan Mena — Türkiye & MENA Bölgesi Yetkili Distribütörü</p>
           <div className="flex gap-6">
-            <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.4)' }} href="#">Gizlilik Politikası</a>
-            <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.4)' }} href="#">Kullanım Koşulları</a>
+            <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.7)' }} href="#">Gizlilik Politikası</a>
+            <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.7)' }} href="#">Kullanım Koşulları</a>
           </div>
         </div>
       </footer>

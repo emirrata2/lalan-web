@@ -12,7 +12,7 @@ const images = [
   { id: 1,  productId: "nitrofl-330-15sd",        src: "/products/industrial/nitrofl-330-15sd.jpg",        alt: "NitroFL 330-15SD",        label: "NitroFL™ 330-15SD",        category: "Kimyasal"        },
   { id: 2,  productId: "naturafl-300-15bf",        src: "/products/industrial/naturafl-300-15bf.webp",      alt: "NaturaFL 300-15BF",        label: "NaturaFL™ 300-15BF",        category: "Gıdaya Uygun"    },
   // ── Tek Kullanımlık ────────────────────────────────────────────
-  { id: 3,  productId: "lalan-2-8",               src: "/products/disposable/lalan-2.8.png",               alt: "Lalan 2.8",               label: "Lalan™ 2.8",               category: "Tek Kullanımlık" },
+  { id: 3,  productId: "lalan-2-8",               src: "/products/disposable/lalan-2.8.png",               alt: "Lalan LITE28",            label: "Lalan LITE28™",            category: "Tek Kullanımlık" },
   { id: 4,  productId: "lalan-lite-3-2",          src: "/products/disposable/lalan-lite.png",              alt: "Lalan Lite 3.2",          label: "Lalan Lite™ 3.2",          category: "Tek Kullanımlık" },
   { id: 5,  productId: "lalan-strong-f",          src: "/products/disposable/lalan-strong-f.png",          alt: "Lalan Strong F",          label: "Lalan Strong F™",          category: "Tek Kullanımlık" },
   { id: 6,  productId: "lalan-strong-x",          src: "/products/disposable/lalan-strong-x.png",          alt: "Lalan Strong X",          label: "Lalan Strong X™",          category: "Tek Kullanımlık" },

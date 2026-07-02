@@ -109,26 +109,18 @@ const MILESTONES: Milestone[] = [
   {
     year: '2009–2014',
     title: 'İkinci Genişleme & Yenilenebilir Enerji',
-    desc: 'İkinci üretim genişleme dönemi: altı tesisten dokuza ulaşılır, ürün portföyü dikişsiz iş eldivenlerinden tek kullanımlık nitril eldivenlerine kadar genişler. Yenilenebilir enerji sektörüne ilk yatırımlar yapılır. 2010\'da FSC® orman sertifikası alınır.',
+    desc: 'İkinci üretim genişleme dönemi: altı tesisten yediye ulaşılır, ürün portföyü dikişsiz iş eldivenlerinden tek kullanımlık nitril eldivenlerine kadar genişler. Yenilenebilir enerji sektörüne ilk yatırımlar yapılır. 2010\'da FSC® orman sertifikası alınır.',
     highlight: true,
     img: '/images/tarihce/journey-2009-2014.jpg',
     imgAlt: '2009–2014 — Üretim genişlemesi',
   },
   {
     year: '2015–Günümüz',
-    title: 'Üçüncü Genişleme & Dört Kıtada Ticaret',
-    desc: 'Üçüncü üretim genişleme programı, tesis sayısını dokuza çıkarır. Ailenin dördüncü nesli işe katılır; Lalan Malaysia, Lalan Brazil, Lalan Turkey ve Lalan Middle East ofisleriyle uluslararası operasyonlar dört kıtaya yayılır. 12.000\'den fazla çalışan, yıllık 1 milyarı aşan üretim kapasitesi.',
+    title: 'Üçüncü Genişleme & Beş Kıtada Ticaret',
+    desc: 'Üçüncü üretim genişleme programı üretim kapasitesini büyütür. Ailenin dördüncü nesli işe katılır; Lalan Malaysia, Lalan Brazil, Lalan Turkey ve Lalan Middle East ofisleriyle uluslararası operasyonlar beş kıtaya yayılır. 12.000\'den fazla çalışan, yıllık 1 milyarı aşan üretim kapasitesi.',
     highlight: true,
     img: '/images/tarihce/journey-2015-present.jpg',
     imgAlt: '2015–Günümüz — Küresel liderlik',
-  },
-  {
-    year: '2024–2026',
-    title: 'Türkiye & MENA: Yetkili Distribütörlük',
-    desc: 'Türkiye ve MENA bölgesinde yetkili distribütörlük ağı tam kapasiteyle devreye girer. Lalan Rubbers\'ın uluslararası sertifikalı ürünleri; endüstriyel, kimyasal, gıdaya uygun ve dikişsiz iş eldiveni kategorilerinde B2B müşterilere ulaştırılmaya başlanır.',
-    highlight: true,
-    img: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&w=800&q=82',
-    imgAlt: 'İstanbul Türkiye',
   },
 ];
 
@@ -159,7 +151,7 @@ export default function TarihcePage() {
             </div>
             <div className="h-5 w-px" style={{ background: 'rgba(172,199,255,0.15)' }} />
             <p className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: '#8ec63f' }}>
-              1940 — 2026
+              1940 — Günümüz
             </p>
           </div>
           <h1

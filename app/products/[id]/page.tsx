@@ -5,6 +5,7 @@ import LalanNav from '@/components/lalan/nav';
 import { GradientBackground } from '@/components/ui/gradient-background';
 import ProductMedia from '@/components/lalan/product-media';
 import ProductCertsFiles from '@/components/lalan/product-certs-files';
+import ProductPictograms from '@/components/lalan/product-pictograms';
 
 const DARK_GRADIENTS = [
   'linear-gradient(160deg, #000f2e 0%, #5c93d6 50%, #001a08 100%)',
@@ -17,7 +18,6 @@ const MATERIAL_LABEL: Record<string, string> = {
   natural: 'Doğal Lateks',
   nitrile: 'Nitril Kauçuk',
   nbr: 'NBR Kauçuk',
-  'disposable-nitrile': 'Nitril / Tek Kullanımlık',
 };
 
 export async function generateStaticParams() {
@@ -50,12 +50,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     >
       <LalanNav />
 
-      <main className="max-w-7xl mx-auto px-6 md:px-8 pt-32 pb-24">
+      <main className="max-w-7xl mx-auto px-4 md:px-8 pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-24">
 
         {/* Back */}
         <Link
           href="/products"
-          className="inline-flex items-center gap-2 text-sm font-bold mb-12 transition-colors hover:text-white"
+          className="inline-flex items-center gap-2 text-sm font-bold mb-8 md:mb-12 transition-colors hover:text-white"
           style={{ color: 'rgba(172,199,255,0.55)' }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -65,10 +65,15 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         </Link>
 
         {/* Main grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-16 items-start">
 
-          {/* Media: 360° model / image */}
-          <ProductMedia product={product} />
+          {/* Sol kolon: görsel + piktogramlar */}
+          <div>
+            <ProductMedia product={product} />
+            {product.pictograms && (
+              <ProductPictograms pictograms={product.pictograms} />
+            )}
+          </div>
 
           {/* Info */}
           <div>
@@ -101,9 +106,6 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               {product.desc}
             </p>
 
-            {/* Standartlar, sertifikalar ve dosyalar */}
-            <ProductCertsFiles product={product} />
-
             {/* Specs */}
             <div className="mb-8">
               <p className="text-[10px] font-bold uppercase tracking-[0.15em] mb-4" style={{ color: 'rgba(172,199,255,0.45)' }}>
@@ -123,51 +125,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               </div>
             </div>
 
-            {/* Features */}
-            <div className="mb-10">
-              <p className="text-[10px] font-bold uppercase tracking-[0.15em] mb-4" style={{ color: 'rgba(172,199,255,0.45)' }}>
-                Özellikler
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {product.features.map(f => (
-                  <span
-                    key={f}
-                    className="text-xs font-bold px-3 py-1.5 rounded-full"
-                    style={{ background: 'rgba(142,198,63,0.1)', color: '#8ec63f', border: '1px solid rgba(142,198,63,0.2)' }}
-                  >
-                    {f}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-10">
-              {product.tags.map(t => (
-                <span
-                  key={t}
-                  className="text-[11px] font-medium px-3 py-1 rounded-full"
-                  style={{ background: 'rgba(172,199,255,0.06)', color: 'rgba(172,199,255,0.6)' }}
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-bold text-white text-sm uppercase tracking-widest transition-all duration-200 hover:-translate-y-0.5"
-              style={{
-                background: 'linear-gradient(135deg,#1c6d24,#005c14)',
-                boxShadow: '0 8px 24px rgba(28,109,36,0.45)',
-              }}
-            >
-              İletişime Geç
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
+            {/* Dosyalar */}
+            <ProductCertsFiles product={product} />
           </div>
         </div>
 

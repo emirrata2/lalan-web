@@ -32,7 +32,7 @@ const TEKLI_SUNUMLAR = [
     border: 'rgba(142,198,63,0.25)',
   },
   {
-    name: 'Lalan™ 2.8',
+    name: 'Lalan LITE28™',
     subtitle: 'Ekonomik · Tek Kullanımlık Nitril',
     file: '/documents/lalan-2-8.pdf',
     category: 'Tek Kullanımlık',
@@ -42,7 +42,7 @@ const TEKLI_SUNUMLAR = [
   },
   {
     name: 'Lalan Lite™ 3.2',
-    subtitle: 'Medikal · Pudrasız Nitril',
+    subtitle: 'Pudrasız · Nitril · Tek Kullanımlık',
     file: '/documents/lalan-lite-3-2.pdf',
     category: 'Tek Kullanımlık',
     color: '#5c93d6',

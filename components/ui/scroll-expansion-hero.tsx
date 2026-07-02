@@ -40,8 +40,11 @@ const ScrollExpandMedia = ({
   const [touchStartY, setTouchStartY]       = useState<number>(0);
   const [winSize, setWinSize] = useState({ w: 1280, h: 800, mobile: false });
 
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const videoRef   = useRef<HTMLVideoElement | null>(null);
+  const sectionRef   = useRef<HTMLDivElement | null>(null);
+  const videoRef     = useRef<HTMLVideoElement | null>(null);
+  const pendingDelta = useRef(0);
+  const rafId        = useRef<number | null>(null);
+  const [prevMediaType, setPrevMediaType] = useState(mediaType);
 
   /* ── seek to startTime before playing ── */
   useEffect(() => {
@@ -61,28 +64,88 @@ const ScrollExpandMedia = ({
     }
   }, [startTime]);
 
-  useEffect(() => {
+  // Reset state during render when mediaType changes, rather than in an
+  // effect — React applies these updates before the DOM paints, avoiding an
+  // extra cascading render. See: https://react.dev/learn/you-might-not-need-an-effect
+  if (prevMediaType !== mediaType) {
+    setPrevMediaType(mediaType);
     setScrollProgress(0);
     setShowContent(false);
     setMediaFullyExpanded(false);
-  }, [mediaType]);
+  }
+
+  // Hysteresis band: expand fully at >=1, but only release the lock once
+  // progress has genuinely fallen back below COLLAPSE_AT. Without this gap, a
+  // single noisy wheel tick (trackpad inertia) right at progress===1 — while
+  // window.scrollY is still pinned at 0 — could instantly flip
+  // mediaFullyExpanded back to false and re-trigger expansion on the very
+  // next tick, trapping the user in a visible expand/collapse loop.
+  const COLLAPSE_AT = 0.9;
 
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
+    const advance = (delta: number) => {
+      const newProgress = Math.min(Math.max(scrollProgress + delta, 0), 1);
+      setScrollProgress(newProgress);
+      if (newProgress >= 1) {
+        setMediaFullyExpanded(true);
+        setShowContent(true);
+      } else if (newProgress < COLLAPSE_AT) {
         setMediaFullyExpanded(false);
-        e.preventDefault();
-      } else if (!mediaFullyExpanded) {
-        e.preventDefault();
-        const scrollDelta = e.deltaY * 0.0009;
-        const newProgress = Math.min(Math.max(scrollProgress + scrollDelta, 0), 1);
-        setScrollProgress(newProgress);
+        if (newProgress < 0.75) setShowContent(false);
+      }
+    };
 
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
-        } else if (newProgress < 0.75) {
-          setShowContent(false);
+    // Coalesce high-frequency wheel/scroll/touchmove events into one state
+    // update per animation frame instead of one per raw event.
+    const scheduleAdvance = (delta: number) => {
+      pendingDelta.current += delta;
+      if (rafId.current === null) {
+        rafId.current = requestAnimationFrame(() => {
+          advance(pendingDelta.current);
+          pendingDelta.current = 0;
+          rafId.current = null;
+        });
+      }
+    };
+
+    const handleWheel = (e: WheelEvent) => {
+      if (mediaFullyExpanded) {
+        // Only start un-expanding while genuinely at the top of the real
+        // page. Collapse is gradual (via scheduleAdvance + hysteresis), not
+        // an instant flip, so a single jittery tick can't trap the user.
+        if (e.deltaY < 0 && window.scrollY <= 0) {
+          e.preventDefault();
+          scheduleAdvance(e.deltaY * 0.0009);
+        }
+      } else {
+        e.preventDefault();
+        scheduleAdvance(e.deltaY * 0.0009);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (mediaFullyExpanded && (e.key === 'ArrowUp' || e.key === 'PageUp') && window.scrollY <= 0) {
+        e.preventDefault();
+        advance(-0.08);
+        return;
+      }
+      if (!mediaFullyExpanded) {
+        const map: Record<string, number> = {
+          ArrowDown: 0.08, ArrowUp: -0.08,
+          PageDown: 0.3,  PageUp: -0.3,
+          ' ': 0.3,
+        };
+        const delta = map[e.key];
+        if (delta !== undefined) { e.preventDefault(); advance(delta); }
+      }
+    };
+
+    const handleScroll = (): void => {
+      if (!mediaFullyExpanded) {
+        const scrollY = window.scrollY;
+        if (scrollY > 0) {
+          scheduleAdvance(scrollY * 0.002);
+          window.scrollTo(0, 0);
         }
       }
     };
@@ -96,33 +159,21 @@ const ScrollExpandMedia = ({
       const touchY  = e.touches[0].clientY;
       const deltaY  = touchStartY - touchY;
 
-      if (mediaFullyExpanded && deltaY < -20 && window.scrollY <= 5) {
-        setMediaFullyExpanded(false);
+      if (mediaFullyExpanded && deltaY < -20 && window.scrollY <= 0) {
         e.preventDefault();
+        scheduleAdvance(deltaY * 0.008);
+        setTouchStartY(touchY);
       } else if (!mediaFullyExpanded) {
         e.preventDefault();
-        const scrollFactor = deltaY < 0 ? 0.008 : 0.005;
-        const scrollDelta  = deltaY * scrollFactor;
-        const newProgress  = Math.min(Math.max(scrollProgress + scrollDelta, 0), 1);
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
-        } else if (newProgress < 0.75) {
-          setShowContent(false);
-        }
+        scheduleAdvance(deltaY * (deltaY < 0 ? 0.008 : 0.005));
         setTouchStartY(touchY);
       }
     };
 
     const handleTouchEnd = (): void => setTouchStartY(0);
 
-    const handleScroll = (): void => {
-      if (!mediaFullyExpanded) window.scrollTo(0, 0);
-    };
-
     window.addEventListener('wheel',      handleWheel      as EventListener, { passive: false });
+    window.addEventListener('keydown',    handleKeyDown    as EventListener);
     window.addEventListener('scroll',     handleScroll     as EventListener);
     window.addEventListener('touchstart', handleTouchStart as EventListener, { passive: false });
     window.addEventListener('touchmove',  handleTouchMove  as EventListener, { passive: false });
@@ -130,10 +181,16 @@ const ScrollExpandMedia = ({
 
     return () => {
       window.removeEventListener('wheel',      handleWheel      as EventListener);
+      window.removeEventListener('keydown',    handleKeyDown    as EventListener);
       window.removeEventListener('scroll',     handleScroll     as EventListener);
       window.removeEventListener('touchstart', handleTouchStart as EventListener);
       window.removeEventListener('touchmove',  handleTouchMove  as EventListener);
       window.removeEventListener('touchend',   handleTouchEnd   as EventListener);
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
+        rafId.current = null;
+        pendingDelta.current = 0;
+      }
     };
   }, [scrollProgress, mediaFullyExpanded, touchStartY]);
 
@@ -155,6 +212,8 @@ const ScrollExpandMedia = ({
 
   const mediaWidth  = startW + scrollProgress * (winSize.w - startW);
   const mediaHeight = startH + scrollProgress * (winSize.h - startH);
+  const mediaScaleX = mediaWidth  / winSize.w;
+  const mediaScaleY = mediaHeight / winSize.h;
 
   /* vertical center offset: push down by half nav height when small, return to 0 when fullscreen */
   const navOffset      = (1 - scrollProgress) * (NAV_H / 2);
@@ -197,45 +256,18 @@ const ScrollExpandMedia = ({
               <div
                 className="absolute z-0 transition-none"
                 style={{
-                  width:     `${mediaWidth}px`,
-                  height:    `${mediaHeight}px`,
-                  top:       `calc(50% + ${navOffset}px)`,
-                  left:      '50%',
-                  transform: 'translate(-50%, -50%)',
-                  boxShadow: scrollProgress < 0.98 ? '0px 0px 50px rgba(0,0,0,0.4)' : 'none',
+                  width:        `${winSize.w}px`,
+                  height:       `${winSize.h}px`,
+                  top:          '50%',
+                  left:         '50%',
+                  transform:    `translate(-50%, calc(-50% + ${navOffset}px)) scale(${mediaScaleX}, ${mediaScaleY})`,
+                  transformOrigin: 'center center',
+                  boxShadow:    scrollProgress < 0.98 ? '0px 0px 50px rgba(0,0,0,0.4)' : 'none',
                   borderRadius: `${(1 - scrollProgress) * 16}px`,
-                  overflow:  'hidden',
+                  overflow:     'hidden',
                 }}
               >
                 {mediaType === 'video' ? (
-                  mediaSrc.includes('youtube.com') ? (
-                    <div className="relative w-full h-full pointer-events-none">
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={(() => {
-                          const startParam = startTime > 0 ? `&start=${startTime}` : '';
-                          const videoId = mediaSrc.includes('embed')
-                            ? mediaSrc.split('/embed/')[1]?.split('?')[0]
-                            : mediaSrc.split('v=')[1]?.split('&')[0];
-                          const base = mediaSrc.includes('embed')
-                            ? mediaSrc.split('?')[0]
-                            : `https://www.youtube.com/embed/${videoId}`;
-                          return `${base}?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1&playlist=${videoId}${startParam}`;
-                        })()}
-                        className="w-full h-full"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                      <motion.div
-                        className="absolute inset-0 bg-black/30"
-                        initial={{ opacity: 0.7 }}
-                        animate={{ opacity: 0.5 - scrollProgress * 0.3 }}
-                        transition={{ duration: 0.2 }}
-                      />
-                    </div>
-                  ) : (
                     <div className="relative w-full h-full pointer-events-none">
                       <video
                         ref={videoRef}
@@ -262,7 +294,6 @@ const ScrollExpandMedia = ({
                         transition={{ duration: 0.2 }}
                       />
                     </div>
-                  )
                 ) : (
                   <div className="relative w-full h-full">
                     <Image
@@ -353,14 +384,16 @@ const ScrollExpandMedia = ({
             </div>
 
             {/* ── content revealed after expansion ── */}
-            <motion.section
-              className="flex flex-col w-full px-8 py-10 md:px-16 lg:py-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showContent ? 1 : 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              {children}
-            </motion.section>
+            {children && (
+              <motion.section
+                className="flex flex-col w-full px-8 py-10 md:px-16 lg:py-20"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: showContent ? 1 : 0 }}
+                transition={{ duration: 0.7 }}
+              >
+                {children}
+              </motion.section>
+            )}
           </div>
         </div>
       </section>

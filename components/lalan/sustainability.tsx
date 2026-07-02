@@ -57,7 +57,7 @@ export default function SustainabilitySection() {
             </div>
 
             <a
-              href="#"
+              href="/surdurulebilirlik"
               className="inline-flex items-center gap-2 text-[#8ec63f] font-bold hover:gap-4 transition-all duration-200 text-sm"
             >
               Lalan&apos;ın sürdürülebilirlik girişimlerini keşfedin
@@ -84,7 +84,7 @@ export default function SustainabilitySection() {
               className="absolute -bottom-6 -left-6 p-5 rounded-xl shadow-2xl"
               style={{ background: 'rgba(0,79,17,0.9)', backdropFilter: 'blur(12px)', border: '1px solid rgba(175,220,120,0.2)' }}
             >
-              <div className="text-[#8ec63f] font-black text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.652 m²</div>
+              <div className="text-[#8ec63f] font-black text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.559 m²</div>
               <div className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-widest leading-tight mt-1">Yönetilen Alan</div>
             </div>
           </div>

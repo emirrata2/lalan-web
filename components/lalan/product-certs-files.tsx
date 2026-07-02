@@ -2,7 +2,7 @@
 
 export default function ProductCertsFiles({ product }: { product: Product }) {
   return (
-    <div className="mb-8">
+    <div className="mt-4 mb-8">
       {product.datasheet && (
         <div className="p-5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(172,199,255,0.08)' }}>
           <p className="text-[10px] font-bold uppercase tracking-[0.15em] mb-3" style={{ color: 'rgba(172,199,255,0.45)' }}>

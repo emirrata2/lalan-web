@@ -1,10 +1,14 @@
+export type ProductPictograms = {
+  images?: { src: string; label: string }[];
+};
+
 export type Product = {
   id: string;
   name: string;
   category: 'food-safe' | 'chemical' | 'disposable' | 'industrial' | 'household' | 'seamless';
   categoryLabel: string;
   img: string;
-  material: 'natural' | 'nitrile' | 'nbr' | 'disposable-nitrile';
+  material: 'natural' | 'nitrile' | 'nbr';
   length: 'short' | 'medium' | 'long' | 'extra-long' | 'disposable';
   tags: string[];
   features: string[];
@@ -14,8 +18,8 @@ export type Product = {
   env: ('heavy-industry' | 'assembly-general' | 'lab-precision' | 'food-kitchen' | 'cleaning-household')[];
   props: ('chemical' | 'water-oil' | 'cut' | 'abrasion' | 'disposable' | 'precision')[];
   datasheet?: string;
-  model3d?: string;
   video?: string;
+  pictograms?: ProductPictograms;
 };
 
 export const PRODUCTS: Product[] = [
@@ -34,7 +38,14 @@ export const PRODUCTS: Product[] = [
     env: ['heavy-industry', 'lab-precision'],
     props: ['chemical', 'water-oil', 'cut', 'abrasion'],
     datasheet: '/documents/nitrofl-330-15sd.pdf',
-    model3d: '/models/nitrofl-330-15sd.glb',
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-cat3.png',           label: 'CE KKD Kategori III' },
+        { src: '/pictograms/jkot.png',              label: 'JKOT Kimyasalları' },
+        { src: '/pictograms/gidaya-uygun.png',      label: 'Gıdaya Uygun' },
+        { src: '/pictograms/en-iso-21420.png',      label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'naturafl-300-15bf',
@@ -51,14 +62,23 @@ export const PRODUCTS: Product[] = [
     props: ['water-oil'],
     datasheet: '/documents/naturafl-300-15bf.pdf',
     video: '/videos/naturafl-300-15bf.mp4',
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-2777.png',      label: 'CE 2777 KKD Kategori I' },
+        { src: '/pictograms/en-iso-374.png',   label: 'EN ISO 374-1 Kimyasal' },
+        { src: '/pictograms/jkot.png',         label: 'JKOT Kimyasalları' },
+        { src: '/pictograms/gidaya-uygun.png', label: 'Gıdaya Uygun' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   // ── TEK KULLANIMLIK ───────────────────────────────────────────
   {
     id: 'lalan-2-8',
-    name: 'Lalan™ 2.8',
+    name: 'Lalan LITE28™',
     category: 'disposable', categoryLabel: 'Tek Kullanımlık',
     img: '/products/disposable/lalan-2.8.png',
-    material: 'disposable-nitrile', length: 'disposable',
+    material: 'nitrile', length: 'disposable',
     tags: ['2.8g', 'Ekonomik', 'Pudrasız'],
     features: ['Pudrasız', 'Lateks İçermez', 'Ambidextrous'],
     specs: { 'Kalınlık': '0.10mm', 'Ağırlık': '2.8g', 'Renk': 'Mavi', 'Paket': '100 adet/kutu' },
@@ -73,11 +93,11 @@ export const PRODUCTS: Product[] = [
     name: 'Lalan Lite™ 3.2',
     category: 'disposable', categoryLabel: 'Tek Kullanımlık',
     img: '/products/disposable/lalan-lite.png',
-    material: 'disposable-nitrile', length: 'disposable',
-    tags: ['Pudrasız', 'Medikal', 'Yüksek Hassasiyet'],
-    features: ['Pudrasız', 'Steril Sınıf', 'Tıbbi Muayene Uyumlu', 'Lateks İçermez'],
+    material: 'nitrile', length: 'disposable',
+    tags: ['Pudrasız', 'Tek Kullanımlık', 'Yüksek Hassasiyet'],
+    features: ['Pudrasız', 'Lateks İçermez', 'Hafif Yapı', 'Hijyenik'],
     specs: { 'Kalınlık': '0.10mm', 'Ağırlık': '3.2g', 'Renk': 'Mavi/Gri', 'Sertifika': 'EN 455' },
-    desc: 'Ultra ince nitril yapısıyla tıbbi muayene ve hassas laboratuvar işlemleri için ideal. Pudrasız ve steril sınıf formülasyon.',
+    desc: 'Ultra ince nitril yapısıyla hassas işlemler ve tek kullanımlık hijyen gerektiren ortamlar için ideal. Pudrasız ve lateks içermez.',
     color: '#003885',
     env: ['lab-precision'],
     props: ['disposable', 'precision'],
@@ -88,7 +108,7 @@ export const PRODUCTS: Product[] = [
     name: 'Lalan Strong F™',
     category: 'disposable', categoryLabel: 'Tek Kullanımlık',
     img: '/products/disposable/lalan-strong-f.png',
-    material: 'disposable-nitrile', length: 'disposable',
+    material: 'nitrile', length: 'disposable',
     tags: ['Güçlü', '5g', 'Dayanıklı'],
     features: ['Güçlendirilmiş Nitril', 'Parmak Ucu Pürüzlü', 'Ağır İş'],
     specs: { 'Kalınlık': '0.12mm', 'Ağırlık': '5.0g', 'Renk': 'Mavi', 'Paket': '100 adet/kutu' },
@@ -103,7 +123,7 @@ export const PRODUCTS: Product[] = [
     name: 'Lalan Strong X™',
     category: 'disposable', categoryLabel: 'Tek Kullanımlık',
     img: '/products/disposable/lalan-strong-x.png',
-    material: 'disposable-nitrile', length: 'disposable',
+    material: 'nitrile', length: 'disposable',
     tags: ['Extra Güçlü', '6.3g', 'Ağır Hizmet'],
     features: ['Extra Kalın Nitril', 'Pürüzlü Yüzey', 'Uzatılmış Bilek'],
     specs: { 'Kalınlık': '0.15mm', 'Ağırlık': '6.3g', 'Renk': 'Mavi/Siyah', 'Paket': '50 adet/kutu' },
@@ -118,7 +138,7 @@ export const PRODUCTS: Product[] = [
     name: 'Lalan Strong X ESD™',
     category: 'disposable', categoryLabel: 'Tek Kullanımlık',
     img: '/products/disposable/lalan-strong-x-esd.png',
-    material: 'disposable-nitrile', length: 'disposable',
+    material: 'nitrile', length: 'disposable',
     tags: ['ESD', 'Anti-statik', 'Elektronik'],
     features: ['ESD Korumalı', 'Anti-statik', 'Elektronik Sektör', 'Extra Kalın'],
     specs: { 'Kalınlık': '0.15mm', 'ESD': 'IEC 61340-5-1', 'Renk': 'Siyah', 'Paket': '50 adet/kutu' },

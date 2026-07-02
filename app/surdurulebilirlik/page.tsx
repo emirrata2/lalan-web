@@ -119,7 +119,7 @@ export default function SurdurulebilirlikPage() {
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 80% at 80% 50%, rgba(142,198,63,0.08) 0%, transparent 70%)' }} />
           <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { n: '68.796.652 m²', l: 'FSC® Sertifikalı Alan' },
+              { n: '68.796.559 m²', l: 'Yönetilen Alan' },
               { n: '13', l: 'FSC® Plantasyonu' },
               { n: '17.500+', l: 'Dönüm Plantasyon' },
               { n: '2010', l: 'FSC® Sertifika Yılı' },

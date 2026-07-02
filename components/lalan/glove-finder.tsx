@@ -254,7 +254,7 @@ export default function GloveFinder() {
                   )}
                 </div>
               ))}
-              <span className="ml-2 text-xs font-bold" style={{ color: 'rgba(172,199,255,0.5)' }}>
+              <span className="ml-2 text-xs font-bold" style={{ color: 'rgba(172,199,255,0.75)' }}>
                 {step + 1} / 2
               </span>
             </div>
@@ -274,7 +274,9 @@ export default function GloveFinder() {
                     return (
                       <button
                         key={opt.value}
+                        type="button"
                         onClick={() => toggleEnv(opt.value)}
+                        aria-pressed={isSelected}
                         className="text-left p-5 rounded-xl transition-all duration-200 relative"
                         style={{
                           background: isSelected ? 'rgba(142,198,63,0.1)' : 'rgba(255,255,255,0.03)',
@@ -301,13 +303,13 @@ export default function GloveFinder() {
                         </div>
                         <div className="mb-4"><opt.Icon /></div>
                         <div className="font-bold text-base text-white mb-1">{opt.label}</div>
-                        <div className="text-xs leading-snug" style={{ color: 'rgba(172,199,255,0.5)' }}>{opt.desc}</div>
+                        <div className="text-xs leading-snug" style={{ color: 'rgba(172,199,255,0.75)' }}>{opt.desc}</div>
                       </button>
                     );
                   })}
                 </div>
                 {envs.length > 0 && (
-                  <p className="text-xs mt-3" style={{ color: 'rgba(172,199,255,0.45)' }}>
+                  <p className="text-xs mt-3" style={{ color: 'rgba(172,199,255,0.75)' }}>
                     {envs.length} ortam seçili
                   </p>
                 )}
@@ -328,7 +330,7 @@ export default function GloveFinder() {
                 <p className="text-sm mb-1.5" style={{ color: 'rgba(172,199,255,0.6)' }}>
                   Birden fazla özellik seçebilirsiniz — seçilen <strong style={{ color: 'rgba(200,220,255,0.85)' }}>tüm özelliklere</strong> sahip eldivenler gösterilir.
                 </p>
-                <p className="text-xs mb-5" style={{ color: 'rgba(172,199,255,0.4)' }}>
+                <p className="text-xs mb-5" style={{ color: 'rgba(172,199,255,0.75)' }}>
                   Ortamlar:{' '}
                   {envs.map((e, i) => {
                     const label = ENV_OPTS.find(o => o.value === e)?.label ?? e;
@@ -341,7 +343,9 @@ export default function GloveFinder() {
                     return (
                       <button
                         key={opt.value}
+                        type="button"
                         onClick={() => toggleProp(opt.value)}
+                        aria-pressed={isSelected}
                         className="flex items-center gap-4 p-4 rounded-xl transition-all duration-200 text-left"
                         style={{
                           background: isSelected ? 'rgba(142,198,63,0.1)' : 'rgba(255,255,255,0.03)',
@@ -367,14 +371,14 @@ export default function GloveFinder() {
                         </div>
                         <div>
                           <div className="font-bold text-base" style={{ color: isSelected ? 'white' : 'rgba(220,230,255,0.85)' }}>{opt.label}</div>
-                          <div className="text-xs mt-0.5" style={{ color: 'rgba(172,199,255,0.45)' }}>{opt.desc}</div>
+                          <div className="text-xs mt-0.5" style={{ color: 'rgba(172,199,255,0.75)' }}>{opt.desc}</div>
                         </div>
                       </button>
                     );
                   })}
                 </div>
                 {props.length > 0 && (
-                  <p className="text-xs mt-3" style={{ color: 'rgba(172,199,255,0.45)' }}>
+                  <p className="text-xs mt-3" style={{ color: 'rgba(172,199,255,0.75)' }}>
                     {props.length} özellik seçili
                   </p>
                 )}
@@ -416,7 +420,7 @@ export default function GloveFinder() {
                 <h3 className="font-black text-white text-xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
                   {results.length > 0 ? `${results.length} Ürün Bulundu` : 'Ürün Bulunamadı'}
                 </h3>
-                <p className="text-xs mt-0.5" style={{ color: 'rgba(172,199,255,0.55)' }}>
+                <p className="text-xs mt-0.5" style={{ color: 'rgba(172,199,255,0.75)' }}>
                   Seçimlerinize göre önerilen modeller
                 </p>
               </div>
@@ -485,7 +489,7 @@ export default function GloveFinder() {
             ) : (
               <div className="text-center py-10">
                 <p className="text-sm font-bold text-white mb-1">Eşleşen ürün bulunamadı</p>
-                <p className="text-xs mb-4" style={{ color: 'rgba(172,199,255,0.5)' }}>Daha az özellik seçmeyi deneyin</p>
+                <p className="text-xs mb-4" style={{ color: 'rgba(172,199,255,0.75)' }}>Daha az özellik seçmeyi deneyin</p>
                 <button
                   onClick={reset}
                   className="px-4 py-2 rounded-lg text-sm font-bold text-white"
