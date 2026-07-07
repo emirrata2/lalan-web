@@ -1,11 +1,10 @@
 ﻿import Link from 'next/link';
 import LalanNav from '@/components/lalan/nav';
-import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
+import HeroVideo from '@/components/lalan/hero-video';
 import GloveFinderSection from '@/components/lalan/glove-finder-section';
 import SustainabilitySection from '@/components/lalan/sustainability';
 import Counter from '@/components/lalan/counter';
 import Reveal from '@/components/lalan/reveal';
-import ContactForm from '@/components/lalan/contact-form';
 import NewsletterForm from '@/components/lalan/newsletter-form';
 import MouseSpotlight from '@/components/ui/mouse-spotlight';
 import { GradientBackground } from '@/components/ui/gradient-background';
@@ -43,15 +42,8 @@ export default function Home() {
 
       <LalanNav />
 
-      {/* ── Kurumsal Tanıtım Videosu (scroll-driven expansion) ── */}
-      <ScrollExpandMedia
-        mediaType="video"
-        mediaSrc="/videos/lalan-our-people.mp4"
-        bgImageSrc="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&w=1920&q=85"
-        scrollToExpand="Kaydırarak Keşfet"
-        startTime={62}
-      >
-      </ScrollExpandMedia>
+      {/* ── Kurumsal Tanıtım Videosu (arka plan hero) ── */}
+      <HeroVideo />
 
       {/* ── Hero ── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -62,64 +54,51 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pt-24 pb-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* Sol: Metin */}
-            <div>
-              <div style={{ opacity: 0, animation: 'fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) forwards' }}>
-                <span
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase mb-8"
-                  style={{ background: 'rgba(0,79,17,0.85)', color: '#8ec63f', border: '1px solid rgba(175,220,120,0.25)' }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8ec63f] animate-pulse inline-block" />
-                  1940&apos;tan Bu Yana Öncülük
-                </span>
-              </div>
-
-              <h1
-                className="font-black text-white leading-[1.05] tracking-[-0.03em] mb-8"
-                style={{
-                  fontFamily: 'var(--font-manrope), sans-serif',
-                  fontSize: 'clamp(2.8rem, 6vw, 5rem)',
-                  opacity: 0,
-                  animation: 'fadeUp 0.9s 0.35s cubic-bezier(0.16,1,0.3,1) forwards',
-                }}
+            {/* Sol: Ürün tanıtımı */}
+            <div style={{ opacity: 0, animation: 'fadeUp 0.9s 0.35s cubic-bezier(0.16,1,0.3,1) forwards' }}>
+              <span
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase mb-6"
+                style={{ background: 'rgba(18,85,168,0.18)', color: '#5c93d6', border: '1px solid rgba(92,147,214,0.3)' }}
               >
-                Endüstrinin{' '}
-                <span style={{ color: '#8ec63f' }}>Simyageri</span>
-              </h1>
-
-              <p
-                className="text-lg md:text-xl leading-relaxed mb-10 max-w-[50ch]"
-                style={{
-                  color: '#c8d4e8',
-                  opacity: 0,
-                  animation: 'fadeUp 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
-                }}
+                Öne Çıkan Ürün · Gıdaya Uygun
+              </span>
+              <h2
+                className="font-black text-white leading-[1.1] tracking-tight mb-5"
+                style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(1.9rem, 3.5vw, 2.9rem)' }}
               >
-                Sürdürülebilir kauçuk çözümlerinde dünya lideri. Plantasyondan
-                hassas mühendislik ürünlerine, Lalan Group küresel kauçuk
-                tedarik zincirini yeniden tanımlıyor.
+                NaturaFL™ 300-15BF
+              </h2>
+              <p className="text-base md:text-lg leading-relaxed mb-6 max-w-[46ch]" style={{ color: 'rgba(200,212,232,0.85)' }}>
+                Gıda işleme tesisleri için geliştirilmiş, gıdaya uygun doğal lateks eldiven.
+                Kaymaz dokulu yüzeyi güvenli tutuş sağlarken, ayırt edici kobalt mavi rengi
+                gıda güvenliği denetimlerinde kolay tanınırlık sunar — dayanıklılık ve konfor
+                bir arada.
               </p>
-
-              <div
-                className="flex flex-wrap gap-4"
-                style={{ opacity: 0, animation: 'fadeUp 0.9s 0.65s cubic-bezier(0.16,1,0.3,1) forwards' }}
-              >
-                <Link
-                  href="/products"
-                  className="inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
-                  style={{ background: 'linear-gradient(135deg,#003608 0%,#005c14 100%)', boxShadow: '0 8px 24px rgba(0,79,17,0.45)', border: '1px solid rgba(142,198,63,0.3)' }}
-                >
-                  Ürünleri Keşfet
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </Link>
+              <div className="flex flex-wrap gap-2.5 mb-8">
+                {['Gıdaya Uygun', 'Doğal Lateks', 'Kaymaz Tutuş'].map(tag => (
+                  <span
+                    key={tag}
+                    className="text-xs font-bold px-3 py-1.5 rounded-full"
+                    style={{ background: 'rgba(142,198,63,0.1)', color: '#8ec63f', border: '1px solid rgba(142,198,63,0.2)' }}
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-
+              <Link
+                href="/products/naturafl-300-15bf"
+                className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-lg text-sm transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+                style={{ background: 'rgba(255,255,255,0.06)', color: 'white', border: '1px solid rgba(172,199,255,0.2)' }}
+              >
+                Ürünü İncele
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
             </div>
 
             {/* Sağ: Ürün videosu */}
             <div
               style={{ opacity: 0, animation: 'fadeUp 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) forwards' }}
-              className="flex items-center justify-center mt-10 lg:mt-0"
+              className="flex items-center justify-center"
             >
               <div
                 className="relative rounded-2xl overflow-hidden w-full aspect-video max-h-[220px] lg:aspect-[9/16] lg:max-h-[520px] lg:max-w-[480px]"
@@ -366,36 +345,29 @@ export default function Home() {
 
       {/* ── İletişim ── */}
       <section id="contact" className="py-28 md:py-36 relative section-fade">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <Reveal direction="left">
-              <div className="text-xs font-bold uppercase tracking-[0.15em] mb-6" style={{ color: '#8ec63f' }}>İletişime Geç</div>
-              <h2
-                className="font-black text-white mb-6 leading-tight"
-                style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}
-              >
-                Kauçuğun En İyisiyle Ortaklık Kurun
-              </h2>
-              <p className="text-lg leading-relaxed mb-10 max-w-[48ch]" style={{ color: 'rgba(172,199,255,0.8)' }}>
-                İhtiyaçlarınızı görüşmeye hazır mısınız? Uzmanlarımız sektörünüze en uygun koruyucu çözümü bulmada size yardımcı olacaktır.
-              </p>
-              <div className="space-y-5">
-                {[
-                  { path: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', text: 'info@lalanmena.com' },
-                ].map(({ path, text }) => (
-                  <div key={text} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(142,198,63,0.12)', border: '1px solid rgba(142,198,63,0.2)' }}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8ec63f" strokeWidth="1.8"><path d={path} /></svg>
-                    </div>
-                    <span className="text-white font-medium">{text}</span>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-            <Reveal direction="right">
-              <ContactForm />
-            </Reveal>
-          </div>
+        <div className="relative z-10 max-w-3xl mx-auto px-6 md:px-8 text-center">
+          <Reveal>
+            <div className="text-xs font-bold uppercase tracking-[0.15em] mb-6" style={{ color: '#8ec63f' }}>İletişime Geç</div>
+            <h2
+              className="font-black text-white mb-6 leading-tight"
+              style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}
+            >
+              Kauçuğun En İyisiyle Ortaklık Kurun
+            </h2>
+            <p className="text-lg leading-relaxed mb-10 max-w-[52ch] mx-auto" style={{ color: 'rgba(172,199,255,0.8)' }}>
+              İhtiyaçlarınızı görüşmeye hazır mısınız? Uzmanlarımız sektörünüze en uygun
+              koruyucu çözümü bulmada size yardımcı olacaktır. Teklif ve sorularınız için
+              doğrudan bize yazın.
+            </p>
+            <a
+              href="mailto:info@lalanmena.com"
+              className="inline-flex items-center gap-3 text-white font-bold px-8 py-4 rounded-lg text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
+              style={{ background: 'linear-gradient(135deg,#003608 0%,#005c14 100%)', boxShadow: '0 8px 24px rgba(0,79,17,0.45)', border: '1px solid rgba(142,198,63,0.3)' }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              info@lalanmena.com
+            </a>
+          </Reveal>
         </div>
       </section>
 
@@ -407,25 +379,9 @@ export default function Home() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/logos/lalanmenalogo.svg" alt="Lalan Mena" width={120} height={40} className="object-contain" />
             </div>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(172,199,255,0.6)' }}>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(172,199,255,0.6)' }}>
               LALAN Rubbers ürünlerinin Türkiye ve MENA bölgesi yetkili distribütörü.
             </p>
-            <div className="flex gap-3">
-              {['linkedin', 'twitter', 'youtube'].map(s => (
-                <a
-                  key={s}
-                  href="#"
-                  className="footer-icon-btn w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
-                  style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(172,199,255,0.1)' }}
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(172,199,255,0.7)" strokeWidth="2">
-                    {s === 'linkedin' && <><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></>}
-                    {s === 'twitter' && <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>}
-                    {s === 'youtube' && <><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></>}
-                  </svg>
-                </a>
-              ))}
-            </div>
           </div>
           {[
             {
@@ -472,11 +428,8 @@ export default function Home() {
           className="max-w-7xl mx-auto px-6 md:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4"
           style={{ borderTop: '1px solid rgba(172,199,255,0.06)' }}
         >
-          <p className="text-xs" style={{ color: 'rgba(172,199,255,0.7)' }}>© 2026 Lalan Mena — Türkiye & MENA Bölgesi Yetkili Distribütörü</p>
-          <div className="flex gap-6">
-            <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.7)' }} href="#">Gizlilik Politikası</a>
-            <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.7)' }} href="#">Kullanım Koşulları</a>
-          </div>
+          <p className="text-xs" style={{ color: 'rgba(172,199,255,0.7)' }}>© 2026 Lalan Mena — Türkiye &amp; MENA Bölgesi Yetkili Distribütörü</p>
+          <a className="text-xs transition-colors hover:text-white" style={{ color: 'rgba(172,199,255,0.7)' }} href="mailto:info@lalanmena.com">info@lalanmena.com</a>
         </div>
       </footer>
 
