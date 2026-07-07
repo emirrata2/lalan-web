@@ -23,11 +23,6 @@ const images = [
   { id: 10, productId: "naturafl-300-11bf",       src: "/products/industrial/naturafl-300-11bf.jpg",       alt: "NaturaFL 300-11BF",       label: "NaturaFL™ 300-11BF",       category: "Endüstriyel"     },
   { id: 11, productId: "naturafl-300-22sf",       src: "/products/industrial/naturafl-300-22sf.webp",      alt: "NaturaFL 300-22SF",       label: "NaturaFL™ 300-22SF",       category: "Endüstriyel"     },
   { id: 12, productId: "naturafl-330-28bf",       src: "/products/industrial/naturafl-330-28bf.webp",      alt: "NaturaFL 330-28BF",       label: "NaturaFL™ 330-28BF",       category: "Endüstriyel"     },
-  { id: 13, productId: "naturahd-330-32b",        src: "/products/industrial/naturahd-330-32b.webp",       alt: "NaturaHD 330-32B",        label: "NaturaHD™ 330-32B",        category: "Ağır Hizmet"     },
-  { id: 14, productId: "naturaul-300-12bf",       src: "/products/industrial/naturaul-300-12bf.webp",      alt: "NaturaUL 300-12BF",       label: "NaturaUL™ 300-12BF",       category: "Hassas"          },
-  { id: 15, productId: "naturaul-300-15bf",       src: "/products/industrial/naturaul-300-15bf.webp",      alt: "NaturaUL 300-15BF",       label: "NaturaUL™ 300-15BF",       category: "Hassas"          },
-  { id: 16, productId: "nbrfl-300-11bf",          src: "/products/industrial/nbrfl-300-11bf.webp",         alt: "NBRFL 300-11BF",          label: "NBRFL™ 300-11BF",          category: "Endüstriyel"     },
-  { id: 17, productId: "nitricl-300-11bf",        src: "/products/industrial/nitricl-300-11bf.webp",       alt: "NitriCL 300-11BF",        label: "NitriCL™ 300-11BF",        category: "Temiz Oda"       },
   { id: 18, productId: "nitroul-330-8sd",         src: "/products/industrial/nitroul-330-8sd.webp",        alt: "NitroUL 330-8SD",         label: "NitroUL™ 330-8SD",         category: "Hassas"          },
   { id: 19, productId: "neo-armor-ultra",         src: "/products/neo/neo-armor-ultra.jpg",                alt: "NEO Armor Ultra",         label: "NEO ARMOR ULTRA™",         category: "Neo Serisi"      },
   { id: 20, productId: "neo-classic-001-a11",     src: "/products/neo/neo-classic-001-a11.jpg",            alt: "NEO Classic 001-A11",     label: "NEO CLASSIC™ 001-A11",     category: "Neo Serisi"      },
@@ -39,7 +34,6 @@ const images = [
   { id: 26, productId: "neo-lite-087-p11",        src: "/products/neo/neo-lite-087-p11.jpg",               alt: "NEO Lite 087-P11",        label: "NEO LITE™ 087-P11",        category: "Neo Serisi"      },
   { id: 27, productId: "neo-lite-ultra-003-p11",  src: "/products/neo/neo-lite-ultra-003-p11.jpg",         alt: "NEO Lite Ultra",          label: "NEO LITE ULTRA™ 003-P11",  category: "Neo Serisi"      },
   { id: 28, productId: "neo-fizz-lite-044-f38",   src: "/products/neo/neo-fizz-lite-044-f38.jpg",          alt: "Neo Fizz Lite",           label: "Neo Fizz Lite™ 044-F38",   category: "Neo Serisi"      },
-  { id: 29, productId: "naturasl-300-11bf",       src: "/products/household/naturasl-300-11bf.png",        alt: "NaturaSL 300-11BF",       label: "NaturaSL™ 300-11BF",       category: "Ev Tipi"         },
 ]
 
 interface VerticalImageStackProps {

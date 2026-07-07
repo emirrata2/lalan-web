@@ -87,12 +87,10 @@ function IconWaterOil() {
 function IconCut() {
   return (
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="9" cy="23" r="4"/>
-      <circle cx="9" cy="9" r="4"/>
-      <line x1="13" y1="11" x2="28" y2="5"/>
-      <line x1="13" y1="21" x2="28" y2="27"/>
-      <line x1="13" y1="11" x2="22" y2="16"/>
-      <line x1="13" y1="21" x2="22" y2="16"/>
+      <path d="M5 6 L20 21"/>
+      <path d="M20 21 L26 24 L23 27 Z" fill="currentColor" stroke="none"/>
+      <path d="M27 6 L13 20"/>
+      <line x1="6" y1="26" x2="12" y2="20"/>
     </svg>
   );
 }
@@ -132,7 +130,7 @@ const ENV_OPTS: { value: EnvValue; label: string; desc: string; Icon: React.FC }
 const PROP_OPTS: { value: PropValue; label: string; desc: string; Icon: React.FC }[] = [
   { value: 'chemical',   label: 'Kimyasal Dayanım',  desc: 'Asit, solvent, kimyasal madde',    Icon: IconChemical },
   { value: 'water-oil',  label: 'Su / Yağ Dayanımı', desc: 'Yağ, su, yakıt, sıvı',            Icon: IconWaterOil },
-  { value: 'cut',        label: 'Kesme Direnci',      desc: 'Keskin kenar, bıçak, cam kırığı', Icon: IconCut },
+  { value: 'cut',        label: 'Kesme Direnci',      desc: 'Keskin kenar, bıçak, sac, cam',   Icon: IconCut },
   { value: 'abrasion',   label: 'Aşınma Direnci',     desc: 'Pürüzlü yüzey, sürtünme, aşınma', Icon: IconAbrasion },
   { value: 'precision',  label: 'Hassas Tutuş',       desc: 'İnce yapı, dokunuş hassasiyeti',  Icon: IconPrecision },
 ];
