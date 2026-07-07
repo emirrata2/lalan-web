@@ -69,6 +69,7 @@ export function GlobePulse({
       const width = canvas.offsetWidth
       if (width === 0 || globe) return
 
+      try {
       globe = createGlobe(canvas, {
         devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
         width,
@@ -106,6 +107,10 @@ export function GlobePulse({
       }
       animate()
       setTimeout(() => canvas && (canvas.style.opacity = "1"))
+      } catch (err) {
+        // WebGL desteklenmeyen cihaz — küre çizilmez, site çalışmaya devam eder.
+        console.warn('Globe (WebGL) devre dışı:', err)
+      }
     }
 
     if (canvas.offsetWidth > 0) {

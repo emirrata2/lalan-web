@@ -40,7 +40,7 @@ export default function Counter({ end, label }: CounterProps) {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.25 }
     );
 
     observer.observe(el);
