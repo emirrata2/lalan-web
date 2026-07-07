@@ -21,10 +21,10 @@ const DARK_GRADIENTS = [
 ];
 
 const globalStats = [
-  { end: '75+',       label: 'İhracat Ülkesi' },
-  { end: '7',         label: 'Üretim Tesisi' },
-  { end: '5',         label: 'Küresel Ofis' },
-  { end: '1 milyar+', label: 'Yıllık Eldiven' },
+  { end: '50+',       label: 'İhracat Ülkesi' },
+  { end: '9',         label: 'Üretim Tesisi' },
+  { end: '6',         label: 'Küresel Ofis' },
+  { end: '2 milyar+', label: 'Yıllık Eldiven' },
 ];
 
 
@@ -146,9 +146,9 @@ export default function Home() {
             >
               {[
                 { n: '80+', l: 'Yıllık Deneyim' },
-                { n: '75+', l: 'İhracat Ülkesi' },
-                { n: '12.000+', l: 'Küresel Çalışan' },
-                { n: '1 milyar+', l: 'Yıllık Eldiven' },
+                { n: '50+', l: 'İhracat Ülkesi' },
+                { n: '10.000+', l: 'Küresel Çalışan' },
+                { n: '2 milyar+', l: 'Yıllık Eldiven' },
               ].map(({ n, l }, i) => (
                 <div key={l} className="flex-1 min-w-[120px] px-6 py-4 text-center" style={{ borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                   <div className="font-black text-white text-xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>{n}</div>
@@ -201,7 +201,7 @@ export default function Home() {
                 Küresel Varlık
               </h2>
               <p className="leading-relaxed mb-10" style={{ color: 'rgba(172,199,255,0.7)' }}>
-                Lalan Group, Sri Lanka merkezinden Avrupa, ABD ve Asya&apos;daki ofislerine kadar 75&apos;ten fazla ülkeye ihracat gerçekleştirmektedir.
+                Lalan Group, Sri Lanka merkezinden Avrupa, Orta Doğu, Asya ve Güney Amerika&apos;daki ofisleriyle 50&apos;den fazla ülkeye ihracat gerçekleştirmektedir.
               </p>
 
               {/* Sayaçlar */}
@@ -254,21 +254,68 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             <Reveal className="md:col-span-5 relative" direction="left">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden" style={{ boxShadow: '0 32px 64px rgba(0,0,0,0.5)', border: '1px solid rgba(142,198,63,0.15)' }}>
+              {/* "Ağaçlardan Ellerinize" — plantasyon (köken) → ürün (varış) */}
+              <div
+                className="relative aspect-[4/5] rounded-2xl overflow-hidden"
+                style={{ boxShadow: '0 32px 64px rgba(0,0,0,0.5)', border: '1px solid rgba(142,198,63,0.15)' }}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  alt="Kauçuk plantasyonu"
-                  src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&w=800&q=85"
-                  className="w-full h-full object-cover"
+                  alt="Lalan kauçuk plantasyonu, Sri Lanka"
+                  src="/images/tarihce/journey-2003.jpg"
+                  className="h-full w-full object-cover"
                 />
+                {/* Marka degrade — üst rozet + alt anlatı okunurluğu için */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(to bottom, rgba(1,8,20,0.55) 0%, transparent 24%, transparent 50%, rgba(1,8,20,0.9) 100%)' }}
+                />
+                {/* Üst-sol: Yönetilen plantasyon alanı istatistiği */}
+                <div
+                  className="absolute left-4 top-4 rounded-xl px-3.5 py-2.5"
+                  style={{ background: 'rgba(0,15,46,0.68)', backdropFilter: 'blur(10px)', border: '1px solid rgba(172,199,255,0.16)' }}
+                >
+                  <div className="font-black leading-none text-white" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: '1.15rem' }}>
+                    68.796.559 m²
+                  </div>
+                  <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.14em]" style={{ color: '#8ec63f' }}>
+                    Yönetilen Plantasyon Alanı
+                  </div>
+                </div>
+                {/* Alt-sol: hikaye anlatısı */}
+                <div className="absolute bottom-5 left-5 right-[42%]">
+                  <div className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: '#8ec63f' }}>
+                    Ağaçtan Ele
+                  </div>
+                  <div className="font-bold leading-snug text-white" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: '0.95rem' }}>
+                    Plantasyondan üretime, tek elden dikey entegrasyon
+                  </div>
+                </div>
               </div>
-              <div
-                className="absolute -bottom-8 -right-4 md:-right-8 p-6 rounded-xl hidden sm:block"
-                style={{ background: 'rgba(0,15,46,0.92)', backdropFilter: 'blur(16px)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(172,199,255,0.12)' }}
+
+              {/* Varış noktası: taşan ürün kartı (öne çıkan gıda-uygun eldiven) */}
+              <Link
+                href="/products/naturafl-300-15bf"
+                className="group absolute -bottom-6 -right-3 hidden w-[47%] max-w-[210px] overflow-hidden rounded-xl sm:block transition-transform duration-200 hover:-translate-y-1"
+                style={{ background: '#ffffff', boxShadow: '0 24px 48px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.55)' }}
               >
-                <div className="font-black text-white text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.559 m²</div>
-                <div className="text-[10px] font-bold uppercase tracking-widest leading-snug mt-1 max-w-[120px]" style={{ color: '#8ec63f' }}>Yönetilen Alan</div>
-              </div>
+                <div className="relative aspect-[5/4] overflow-hidden" style={{ background: '#eef3f9' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    alt="NaturaFL 300-15BF gıdaya uygun eldiven"
+                    src="/products/industrial/naturafl-300-15bf.png"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={{ objectPosition: 'center 52%' }}
+                  />
+                </div>
+                <div className="px-3 py-2.5" style={{ background: '#00153a' }}>
+                  <div className="text-[11px] font-bold leading-tight text-white">NaturaFL™ 300-15BF</div>
+                  <div className="mt-0.5 flex items-center gap-1 text-[9px] font-bold uppercase tracking-[0.12em]" style={{ color: '#8ec63f' }}>
+                    <span className="inline-block h-1 w-1 rounded-full bg-[#8ec63f]" />
+                    Gıdaya Uygun · Kobalt Mavi
+                  </div>
+                </div>
+              </Link>
             </Reveal>
             <Reveal className="md:col-span-7 md:pl-12 pt-4 md:pt-16" direction="right">
               <h2 className="font-black text-white mb-3 tracking-tight" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(2.4rem, 5vw, 3.8rem)' }}>
@@ -277,10 +324,10 @@ export default function Home() {
               <div className="text-sm font-bold uppercase tracking-[0.15em] mb-8" style={{ color: '#8ec63f' }}>Lalan Hakkında</div>
               <div className="space-y-5 text-base md:text-lg leading-relaxed" style={{ color: 'rgba(200,212,232,0.85)' }}>
                 <p>Lalan Group, kauçuk sektöründe dikey entegre yapısıyla faaliyet gösteren çok sektörlü bir konglomerattır. Geniş kauçuk plantasyonlarından dünya standartlarındaki üretim tesislerine uzanan operasyonlarıyla sektörde öncü konumdadır.</p>
-                <p>Beş kıtada kurumsal varlığını sürdüren Lalan, ham lateksi yüksek performanslı koruyucu ekipmana ve endüstriyel çözümlere dönüştürme konusunda küresel otorite olarak tanınmaktadır.</p>
+                <p>Dört kıtada kurumsal varlığını sürdüren Lalan, ham lateksi yüksek performanslı koruyucu ekipmana ve endüstriyel çözümlere dönüştürme konusunda küresel otorite olarak tanınmaktadır.</p>
               </div>
               <div className="grid grid-cols-3 gap-8 pt-10 mt-10" style={{ borderTop: '1px solid rgba(172,199,255,0.12)' }}>
-                {[{ n: '80+', l: 'Yıl' }, { n: '12.000+', l: 'Çalışan' }, { n: '5', l: 'Kıta' }].map(({ n, l }) => (
+                {[{ n: '80+', l: 'Yıl' }, { n: '10.000+', l: 'Çalışan' }, { n: '4', l: 'Kıta' }].map(({ n, l }) => (
                   <div key={l}>
                     <span className="block text-white font-black text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>{n}</span>
                     <span className="block text-xs font-bold uppercase tracking-wider mt-1" style={{ color: '#8ec63f' }}>{l}</span>

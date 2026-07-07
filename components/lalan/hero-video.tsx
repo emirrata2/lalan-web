@@ -135,14 +135,14 @@ export default function HeroVideo() {
       {/* ── Kayan sertifika şeridi ── */}
       <div className="absolute bottom-0 left-0 z-10 w-full pb-8">
         <div className="group relative mx-auto max-w-7xl px-6 md:px-8">
-          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
+          <div className="flex flex-col items-center gap-4">
             <p
-              className="text-xs font-bold uppercase tracking-[0.15em] md:max-w-44 md:border-r md:pr-6 md:text-right"
-              style={{ color: 'rgba(172,199,255,0.6)', borderColor: 'rgba(172,199,255,0.15)' }}
+              className="text-center text-xs font-bold uppercase tracking-[0.15em]"
+              style={{ color: 'rgba(172,199,255,0.6)' }}
             >
               Lalan Rubbers Sertifikaları
             </p>
-            <div className="relative w-full py-2 md:w-[calc(100%-11rem)]">
+            <div className="relative w-full py-2">
               <InfiniteSlider duration={35} durationOnHover={70} gap={20}>
                 {HERO_CERTS.map((cert) => (
                   <div

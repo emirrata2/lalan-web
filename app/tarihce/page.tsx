@@ -14,10 +14,10 @@ const DARK_GRADIENTS = [
 ];
 
 const KEY_STATS = [
-  { n: '1 Milyar+',  l: 'Yıllık Eldiven\nÜretim Kapasitesi', color: '#8ec63f' },
-  { n: '12.000+',    l: 'Küresel Çalışan',                    color: '#5c93d6' },
-  { n: '7',          l: 'Modern Üretim\nTesisi',               color: '#8ec63f' },
-  { n: '75+',        l: 'İhracat Ülkesi',                     color: '#5c93d6' },
+  { n: '2 Milyar+',  l: 'Yıllık Eldiven\nÜretim Kapasitesi', color: '#8ec63f' },
+  { n: '10.000+',    l: 'Küresel Çalışan',                    color: '#5c93d6' },
+  { n: '9',          l: 'Modern Üretim\nTesisi',               color: '#8ec63f' },
+  { n: '50+',        l: 'İhracat Ülkesi',                     color: '#5c93d6' },
   { n: '500.000+',   l: 'Yıllık Fidan\nÜretimi',              color: '#8ec63f' },
   { n: '68.8M m²',   l: 'FSC® Sertifikalı\nAlan',             color: '#5c93d6' },
   { n: '13',         l: 'FSC® Plantasyon\nBölgesi',            color: '#8ec63f' },
@@ -116,8 +116,8 @@ const MILESTONES: Milestone[] = [
   },
   {
     year: '2015–Günümüz',
-    title: 'Üçüncü Genişleme & Beş Kıtada Ticaret',
-    desc: 'Üçüncü üretim genişleme programı üretim kapasitesini büyütür. Ailenin dördüncü nesli işe katılır; Lalan Malaysia, Lalan Brazil, Lalan Turkey ve Lalan Middle East ofisleriyle uluslararası operasyonlar beş kıtaya yayılır. 12.000\'den fazla çalışan, yıllık 1 milyarı aşan üretim kapasitesi.',
+    title: 'Üçüncü Genişleme & Dört Kıtada Ticaret',
+    desc: 'Üçüncü üretim genişleme programı üretim kapasitesini büyütür. Ailenin dördüncü nesli işe katılır; Lalan Malaysia, Lalan Brazil, Lalan Turkey ve Lalan Middle East ofisleriyle uluslararası operasyonlar dört kıtaya yayılır. 10.000\'den fazla çalışan, yıllık 2 milyarı aşan üretim kapasitesi.',
     highlight: true,
     img: '/images/tarihce/journey-2015-present.jpg',
     imgAlt: '2015–Günümüz — Küresel liderlik',
@@ -162,8 +162,8 @@ export default function TarihcePage() {
             <span style={{ color: '#8ec63f' }}>Kauçuk Mirası</span>
           </h1>
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: 'rgba(200,212,232,0.7)' }}>
-            1940&apos;ta Sri Lanka&apos;da başlayan bir ticaret macerası, bugün beş kıtada faaliyet gösteren
-            ve yılda 1 milyarı aşkın eldiven üreten küresel bir kauçuk devi haline geldi.
+            1940&apos;ta Sri Lanka&apos;da başlayan bir ticaret macerası, bugün dört kıtada faaliyet gösteren
+            ve yılda 2 milyarı aşkın eldiven üreten küresel bir kauçuk devi haline geldi.
           </p>
         </div>
 

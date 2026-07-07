@@ -38,8 +38,8 @@ const SEGMENTS = [
       </svg>
     ),
     title: 'Kauçuk İmalatı',
-    desc: 'Sri Lanka başta olmak üzere 7 üretim tesisinde doğal lateksin yüksek performanslı koruyucu eldivenlere ve endüstriyel ürünlere dönüştürüldüğü entegre üretim.',
-    stat: '7',
+    desc: 'Sri Lanka başta olmak üzere 9 üretim tesisinde doğal lateksin yüksek performanslı koruyucu eldivenlere ve endüstriyel ürünlere dönüştürüldüğü entegre üretim.',
+    stat: '9',
     statLabel: 'Üretim Tesisi',
   },
   {
@@ -62,8 +62,8 @@ const SEGMENTS = [
       </svg>
     ),
     title: 'Ticaret & Dağıtım',
-    desc: '75\'ten fazla ülkede yetkili distribütörler aracılığıyla küresel satış ve lojistik ağı. Türkiye ve MENA bölgesinin yetkili distribütörü olarak hizmet veriyoruz.',
-    stat: '75+',
+    desc: '50\'den fazla ülkede yetkili distribütörler aracılığıyla küresel satış ve lojistik ağı. Türkiye ve MENA bölgesinin yetkili distribütörü olarak hizmet veriyoruz.',
+    stat: '50+',
     statLabel: 'İhracat Ülkesi',
   },
 ];
@@ -71,20 +71,22 @@ const SEGMENTS = [
 const FACTS = [
   { n: '1940',    l: 'Kuruluş Yılı' },
   { n: '80+',     l: 'Yıllık Deneyim' },
-  { n: '12.000+', l: 'Küresel Çalışan' },
-  { n: '7',       l: 'Üretim Tesisi' },
-  { n: '75+',     l: 'İhracat Ülkesi' },
-  { n: '5',       l: 'Kıta' },
-  { n: '1 milyar+', l: 'Yıllık Eldiven' },
+  { n: '10.000+', l: 'Küresel Çalışan' },
+  { n: '9',       l: 'Üretim Tesisi' },
+  { n: '50+',     l: 'İhracat Ülkesi' },
+  { n: '4',       l: 'Kıta' },
+  { n: '2 milyar+', l: 'Yıllık Eldiven' },
   { n: '68M+ m²', l: 'Yönetilen Alan' },
 ];
 
 const OFFICES = [
-  { city: 'Colombo', country: 'Sri Lanka', role: 'Genel Merkez', primary: true },
-  { city: 'Londra',  country: 'İngiltere', role: 'Avrupa Ofisi', primary: false },
-  { city: 'Dubai',   country: 'BAE',       role: 'MENA Ofisi',   primary: false },
-  { city: 'Houston', country: 'ABD',       role: 'Amerika Ofisi', primary: false },
-  { city: 'İstanbul', country: 'Türkiye',  role: 'Yetkili Distribütör', primary: false },
+  { city: 'Colombo',      country: 'Sri Lanka', role: 'Genel Merkez',         primary: true },
+  { city: 'İstanbul',     country: 'Türkiye',   role: 'Türkiye & MENA Distribütörü', primary: false },
+  { city: 'Sohar',        country: 'Umman',     role: 'Orta Doğu Ofisi',      primary: false },
+  { city: 'Tunus',        country: 'Tunus',     role: 'Kuzey Afrika Ofisi',   primary: false },
+  { city: 'Londra',       country: 'İngiltere', role: 'Avrupa Ofisi',         primary: false },
+  { city: 'Kuala Lumpur', country: 'Malezya',   role: 'Asya-Pasifik Ofisi',   primary: false },
+  { city: 'São Paulo',    country: 'Brezilya',  role: 'Güney Amerika Ofisi',  primary: false },
 ];
 
 export default function LalanHakkindaPage() {
@@ -161,7 +163,7 @@ export default function LalanHakkindaPage() {
                   Geniş kauçuk plantasyonlarından dünya standartlarındaki üretim tesislerine uzanan operasyonlarıyla sektörde öncü konumdadır.
                 </p>
                 <p>
-                  Beş kıtada kurumsal varlığını sürdüren Lalan, ham lateksi yüksek performanslı koruyucu ekipmana ve
+                  Dört kıtada kurumsal varlığını sürdüren Lalan, ham lateksi yüksek performanslı koruyucu ekipmana ve
                   endüstriyel çözümlere dönüştürme konusunda küresel otorite olarak tanınmaktadır.
                 </p>
                 <p>
@@ -173,7 +175,7 @@ export default function LalanHakkindaPage() {
 
               {/* Temel istatistikler */}
               <div className="grid grid-cols-3 gap-6 pt-10" style={{ borderTop: '1px solid rgba(172,199,255,0.12)' }}>
-                {[{ n: '80+', l: 'Yıl' }, { n: '12.000+', l: 'Çalışan' }, { n: '5', l: 'Kıta' }].map(({ n, l }) => (
+                {[{ n: '80+', l: 'Yıl' }, { n: '10.000+', l: 'Çalışan' }, { n: '4', l: 'Kıta' }].map(({ n, l }) => (
                   <div key={l}>
                     <span className="block text-white font-black text-2xl md:text-3xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>{n}</span>
                     <span className="block text-xs font-bold uppercase tracking-wider mt-1" style={{ color: '#8ec63f' }}>{l}</span>
@@ -322,8 +324,8 @@ export default function LalanHakkindaPage() {
                 { year: '1956', title: 'İlk Uluslararası İhracat', desc: 'Yurt içi ticaretten uluslararası pazarlara açılım — küresel büyümenin ilk adımı.' },
                 { year: '1987', title: 'Lalan Rubbers Doğuyor', desc: 'Warakapola\'da ilk kauçuk eldiven üretim tesisi faaliyete geçer; eldiven üretimi grubun temel faaliyet alanına dönüşür.' },
                 { year: '1988–1998', title: 'Hızlı Genişleme', desc: '1 tesisten 6 tesise ulaşılır; ihracat ağı derinleşir ve kapasite Sri Lanka genelinde hızla büyür.' },
-                { year: '2000\'ler', title: 'Küresel Ofisler', desc: 'Londra, Dubai, Houston ve İstanbul\'da ofisler açılır; 75\'ten fazla ülkeye doğrudan ihracat başlar.' },
-                { year: 'Bugün', title: 'Dünya Lideri', desc: 'Yılda 1 milyar\'ı aşkın eldiven üretim kapasitesi, 12.000+ çalışan ve 5 kıtada sürdürülebilir kauçuk çözümleri.' },
+                { year: '2000\'ler', title: 'Küresel Ofisler', desc: 'Londra, İstanbul, Umman, Malezya ve Brezilya\'da uluslararası ofisler açılır; 50\'den fazla ülkeye doğrudan ihracat başlar.' },
+                { year: 'Bugün', title: 'Dünya Lideri', desc: 'Yılda 2 milyar\'ı aşkın eldiven üretim kapasitesi, 10.000+ çalışan ve 4 kıtada sürdürülebilir kauçuk çözümleri.' },
               ].map(({ year, title, desc }) => (
                 <Reveal key={year}>
                   <div className="flex gap-6 items-start">
