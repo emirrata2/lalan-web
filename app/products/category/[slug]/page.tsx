@@ -138,6 +138,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 <img
                   src={product.img}
                   alt={product.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
                   style={{ mixBlendMode: 'lighten' }}
                 />

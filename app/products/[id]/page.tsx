@@ -24,6 +24,8 @@ export async function generateStaticParams() {
   return PRODUCTS.map(p => ({ id: p.id }));
 }
 
+const SITE_URL = 'https://lalanmena.com';
+
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const product = PRODUCTS.find(p => p.id === id);
@@ -31,6 +33,12 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${product.name} | Lalan Rubbers`,
     description: product.desc,
+    openGraph: {
+      title: `${product.name} | Lalan Rubbers`,
+      description: product.desc,
+      images: [{ url: product.img, alt: product.name }],
+      type: 'website',
+    },
   };
 }
 
@@ -41,6 +49,17 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
   const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 3);
 
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.desc,
+    image: `${SITE_URL}${product.img}`,
+    category: product.categoryLabel,
+    material: MATERIAL_LABEL[product.material] ?? product.material,
+    brand: { '@type': 'Brand', name: 'Lalan Rubbers' },
+  };
+
   return (
     <GradientBackground
       gradients={DARK_GRADIENTS}
@@ -48,6 +67,10 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
       className="min-h-screen"
       style={{ fontFamily: 'var(--font-inter), sans-serif', color: '#e8edf5' }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <LalanNav />
 
       <main className="max-w-7xl mx-auto px-4 md:px-8 pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-24">

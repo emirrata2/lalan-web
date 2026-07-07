@@ -468,7 +468,7 @@ export default function GloveFinder() {
                   >
                     <div className="h-40 mb-4 rounded-lg overflow-hidden flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={p.img} alt={p.name} className="h-full w-full object-contain p-2" />
+                      <img src={p.img} alt={p.name} loading="lazy" decoding="async" className="h-full w-full object-contain p-2" />
                     </div>
                     <div className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: '#8ec63f' }}>{p.categoryLabel}</div>
                     <div className="font-bold text-white text-base mb-2 leading-tight">{p.name}</div>

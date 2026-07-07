@@ -291,7 +291,7 @@ export default function GloveFinderMini() {
                     >
                       <div className="w-10 h-10 rounded-lg flex-shrink-0 overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={p.img} alt={p.name} className="w-full h-full object-contain p-1" />
+                        <img src={p.img} alt={p.name} loading="lazy" decoding="async" className="w-full h-full object-contain p-1" />
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="font-bold text-white text-xs truncate">{p.name}</div>

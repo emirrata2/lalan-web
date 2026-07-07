@@ -152,6 +152,8 @@ function ProductCard({ product }: { product: Product }) {
         <img
           src={product.img}
           alt={product.name}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-contain p-6"
           style={{
             mixBlendMode: 'lighten',

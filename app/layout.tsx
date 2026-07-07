@@ -30,12 +30,33 @@ export const metadata: Metadata = {
     siteName: "Lalan MENA",
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Lalan MENA — Ağaçlardan Ellerinize",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+    images: ["/og-image.png"],
   },
+};
+
+const ORGANIZATION_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Lalan MENA",
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  email: "info@lalanmena.com",
+  logo: `${SITE_URL}/logos/lalanmenalogo.svg`,
+  areaServed: ["TR", "MENA"],
+  slogan: "Ağaçlardan Ellerinize",
 };
 
 export default function RootLayout({
@@ -49,7 +70,13 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

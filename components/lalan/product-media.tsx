@@ -109,6 +109,8 @@ export default function ProductMedia({ product }: { product: Product }) {
           <img
             src={product.img}
             alt={product.name}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-contain"
             style={{ mixBlendMode: 'lighten', padding: '12px' }}
           />
