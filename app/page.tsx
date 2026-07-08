@@ -2,6 +2,7 @@
 import LalanNav from '@/components/lalan/nav';
 import HeroVideo from '@/components/lalan/hero-video';
 import GloveFinderSection from '@/components/lalan/glove-finder-section';
+import JourneyTimeline from '@/components/lalan/journey-timeline';
 import SustainabilitySection from '@/components/lalan/sustainability';
 import Counter from '@/components/lalan/counter';
 import Reveal from '@/components/lalan/reveal';
@@ -56,12 +57,6 @@ export default function Home() {
 
             {/* Sol: Ürün tanıtımı */}
             <div style={{ opacity: 0, animation: 'fadeUp 0.9s 0.35s cubic-bezier(0.16,1,0.3,1) forwards' }}>
-              <span
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase mb-6"
-                style={{ background: 'rgba(18,85,168,0.18)', color: '#5c93d6', border: '1px solid rgba(92,147,214,0.3)' }}
-              >
-                Öne Çıkan Ürün · Gıdaya Uygun
-              </span>
               <h2
                 className="font-black text-white leading-[1.1] tracking-tight mb-5"
                 style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(1.9rem, 3.5vw, 2.9rem)' }}
@@ -252,72 +247,8 @@ export default function Home() {
       {/* ── Hakkımızda ── */}
       <section id="about" className="py-28 md:py-36 relative section-fade" style={{ scrollMarginTop: '80px' }}>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-            <Reveal className="md:col-span-5 relative" direction="left">
-              {/* "Ağaçlardan Ellerinize" — plantasyon (köken) → ürün (varış) */}
-              <div
-                className="relative aspect-[4/5] rounded-2xl overflow-hidden"
-                style={{ boxShadow: '0 32px 64px rgba(0,0,0,0.5)', border: '1px solid rgba(142,198,63,0.15)' }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  alt="Lalan kauçuk plantasyonu, Sri Lanka"
-                  src="/images/tarihce/journey-2003.jpg"
-                  className="h-full w-full object-cover"
-                />
-                {/* Marka degrade — üst rozet + alt anlatı okunurluğu için */}
-                <div
-                  className="absolute inset-0"
-                  style={{ background: 'linear-gradient(to bottom, rgba(1,8,20,0.55) 0%, transparent 24%, transparent 50%, rgba(1,8,20,0.9) 100%)' }}
-                />
-                {/* Üst-sol: Yönetilen plantasyon alanı istatistiği */}
-                <div
-                  className="absolute left-4 top-4 rounded-xl px-3.5 py-2.5"
-                  style={{ background: 'rgba(0,15,46,0.68)', backdropFilter: 'blur(10px)', border: '1px solid rgba(172,199,255,0.16)' }}
-                >
-                  <div className="font-black leading-none text-white" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: '1.15rem' }}>
-                    68.796.559 m²
-                  </div>
-                  <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.14em]" style={{ color: '#8ec63f' }}>
-                    Yönetilen Plantasyon Alanı
-                  </div>
-                </div>
-                {/* Alt-sol: hikaye anlatısı */}
-                <div className="absolute bottom-5 left-5 right-[42%]">
-                  <div className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: '#8ec63f' }}>
-                    Ağaçtan Ele
-                  </div>
-                  <div className="font-bold leading-snug text-white" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: '0.95rem' }}>
-                    Plantasyondan üretime, tek elden dikey entegrasyon
-                  </div>
-                </div>
-              </div>
-
-              {/* Varış noktası: taşan ürün kartı (öne çıkan gıda-uygun eldiven) */}
-              <Link
-                href="/products/naturafl-300-15bf"
-                className="group absolute -bottom-6 -right-3 hidden w-[47%] max-w-[210px] overflow-hidden rounded-xl sm:block transition-transform duration-200 hover:-translate-y-1"
-                style={{ background: '#ffffff', boxShadow: '0 24px 48px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.55)' }}
-              >
-                <div className="relative aspect-[5/4] overflow-hidden" style={{ background: '#eef3f9' }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    alt="NaturaFL 300-15BF gıdaya uygun eldiven"
-                    src="/products/industrial/naturafl-300-15bf.png"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    style={{ objectPosition: 'center 52%' }}
-                  />
-                </div>
-                <div className="px-3 py-2.5" style={{ background: '#00153a' }}>
-                  <div className="text-[11px] font-bold leading-tight text-white">NaturaFL™ 300-15BF</div>
-                  <div className="mt-0.5 flex items-center gap-1 text-[9px] font-bold uppercase tracking-[0.12em]" style={{ color: '#8ec63f' }}>
-                    <span className="inline-block h-1 w-1 rounded-full bg-[#8ec63f]" />
-                    Gıdaya Uygun · Kobalt Mavi
-                  </div>
-                </div>
-              </Link>
-            </Reveal>
-            <Reveal className="md:col-span-7 md:pl-12 pt-4 md:pt-16" direction="right">
+          <div className="max-w-3xl">
+            <Reveal direction="right">
               <h2 className="font-black text-white mb-3 tracking-tight" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(2.4rem, 5vw, 3.8rem)' }}>
                 Lalan
               </h2>
@@ -346,6 +277,46 @@ export default function Home() {
               </div>
             </Reveal>
           </div>
+
+          {/* Keşfet — plantasyon / sürdürülebilirlik / kalite yönlendirmeleri */}
+          <Reveal className="mt-16 md:mt-20">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+              {[
+                { href: '/plantasyonlar',    img: '/images/tarihce/journey-2003.jpg',      fit: 'center',     kicker: 'Hammadde', title: 'Plantasyonlar',     desc: 'Lalan\'ın 17.000 dönümü aşan kendi plantasyonlarından sürdürülebilir kauçuk.' },
+                { href: '/surdurulebilirlik', img: '/images/tarihce/journey-2009-2014.jpg', fit: 'center',     kicker: 'Çevre',    title: 'Sürdürülebilirlik', desc: 'FSC sertifikalı ormancılık, yenilenebilir enerji ve sıfır orman kaybı ilkesi.' },
+                { href: '/sertifikalar',      img: '/glove-industrial.jpg',                 fit: 'center 38%', kicker: 'Kalite',   title: 'Sertifikalar',      desc: 'ISO 9001, ISO 13485, FDA ve FSC dahil bağımsız kalite belgeleri.' },
+              ].map((c) => (
+                <Link
+                  key={c.href}
+                  href={c.href}
+                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl"
+                  style={{ border: '1px solid rgba(142,198,63,0.15)', background: '#0a1a2b' }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={c.img}
+                    alt={c.title}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={{ objectPosition: c.fit }}
+                  />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(1,8,20,0.96) 0%, rgba(1,8,20,0.72) 20%, rgba(1,8,20,0.12) 50%, transparent 72%)' }} />
+                  <div className="absolute inset-x-0 bottom-0 p-5">
+                    <div className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: '#8ec63f' }}>{c.kicker}</div>
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className="font-black text-white" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: '1.2rem' }}>{c.title}</h3>
+                      <svg className="flex-shrink-0 transition-transform duration-200 group-hover:translate-x-1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8ec63f" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                    </div>
+                    <p className="mt-1.5 text-xs leading-relaxed" style={{ color: 'rgba(200,212,232,0.72)' }}>{c.desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Özet yolculuk timeline'ı (tarihçe varyasyonu) */}
+          <Reveal>
+            <JourneyTimeline />
+          </Reveal>
 
         </div>
       </section>

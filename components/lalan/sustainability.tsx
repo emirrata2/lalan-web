@@ -47,7 +47,7 @@ export default function SustainabilitySection() {
               <div className="h-8 w-px bg-[#8ec63f]/20 hidden sm:block" />
               <div>
                 <span className="block text-white font-black text-3xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>Sıfır</span>
-                <span className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-wider">Ormansızlaşma Politikası</span>
+                <span className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-wider">Orman Kaybı Politikası</span>
               </div>
               <div className="h-8 w-px bg-[#8ec63f]/20 hidden sm:block" />
               <div>

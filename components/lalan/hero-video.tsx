@@ -57,20 +57,6 @@ export default function HeroVideo() {
       {/* ── Hero içeriği ── */}
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl flex-col justify-center px-6 pb-40 pt-32 md:px-8 lg:pt-40">
         <div className="max-w-2xl">
-          <span
-            className="mb-8 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em]"
-            style={{
-              background: 'rgba(0,79,17,0.85)',
-              color: '#8ec63f',
-              border: '1px solid rgba(175,220,120,0.25)',
-              opacity: 0,
-              animation: 'fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) forwards',
-            }}
-          >
-            <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#8ec63f]" />
-            1940&apos;tan Bu Yana Öncülük
-          </span>
-
           <h1
             className="font-black leading-[1.05] tracking-[-0.03em] text-white"
             style={{
@@ -144,9 +130,10 @@ export default function HeroVideo() {
             </p>
             <div className="relative w-full py-2">
               <InfiniteSlider duration={35} durationOnHover={70} gap={20}>
-                {HERO_CERTS.map((cert) => (
+                {/* Yeterli genişlik için sertifikalar tekrarlanır — kesintisiz sonsuz döngü */}
+                {[...HERO_CERTS, ...HERO_CERTS, ...HERO_CERTS].map((cert, i) => (
                   <div
-                    key={cert.name}
+                    key={`${cert.name}-${i}`}
                     className="flex h-[84px] w-[84px] shrink-0 items-center justify-center rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-0.5"
                     title={cert.name}
                   >

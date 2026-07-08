@@ -4,7 +4,7 @@ import { GradientBackground } from '@/components/ui/gradient-background';
 
 export const metadata = {
   title: 'Sürdürülebilirlik | Lalan MENA',
-  description: 'Lalan Group\'un FSC sertifikalı plantasyonları, sıfır ormansızlaşma politikası ve çevresel sorumluluk taahhüdü.',
+  description: 'Lalan Group\'un FSC sertifikalı plantasyonları, sıfır orman kaybı politikası ve çevresel sorumluluk taahhüdü.',
 };
 
 const DARK_GRADIENTS = [
@@ -29,9 +29,9 @@ const PILLARS = [
         <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
       </svg>
     ),
-    title: 'Sıfır Ormansızlaşma Politikası',
+    title: 'Sıfır Orman Kaybı Politikası',
     desc: 'Lalan\'ın tüm plantasyon alanları mevcut orman alanlarını koruyacak şekilde planlanmıştır. Doğal habitatların tahrip edilmemesi Lalan\'ın temel ilkeleri arasındadır.',
-    stat: '0', statLabel: 'Ormansızlaşma',
+    stat: '0', statLabel: 'Orman Kaybı',
   },
   {
     icon: (
