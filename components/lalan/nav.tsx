@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import GloveFinderMini from './glove-finder-mini';
 
 const LALAN_HAKKINDA = [
   { label: 'Lalan', href: '/lalan-hakkinda' },
@@ -18,9 +17,7 @@ export default function LalanNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [finderOpen, setFinderOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const finderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -32,9 +29,6 @@ export default function LalanNav() {
     const onClick = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setDropdownOpen(false);
-      }
-      if (finderRef.current && !finderRef.current.contains(e.target as Node)) {
-        setFinderOpen(false);
       }
     };
     document.addEventListener('mousedown', onClick);
@@ -95,39 +89,20 @@ export default function LalanNav() {
             </Link>
           ))}
 
-          {/* Eldiven Bulucu dropdown */}
-          <div className="relative" ref={finderRef}>
-            <button
-              onClick={() => { setFinderOpen(v => !v); setDropdownOpen(false); }}
-              className="flex items-center gap-1.5 text-sm font-semibold transition-all duration-200"
-              style={{ color: finderOpen ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.75)' }}
-            >
-              Eldiven Bulucu
-              <svg
-                width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
-                className="transition-transform duration-200"
-                style={{ transform: finderOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </button>
-
-            {finderOpen && (
-              <div
-                className="absolute top-full right-0 mt-3 w-[380px]"
-                onClick={(e) => {
-                  if ((e.target as HTMLElement).closest('a')) setFinderOpen(false);
-                }}
-              >
-                <GloveFinderMini />
-              </div>
-            )}
-          </div>
+          {/* Eldiven Bulucu — doğrudan sayfaya git */}
+          <Link
+            href="/eldiven-bulucu"
+            className="text-sm font-semibold transition-all duration-200 relative group"
+            style={{ color: 'rgba(255,255,255,0.75)' }}
+          >
+            Eldiven Bulucu
+            <span className="absolute -bottom-1 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300" style={{ background: '#8ec63f' }} />
+          </Link>
 
           {/* LALAN Hakkında dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
-              onClick={() => { setDropdownOpen(v => !v); setFinderOpen(false); }}
+              onClick={() => setDropdownOpen(v => !v)}
               className="flex items-center gap-1.5 text-sm font-semibold transition-all duration-200"
               style={{ color: dropdownOpen ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.75)' }}
             >

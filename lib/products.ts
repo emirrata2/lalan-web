@@ -41,7 +41,9 @@ export const PRODUCTS: Product[] = [
     pictograms: {
       images: [
         { src: '/pictograms/ce-cat3.png',           label: 'CE KKD Kategori III' },
-        { src: '/pictograms/jkot.png',              label: 'JKOT Kimyasalları' },
+        { src: '/pictograms/en-388.png',            label: 'EN 388:2016 — 4102X' },
+        { src: '/pictograms/ajklmnopt.png',         label: 'EN ISO 374-1 Tip A · AJKLMNOPT' },
+        { src: '/pictograms/en-374-5-virus.png',    label: 'EN ISO 374-5 · Virüs Koruması' },
         { src: '/pictograms/gidaya-uygun.png',      label: 'Gıdaya Uygun' },
         { src: '/pictograms/en-iso-21420.png',      label: 'EN ISO 21420' },
       ],
@@ -64,9 +66,9 @@ export const PRODUCTS: Product[] = [
     video: '/videos/naturafl-300-15bf.mp4',
     pictograms: {
       images: [
-        { src: '/pictograms/ce-2777.png',      label: 'CE 2777 KKD Kategori I' },
-        { src: '/pictograms/en-iso-374.png',   label: 'EN ISO 374-1 Kimyasal' },
-        { src: '/pictograms/jkot.png',         label: 'JKOT Kimyasalları' },
+        { src: '/pictograms/ce-2777.png',      label: 'CE 2777 · KKD Kategori III' },
+        { src: '/pictograms/en-388.png',       label: 'EN 388:2016 — 1020X' },
+        { src: '/pictograms/kmo.png',          label: 'EN ISO 374-1 Tip B · KMO' },
         { src: '/pictograms/gidaya-uygun.png', label: 'Gıdaya Uygun' },
         { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
       ],

@@ -111,8 +111,8 @@ export default function ProductMedia({ product }: { product: Product }) {
             alt={product.name}
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-contain"
-            style={{ mixBlendMode: 'lighten', padding: '12px' }}
+            className="w-full h-full object-cover"
+            style={{ mixBlendMode: 'lighten' }}
           />
         </div>
       )}

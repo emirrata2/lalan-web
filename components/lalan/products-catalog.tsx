@@ -154,7 +154,7 @@ function ProductCard({ product }: { product: Product }) {
           alt={product.name}
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-contain p-6"
+          className="w-full h-full object-cover"
           style={{
             mixBlendMode: 'lighten',
             transition: 'transform 0.65s cubic-bezier(0.16,1,0.3,1)',
