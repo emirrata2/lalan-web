@@ -346,6 +346,13 @@ export const PRODUCTS: Product[] = [
     color: '#c94000',
     env: ['assembly-general', 'cleaning-household'],
     props: ['abrasion', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4141A' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en420.png', label: 'EN 420 · Genel Gereklilikler' },
+      ],
+    },
   },
   {
     id: 'neo-classic-001-p11',
@@ -360,6 +367,13 @@ export const PRODUCTS: Product[] = [
     color: '#222',
     env: ['assembly-general', 'heavy-industry', 'lab-precision'],
     props: ['abrasion', 'water-oil', 'precision'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131A' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-classic-066-d11',
@@ -374,6 +388,12 @@ export const PRODUCTS: Product[] = [
     color: '#555',
     env: ['assembly-general'],
     props: ['abrasion', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4121X' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-lite-001-d11',
@@ -428,6 +448,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'lab-precision'],
     props: ['abrasion', 'water-oil', 'precision'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 3121X' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-fizz-lite-044-f38',
@@ -442,6 +469,13 @@ export const PRODUCTS: Product[] = [
     color: '#c94000',
     env: ['assembly-general', 'cleaning-household'],
     props: ['abrasion', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4141A' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-armor-2-007-b11',
