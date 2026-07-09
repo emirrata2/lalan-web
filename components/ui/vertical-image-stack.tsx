@@ -18,9 +18,7 @@ const images = [
   { id: 6,  productId: "lalan-strong-x",          src: "/products/disposable/lalan-strong-x.png",          alt: "Lalan Strong X",          label: "Lalan Strong X™",          category: "Tek Kullanımlık" },
   { id: 7,  productId: "lalan-strong-x-esd",      src: "/products/disposable/lalan-strong-x-esd.png",      alt: "Lalan Strong X ESD",      label: "Lalan Strong X ESD™",      category: "Tek Kullanımlık" },
   // ── Tüm ürünler ────────────────────────────────────────────────
-  { id: 8,  productId: "nitrofl-330-18sf",        src: "/products/industrial/nitrofl-330-18sf.png",        alt: "NitroFL 330-18SF",        label: "NitroFL™ 330-18SF",        category: "Endüstriyel"     },
   { id: 9,  productId: "duonpfl-330-24sd",        src: "/products/industrial/duonpfl-330-24sd.jpg",        alt: "DUONPFL 330-24SD",        label: "DUONPFL™ 330-24SD",        category: "Kimyasal"        },
-  { id: 10, productId: "naturafl-300-11bf",       src: "/products/industrial/naturafl-300-11bf.jpg",       alt: "NaturaFL 300-11BF",       label: "NaturaFL™ 300-11BF",       category: "Endüstriyel"     },
   { id: 11, productId: "naturafl-300-22sf",       src: "/products/industrial/naturafl-300-22sf.webp",      alt: "NaturaFL 300-22SF",       label: "NaturaFL™ 300-22SF",       category: "Endüstriyel"     },
   { id: 12, productId: "naturafl-330-28bf",       src: "/products/industrial/naturafl-330-28bf.webp",      alt: "NaturaFL 330-28BF",       label: "NaturaFL™ 330-28BF",       category: "Endüstriyel"     },
   { id: 18, productId: "nitroul-330-8sd",         src: "/products/industrial/nitroul-330-8sd.webp",        alt: "NitroUL 330-8SD",         label: "NitroUL™ 330-8SD",         category: "Hassas"          },

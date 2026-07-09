@@ -186,20 +186,6 @@ export const PRODUCTS: Product[] = [
   },
   // ── KİMYASAL ────────────────────────────────────────────────
   {
-    id: 'nitrofl-330-18sf',
-    name: 'NitroFL™ 330-18SF',
-    category: 'chemical', categoryLabel: 'Kimyasal',
-    img: '/products/chemical/nitrofl-330-18sf.png',
-    material: 'nitrile', length: 'long',
-    tags: ['Kimyasal Direnç', 'Uzun Pazu', 'Süet Astarlı'],
-    features: ['Süet Astarlı', 'Uzatılmış Pazu', 'Anti-slip', 'CE Kat. III'],
-    specs: { 'Uzunluk': '460mm', 'Kalınlık': '0.55mm', 'Renk': 'Mavi', 'Astar': 'Flok' },
-    desc: 'NitroFL serisinin uzun pazu versiyonu. 460mm uzunluğuyla kolları da koruyan nitril eldiven; kimyasal madde kullanımı, tarım ve atık yönetimi uygulamaları için idealdir.',
-    color: '#003885',
-    env: ['heavy-industry', 'lab-precision'],
-    props: ['chemical', 'water-oil', 'abrasion'],
-  },
-  {
     id: 'duonpfl-330-24sd',
     name: 'DUONPFL™ 330-24SD',
     category: 'chemical', categoryLabel: 'Kimyasal',
@@ -212,22 +198,16 @@ export const PRODUCTS: Product[] = [
     color: '#004f11',
     env: ['heavy-industry'],
     props: ['chemical', 'water-oil', 'abrasion'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-cat3.png', label: 'CE · KKD Kategori III' },
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 3121X' },
+        { src: '/pictograms/aklmnop.png', label: 'EN ISO 374-1 Tip A · AKLMNOP' },
+        { src: '/pictograms/en420.png', label: 'EN 420 · Genel Gereklilikler' },
+      ],
+    },
   },
   // ── ENDÜSTRİYEL ───────────────────────────────────────────────
-  {
-    id: 'naturafl-300-11bf',
-    name: 'NaturaFL™ 300-11BF',
-    category: 'industrial', categoryLabel: 'Endüstriyel',
-    img: '/products/industrial/naturafl-300-11bf.png',
-    material: 'natural', length: 'short',
-    tags: ['Doğal Lateks', 'Flok Astarlı', 'Genel Endüstri'],
-    features: ['Doğal Kauçuk', 'Flok Astar', 'Kaymaz Parmak', 'Balık Pulu Tutuş'],
-    specs: { 'Uzunluk': '300mm', 'Kalınlık': '0.50mm', 'Renk': 'Sarı', 'Astar': 'Pamuk flok' },
-    desc: 'Doğal lateksin esnekliğini endüstriyel dayanıklılıkla buluşturan flok astarlı genel endüstri eldiveni. Tarım, genel üretim ve konserve sektörlerine uygundur.',
-    color: '#8c6500',
-    env: ['heavy-industry', 'assembly-general', 'food-kitchen'],
-    props: ['chemical', 'water-oil'],
-  },
   {
     id: 'naturafl-300-22sf',
     name: 'NaturaFL™ 300-22SF',
@@ -241,6 +221,13 @@ export const PRODUCTS: Product[] = [
     color: '#8c6500',
     env: ['food-kitchen', 'assembly-general', 'heavy-industry'],
     props: ['chemical', 'water-oil', 'abrasion'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-cat3.png', label: 'CE · KKD Kategori III' },
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 3011X' },
+        { src: '/pictograms/aklmnop.png', label: 'EN ISO 374-1 Tip A · AKLMNOP' },
+      ],
+    },
   },
   {
     id: 'naturafl-330-28bf',
@@ -255,6 +242,13 @@ export const PRODUCTS: Product[] = [
     color: '#8c6500',
     env: ['heavy-industry'],
     props: ['chemical', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-cat3.png', label: 'CE · KKD Kategori III' },
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 1121A' },
+        { src: '/pictograms/aklmopt.png', label: 'EN ISO 374-1 Tip A · AKLMOPT' },
+      ],
+    },
   },
   // ── EV TİPİ ──────────────────────────────────────────────────
   {
@@ -270,6 +264,15 @@ export const PRODUCTS: Product[] = [
     color: '#003885',
     env: ['cleaning-household', 'assembly-general', 'heavy-industry'],
     props: ['chemical', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-cat3.png', label: 'CE · KKD Kategori III' },
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 2001X' },
+        { src: '/pictograms/jkpt.png', label: 'EN ISO 374-1 Tip B · JKPT' },
+        { src: '/pictograms/en-374-5-virus.png', label: 'EN ISO 374-5 · Virüs Koruması' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   // ── DİKİŞSİZ İŞ ELDİVENLERİ ─────────────────────────────────
   {
