@@ -89,6 +89,11 @@ export const PRODUCTS: Product[] = [
     env: ['food-kitchen', 'assembly-general', 'cleaning-household'],
     props: ['disposable', 'precision'],
     datasheet: '/documents/lalan-2-8.pdf',
+    pictograms: {
+      images: [
+        { src: '/pictograms/gidaya-uygun.png', label: 'Gıdaya Uygun' },
+      ],
+    },
   },
   {
     id: 'lalan-lite-3-2',
@@ -104,6 +109,13 @@ export const PRODUCTS: Product[] = [
     env: ['food-kitchen', 'lab-precision', 'assembly-general', 'heavy-industry'],
     props: ['disposable', 'chemical', 'precision'],
     datasheet: '/documents/lalan-lite-3-2.pdf',
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-2777.png',      label: 'CE 2777 · KKD Kategori III' },
+        { src: '/pictograms/jkot.png',         label: 'EN ISO 374-1 Tip B · JKOT' },
+        { src: '/pictograms/gidaya-uygun.png', label: 'Gıdaya Uygun' },
+      ],
+    },
   },
   {
     id: 'lalan-strong-f',
@@ -119,6 +131,13 @@ export const PRODUCTS: Product[] = [
     env: ['assembly-general', 'heavy-industry', 'lab-precision', 'food-kitchen'],
     props: ['disposable', 'chemical'],
     datasheet: '/documents/lalan-strong-f.pdf',
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-2777.png',      label: 'CE 2777 · KKD Kategori III' },
+        { src: '/pictograms/jkot.png',         label: 'EN ISO 374-1 Tip B · JKOT' },
+        { src: '/pictograms/gidaya-uygun.png', label: 'Gıdaya Uygun' },
+      ],
+    },
   },
   {
     id: 'lalan-strong-x',
@@ -134,6 +153,13 @@ export const PRODUCTS: Product[] = [
     env: ['assembly-general', 'heavy-industry', 'lab-precision', 'food-kitchen'],
     props: ['disposable', 'chemical'],
     datasheet: '/documents/lalan-strong-x.pdf',
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-2777.png',      label: 'CE 2777 · KKD Kategori III' },
+        { src: '/pictograms/jkot.png',         label: 'EN ISO 374-1 Tip B · JKOT' },
+        { src: '/pictograms/gidaya-uygun.png', label: 'Gıdaya Uygun' },
+      ],
+    },
   },
   {
     id: 'lalan-strong-x-esd',
@@ -149,6 +175,14 @@ export const PRODUCTS: Product[] = [
     env: ['lab-precision', 'assembly-general', 'heavy-industry', 'food-kitchen'],
     props: ['disposable', 'chemical', 'precision'],
     datasheet: '/documents/lalan-strong-x-esd.pdf',
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-2777.png',      label: 'CE 2777 · KKD Kategori III' },
+        { src: '/pictograms/jkot.png',         label: 'EN ISO 374-1 Tip B · JKOT' },
+        { src: '/pictograms/en-16350.png',     label: 'EN 16350 · ESD Antistatik' },
+        { src: '/pictograms/gidaya-uygun.png', label: 'Gıdaya Uygun' },
+      ],
+    },
   },
   // ── KİMYASAL ────────────────────────────────────────────────
   {
@@ -251,6 +285,12 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131A' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-classic-001-a11',
@@ -265,6 +305,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general'],
     props: ['abrasion'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131A' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-classic-031-a11',
@@ -279,6 +326,12 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general'],
     props: ['abrasion'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4121X' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-classic-044-f38',
@@ -335,6 +388,12 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'lab-precision'],
     props: ['abrasion', 'precision'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131X' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-lite-087-p11',
@@ -349,6 +408,12 @@ export const PRODUCTS: Product[] = [
     color: '#1a3a8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'water-oil', 'precision'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 3121A' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-lite-ultra-003-p11',
@@ -391,6 +456,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X43B' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-armor-2-056-q11',
@@ -405,6 +477,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X43B' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-armor-3-017-b11',
@@ -419,6 +498,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X43C' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-armor-3-036-q11',
@@ -433,6 +519,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X43C' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-armor-3-185-q11',
@@ -447,6 +540,12 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'cut', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 3X42C' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-armor-4-032-b11',
@@ -461,6 +560,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'cut', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X44E' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-armor-6-188-q11',
@@ -475,6 +581,12 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X42F' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-chem-1-121-x96',
@@ -489,6 +601,16 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['heavy-industry', 'lab-precision', 'assembly-general'],
     props: ['chemical'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/ce-2777.png', label: 'CE 2777 · KKD Kategori III' },
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4142A' },
+        { src: '/pictograms/jklmno.png', label: 'EN ISO 374-1 Tip A · JKLMNO' },
+        { src: '/pictograms/en-374-5-virus.png', label: 'EN ISO 374-5 · Virüs Koruması' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-fizz-042-d76',
@@ -503,6 +625,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131A' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-frost-077-f11',
@@ -517,6 +646,14 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['heavy-industry', 'assembly-general'],
     props: ['abrasion', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4232B' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-511.png', label: 'EN 511 · Soğuk Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
   {
     id: 'neo-pure-5-091-c00',
@@ -531,6 +668,13 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['lab-precision', 'assembly-general'],
     props: ['cut', 'water-oil'],
+    pictograms: {
+      images: [
+        { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 2X4XE' },
+        { src: '/pictograms/en-407.png', label: 'EN 407 · Isı ve Ateş Riski' },
+        { src: '/pictograms/en-iso-21420.png', label: 'EN ISO 21420' },
+      ],
+    },
   },
 ];
 
