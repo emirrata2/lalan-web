@@ -11,13 +11,12 @@ const CAT_OPTIONS = [
   { id: 'disposable', label: 'Tek Kullanımlık' },
   { id: 'industrial', label: 'Endüstriyel' },
   { id: 'household',  label: 'Ev Tipi' },
-  { id: 'seamless',   label: 'Dikişsiz İş Eldiveni' },
+  { id: 'seamless',   label: 'Dikişsiz Örme Eldiven' },
 ] as const;
 
 const MAT_OPTIONS = [
   { id: 'natural',  label: 'Doğal Lateks' },
   { id: 'nitrile',  label: 'Nitril Kauçuk' },
-  { id: 'nbr',      label: 'NBR Kauçuk' },
 ] as const;
 
 const PROP_OPTIONS = [
@@ -28,18 +27,9 @@ const PROP_OPTIONS = [
   { id: 'precision', label: 'Hassas İş' },
 ] as const;
 
-const ENV_OPTIONS = [
-  { id: 'heavy-industry',    label: 'Ağır Sanayi' },
-  { id: 'assembly-general',  label: 'Genel Montaj' },
-  { id: 'lab-precision',     label: 'Lab & Hassas' },
-  { id: 'food-kitchen',      label: 'Gıda & Mutfak' },
-  { id: 'cleaning-household',label: 'Ev Temizliği' },
-] as const;
-
 const MATERIAL_LABEL: Record<string, string> = {
   natural:              'Doğal Lateks',
   nitrile:              'Nitril Kauçuk',
-  nbr:                  'NBR Kauçuk',
 };
 
 // ── Generic helpers ───────────────────────────────────────────
@@ -247,30 +237,27 @@ export default function ProductsCatalog() {
   const [selCats,  setSelCats]  = useState<Set<string>>(new Set());
   const [selMats,  setSelMats]  = useState<Set<string>>(new Set());
   const [selProps, setSelProps] = useState<Set<string>>(new Set());
-  const [selEnvs,  setSelEnvs]  = useState<Set<string>>(new Set());
   const [showAll, setShowAll]   = useState(false);
 
   const toggleCat  = useCallback((id: string) => { setSelCats(p  => toggleSet(p, id)); setShowAll(false); }, []);
   const toggleMat  = useCallback((id: string) => { setSelMats(p  => toggleSet(p, id)); setShowAll(false); }, []);
   const toggleProp = useCallback((id: string) => { setSelProps(p => toggleSet(p, id)); setShowAll(false); }, []);
-  const toggleEnv  = useCallback((id: string) => { setSelEnvs(p  => toggleSet(p, id)); setShowAll(false); }, []);
 
   const resetAll = useCallback(() => {
     setSelCats(new Set()); setSelMats(new Set());
-    setSelProps(new Set()); setSelEnvs(new Set());
+    setSelProps(new Set());
     setShowAll(false);
   }, []);
 
-  const hasFilters = selCats.size > 0 || selMats.size > 0 || selProps.size > 0 || selEnvs.size > 0;
+  const hasFilters = selCats.size > 0 || selMats.size > 0 || selProps.size > 0;
 
   // OR within group, AND between groups
   const filtered = useMemo(() => PRODUCTS.filter(p => {
     if (selCats.size  > 0 && !selCats.has(p.category))                         return false;
     if (selMats.size  > 0 && !selMats.has(p.material))                         return false;
     if (selProps.size > 0 && !p.props.some(x => selProps.has(x)))              return false;
-    if (selEnvs.size  > 0 && !p.env.some(x => selEnvs.has(x)))                return false;
     return true;
-  }), [selCats, selMats, selProps, selEnvs]);
+  }), [selCats, selMats, selProps]);
 
   const visible     = showAll ? filtered : filtered.slice(0, PAGE_SIZE);
   const hiddenCount = filtered.length - PAGE_SIZE;
@@ -279,7 +266,6 @@ export default function ProductsCatalog() {
   const catCount  = (id: string) => PRODUCTS.filter(p => p.category === id).length;
   const matCount  = (id: string) => PRODUCTS.filter(p => p.material  === id).length;
   const propCount = (id: string) => PRODUCTS.filter(p => p.props.includes(id as Product['props'][number])).length;
-  const envCount  = (id: string) => PRODUCTS.filter(p => p.env.includes(id as Product['env'][number])).length;
 
   // Build active chip labels for the summary bar
   const activeChips = [
@@ -294,10 +280,6 @@ export default function ProductsCatalog() {
     ...Array.from(selProps).map(id => ({
       label: PROP_OPTIONS.find(o => o.id === id)?.label ?? id,
       remove: () => toggleProp(id),
-    })),
-    ...Array.from(selEnvs).map(id => ({
-      label: ENV_OPTIONS.find(o => o.id === id)?.label ?? id,
-      remove: () => toggleEnv(id),
     })),
   ];
 
@@ -356,15 +338,6 @@ export default function ProductsCatalog() {
         <Section title="Koruma Özellikleri">
           {PROP_OPTIONS.map(o => (
             <CheckPill key={o.id} active={selProps.has(o.id)} onClick={() => toggleProp(o.id)} count={propCount(o.id)}>
-              {o.label}
-            </CheckPill>
-          ))}
-        </Section>
-
-        {/* Kullanım Ortamı */}
-        <Section title="Kullanım Ortamı">
-          {ENV_OPTIONS.map(o => (
-            <CheckPill key={o.id} active={selEnvs.has(o.id)} onClick={() => toggleEnv(o.id)} count={envCount(o.id)}>
               {o.label}
             </CheckPill>
           ))}

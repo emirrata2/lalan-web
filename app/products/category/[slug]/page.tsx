@@ -23,7 +23,7 @@ const CATEGORIES: Record<string, { label: string; desc: string }> = {
   disposable:   { label: 'Tek Kullanımlık',        desc: 'Hijyen ve pratiklik öncelikli, tek kullanımlık nitril eldivenler. Medikal, gıda ve endüstriyel kullanım için.' },
   industrial:   { label: 'Endüstriyel',            desc: 'Ağır sanayi, petrokimya ve genel endüstriyel ortamlar için yüksek dayanımlı lateks ve NBR eldivenler.' },
   household:    { label: 'Ev Tipi',                desc: 'Ev temizliği ve mutfak kullanımı için tasarlanmış konforlu, dayanıklı lateks ve nitril eldivenler.' },
-  seamless:     { label: 'Dikişsiz İş Eldiveni',  desc: 'Neo serisi dikişsiz iş eldivenleri — otomotiv, montaj ve ağır endüstri için kesme ve darbe koruması.' },
+  seamless:     { label: 'Dikişsiz Örme Eldiven',  desc: 'Neo serisi dikişsiz iş eldivenleri — otomotiv, montaj ve ağır endüstri için kesme ve darbe koruması.' },
 };
 
 const ALL_CATS = [
@@ -32,7 +32,7 @@ const ALL_CATS = [
   { slug: 'disposable', label: 'Tek Kullanımlık' },
   { slug: 'industrial', label: 'Endüstriyel' },
   { slug: 'household',  label: 'Ev Tipi' },
-  { slug: 'seamless',   label: 'Dikişsiz İş Eldiveni' },
+  { slug: 'seamless',   label: 'Dikişsiz Örme Eldiven' },
 ];
 
 export async function generateStaticParams() {

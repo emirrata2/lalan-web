@@ -278,7 +278,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-armor-ultra',
     name: 'NEO ARMOR ULTRA™ 1-083-Q11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-armor-ultra.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Darbe Koruması', 'Ultra Güçlü', 'Endüstriyel'],
@@ -298,7 +298,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-classic-001-a11',
     name: 'NEO CLASSIC™ 001-A11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-classic-001-a11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Nitril Köpük', 'Nefes Alabilir', 'Kesme A'],
@@ -319,7 +319,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-classic-031-a11',
     name: 'NEO CLASSIC™ 031-A11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-classic-031-a11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Nitril', 'Mavi', 'Genel Kullanım'],
@@ -339,7 +339,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-classic-044-f38',
     name: 'NEO CLASSIC™ 044-F38',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-classic-044-f38.jpg',
     material: 'nitrile', length: 'medium',
     tags: ['Turuncu', 'Hi-Viz', 'Uzun Pazu'],
@@ -360,7 +360,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-classic-001-p11',
     name: 'NEO CLASSIC™ 001-P11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-classic-001-p11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Siyah', 'Pürüzlü', 'Kimyasal Direnç'],
@@ -381,7 +381,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-classic-066-d11',
     name: 'NEO CLASSIC™ 066-D11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-classic-066-d11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Gri', 'Hassas İş', 'Çift Kaplama'],
@@ -401,7 +401,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-lite-001-d11',
     name: 'NEO LITE™ 001-D11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-lite-001-d11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Ultra Hafif', 'Hassas', 'Lite Seri'],
@@ -421,7 +421,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-lite-087-p11',
     name: 'NEO LITE™ 087-P11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-lite-087-p11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Lite', 'Lacivert', 'PU Kaplama'],
@@ -441,7 +441,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-lite-ultra-003-p11',
     name: 'NEO LITE ULTRA™ 003-P11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-lite-ultra-003-p11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Ultra Lite', 'Beyaz', 'Hassas Montaj'],
@@ -462,7 +462,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-fizz-lite-044-f38',
     name: 'Neo Fizz Lite™ 044-F38',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-fizz-lite-044-f38.jpg',
     material: 'nitrile', length: 'medium',
     tags: ['Köpük Kaplama', 'Uzun Pazu', 'Islak Tutuş'],
@@ -483,7 +483,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-armor-2-007-b11',
     name: 'NEO ARMOR™ 2-007-B11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-armor-2-007-b11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Nitril Köpük', 'Isı Direnci', 'Başparmak Takviyesi'],
@@ -504,7 +504,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-armor-2-056-q11',
     name: 'NEO ARMOR™ 2-056-Q11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-armor-2-056-q11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['PU Kaplama', 'HPPE Astar', 'Hassas Tutuş'],
@@ -525,7 +525,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-armor-3-017-b11',
     name: 'NEO ARMOR™ 3-017-B11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-armor-3-017-b11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Nitril Köpük', 'HPPE Astar', 'Isı Direnci'],
@@ -546,7 +546,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-armor-3-036-q11',
     name: 'NEO ARMOR™ 3-036-Q11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-armor-3-036-q11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['PU Kaplama', 'HPPE-Cam Astar', 'Isı Direnci'],
@@ -567,7 +567,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-armor-3-185-q11',
     name: 'NEO ARMOR™ 3-185-Q11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-armor-3-185-q11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Kesme C', 'Ultra Hafif', 'HPPE-Çelik Astar'],
@@ -587,7 +587,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-armor-4-032-b11',
     name: 'NEO ARMOR™ 4-032-B11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-armor-4-032-b11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Kesme E', 'Nitril Köpük', 'Isı Direnci'],
@@ -608,7 +608,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-armor-6-188-q11',
     name: 'NEO ARMOR™ 6-188-Q11',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-armor-6-188-q11.jpg',
     material: 'nitrile', length: 'short',
     tags: ['HPPE-Çelik Astar', 'PU Kaplama', 'Dikişsiz'],
@@ -652,7 +652,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-fizz-042-d76',
     name: 'NEO FIZZ™ 042-D76',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-fizz-042-d76.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Nitril Çift Kaplama', 'Sıvı Bariyeri', 'Isı Direnci'],
@@ -695,7 +695,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'neo-pure-5-091-c00',
     name: 'NEO PURE™ 5-091-C00',
-    category: 'seamless', categoryLabel: 'Dikişsiz İş Eldiveni',
+    category: 'seamless', categoryLabel: 'Dikişsiz Örme Eldiven',
     img: '/products/neo/neo-pure-5-091-c00.jpg',
     material: 'nitrile', length: 'short',
     tags: ['Kesme E', 'Antimikrobiyal', 'HPPE-Çelik Astar'],
@@ -722,5 +722,5 @@ export const CATEGORIES = [
   { id: 'disposable', label: 'Tek Kullanımlık' },
   { id: 'industrial', label: 'Endüstriyel' },
   { id: 'household',  label: 'Ev Tipi' },
-  { id: 'seamless',   label: 'Dikişsiz İş Eldiveni' },
+  { id: 'seamless',   label: 'Dikişsiz Örme Eldiven' },
 ] as const;

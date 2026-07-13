@@ -421,7 +421,7 @@ export default function Home() {
                 { label: 'Gıdaya Uygun', href: '/products/category/food-safe' },
                 { label: 'Endüstriyel', href: '/products/category/industrial' },
                 { label: 'Ev Tipi', href: '/products/category/household' },
-                { label: 'Dikişsiz İş Eldiveni', href: '/products/category/seamless' },
+                { label: 'Dikişsiz Örme Eldiven', href: '/products/category/seamless' },
               ],
             },
           ].map(({ title, links }) => (
