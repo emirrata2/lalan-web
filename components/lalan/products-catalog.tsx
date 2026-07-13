@@ -16,7 +16,7 @@ const CAT_OPTIONS = [
 
 const MAT_OPTIONS = [
   { id: 'natural',  label: 'Doğal Lateks' },
-  { id: 'nitrile',  label: 'Nitril Kauçuk' },
+  { id: 'nitrile',  label: 'Nitril' },
 ] as const;
 
 const PROP_OPTIONS = [
@@ -29,7 +29,7 @@ const PROP_OPTIONS = [
 
 const MATERIAL_LABEL: Record<string, string> = {
   natural:              'Doğal Lateks',
-  nitrile:              'Nitril Kauçuk',
+  nitrile:              'Nitril',
 };
 
 // ── Generic helpers ───────────────────────────────────────────
@@ -132,8 +132,8 @@ function ProductCard({ product }: { product: Product }) {
         className="relative overflow-hidden rounded-3xl"
         style={{
           aspectRatio: '1/1',
-          background: 'rgba(255,255,255,0.04)',
-          border: `1px solid ${hovered ? 'rgba(142,198,63,0.22)' : 'rgba(172,199,255,0.07)'}`,
+          background: '#eef1f6',
+          border: `1px solid ${hovered ? 'rgba(142,198,63,0.35)' : 'rgba(172,199,255,0.07)'}`,
           transition: 'transform 0.65s cubic-bezier(0.16,1,0.3,1), border-color 0.25s',
           transform: hovered ? 'scale(1.02)' : 'scale(1)',
         }}
@@ -144,11 +144,11 @@ function ProductCard({ product }: { product: Product }) {
           alt={product.name}
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           style={{
-            mixBlendMode: 'lighten',
+            padding: '9%',
             transition: 'transform 0.65s cubic-bezier(0.16,1,0.3,1)',
-            transform: hovered ? 'scale(1.08)' : 'scale(1)',
+            transform: hovered ? 'scale(1.06)' : 'scale(1)',
           }}
         />
 

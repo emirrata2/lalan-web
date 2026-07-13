@@ -13,7 +13,7 @@ const DARK_GRADIENTS = [
 
 const MATERIAL_LABEL: Record<string, string> = {
   natural: 'Doğal Lateks',
-  nitrile: 'Nitril Kauçuk',
+  nitrile: 'Nitril',
   nbr: 'NBR Kauçuk',
 };
 

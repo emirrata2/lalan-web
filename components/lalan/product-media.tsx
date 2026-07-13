@@ -100,7 +100,7 @@ export default function ProductMedia({ product }: { product: Product }) {
         <div
           className="relative rounded-2xl overflow-hidden"
           style={{
-            background: 'rgba(255,255,255,0.04)',
+            background: '#eef1f6',
             aspectRatio: '1/1',
             border: '1px solid rgba(172,199,255,0.08)',
           }}
@@ -111,8 +111,8 @@ export default function ProductMedia({ product }: { product: Product }) {
             alt={product.name}
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover"
-            style={{ mixBlendMode: 'lighten' }}
+            className="w-full h-full object-contain"
+            style={{ padding: '5%' }}
           />
         </div>
       )}
