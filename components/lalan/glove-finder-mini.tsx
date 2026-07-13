@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { PRODUCTS } from '@/lib/products';
 
 type EnvValue = 'heavy-industry' | 'assembly-general' | 'lab-precision' | 'food-kitchen' | 'cleaning-household';
-type PropValue = 'chemical' | 'water-oil' | 'cut' | 'abrasion' | 'disposable' | 'precision';
+type PropValue = 'chemical' | 'water-oil' | 'cut' | 'abrasion' | 'heat' | 'cold' | 'disposable' | 'precision';
 
 const ENV_OPTS: { value: EnvValue; label: string; icon: React.ReactNode }[] = [
   {
@@ -31,10 +31,11 @@ const ENV_OPTS: { value: EnvValue; label: string; icon: React.ReactNode }[] = [
 
 const PROP_OPTS: { value: PropValue; label: string }[] = [
   { value: 'chemical',  label: 'Kimyasal Dayanım' },
-  { value: 'water-oil', label: 'Su / Yağ Dayanımı' },
   { value: 'cut',       label: 'Kesme Direnci' },
   { value: 'abrasion',  label: 'Aşınma Direnci' },
-  { value: 'precision', label: 'Hassas Tutuş' },
+  { value: 'heat',      label: 'Isı Direnci' },
+  { value: 'cold',      label: 'Soğuk Direnci' },
+  { value: 'water-oil', label: 'Su / Yağ Dayanımı' },
 ];
 
 function filterProducts(envs: EnvValue[], props: PropValue[]) {

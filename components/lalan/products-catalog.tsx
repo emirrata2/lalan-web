@@ -14,17 +14,20 @@ const CAT_OPTIONS = [
   { id: 'seamless',   label: 'Dikişsiz Örme Eldiven' },
 ] as const;
 
-const MAT_OPTIONS = [
-  { id: 'natural',  label: 'Doğal Lateks' },
-  { id: 'nitrile',  label: 'Nitril' },
+const COAT_OPTIONS = [
+  { id: 'pu',           label: 'Poliüretan (PU)' },
+  { id: 'foam-nitrile', label: 'Nitril Köpük' },
+  { id: 'nitrile',      label: 'Nitril' },
+  { id: 'full-dip',     label: 'Tam Daldırma' },
 ] as const;
 
 const PROP_OPTIONS = [
   { id: 'chemical',  label: 'Kimyasal Direnç' },
-  { id: 'water-oil', label: 'Su & Yağ Geçirmez' },
   { id: 'cut',       label: 'Kesme Dayanımı' },
   { id: 'abrasion',  label: 'Aşınma Direnci' },
-  { id: 'precision', label: 'Hassas İş' },
+  { id: 'heat',      label: 'Isı Direnci' },
+  { id: 'cold',      label: 'Soğuk Direnci' },
+  { id: 'water-oil', label: 'Su & Yağ Geçirmez' },
 ] as const;
 
 const MATERIAL_LABEL: Record<string, string> = {
@@ -235,36 +238,36 @@ const PAGE_SIZE = 9;
 
 export default function ProductsCatalog() {
   const [selCats,  setSelCats]  = useState<Set<string>>(new Set());
-  const [selMats,  setSelMats]  = useState<Set<string>>(new Set());
+  const [selCoats, setSelCoats] = useState<Set<string>>(new Set());
   const [selProps, setSelProps] = useState<Set<string>>(new Set());
   const [showAll, setShowAll]   = useState(false);
 
   const toggleCat  = useCallback((id: string) => { setSelCats(p  => toggleSet(p, id)); setShowAll(false); }, []);
-  const toggleMat  = useCallback((id: string) => { setSelMats(p  => toggleSet(p, id)); setShowAll(false); }, []);
+  const toggleCoat = useCallback((id: string) => { setSelCoats(p => toggleSet(p, id)); setShowAll(false); }, []);
   const toggleProp = useCallback((id: string) => { setSelProps(p => toggleSet(p, id)); setShowAll(false); }, []);
 
   const resetAll = useCallback(() => {
-    setSelCats(new Set()); setSelMats(new Set());
+    setSelCats(new Set()); setSelCoats(new Set());
     setSelProps(new Set());
     setShowAll(false);
   }, []);
 
-  const hasFilters = selCats.size > 0 || selMats.size > 0 || selProps.size > 0;
+  const hasFilters = selCats.size > 0 || selCoats.size > 0 || selProps.size > 0;
 
   // OR within group, AND between groups
   const filtered = useMemo(() => PRODUCTS.filter(p => {
     if (selCats.size  > 0 && !selCats.has(p.category))                         return false;
-    if (selMats.size  > 0 && !selMats.has(p.material))                         return false;
+    if (selCoats.size > 0 && (!p.coating || !selCoats.has(p.coating)))         return false;
     if (selProps.size > 0 && !p.props.some(x => selProps.has(x)))              return false;
     return true;
-  }), [selCats, selMats, selProps]);
+  }), [selCats, selCoats, selProps]);
 
   const visible     = showAll ? filtered : filtered.slice(0, PAGE_SIZE);
   const hiddenCount = filtered.length - PAGE_SIZE;
 
   // Count helpers — how many products remain if we toggle an option on
   const catCount  = (id: string) => PRODUCTS.filter(p => p.category === id).length;
-  const matCount  = (id: string) => PRODUCTS.filter(p => p.material  === id).length;
+  const coatCount = (id: string) => PRODUCTS.filter(p => p.coating   === id).length;
   const propCount = (id: string) => PRODUCTS.filter(p => p.props.includes(id as Product['props'][number])).length;
 
   // Build active chip labels for the summary bar
@@ -273,9 +276,9 @@ export default function ProductsCatalog() {
       label: CAT_OPTIONS.find(o => o.id === id)?.label ?? id,
       remove: () => toggleCat(id),
     })),
-    ...Array.from(selMats).map(id => ({
-      label: MAT_OPTIONS.find(o => o.id === id)?.label ?? id,
-      remove: () => toggleMat(id),
+    ...Array.from(selCoats).map(id => ({
+      label: COAT_OPTIONS.find(o => o.id === id)?.label ?? id,
+      remove: () => toggleCoat(id),
     })),
     ...Array.from(selProps).map(id => ({
       label: PROP_OPTIONS.find(o => o.id === id)?.label ?? id,
@@ -316,8 +319,8 @@ export default function ProductsCatalog() {
           )}
         </div>
 
-        {/* Kategori */}
-        <Section title="Kategori">
+        {/* Ürün Tipi */}
+        <Section title="Ürün Tipi">
           {CAT_OPTIONS.map(o => (
             <CheckPill key={o.id} active={selCats.has(o.id)} onClick={() => toggleCat(o.id)} count={catCount(o.id)}>
               {o.label}
@@ -325,17 +328,17 @@ export default function ProductsCatalog() {
           ))}
         </Section>
 
-        {/* Malzeme */}
-        <Section title="Malzeme">
-          {MAT_OPTIONS.map(o => (
-            <CheckPill key={o.id} active={selMats.has(o.id)} onClick={() => toggleMat(o.id)} count={matCount(o.id)}>
+        {/* Kaplama */}
+        <Section title="Kaplama">
+          {COAT_OPTIONS.map(o => (
+            <CheckPill key={o.id} active={selCoats.has(o.id)} onClick={() => toggleCoat(o.id)} count={coatCount(o.id)}>
               {o.label}
             </CheckPill>
           ))}
         </Section>
 
-        {/* Koruma Özellikleri */}
-        <Section title="Koruma Özellikleri">
+        {/* Koruma & Dayanım */}
+        <Section title="Koruma & Dayanım">
           {PROP_OPTIONS.map(o => (
             <CheckPill key={o.id} active={selProps.has(o.id)} onClick={() => toggleProp(o.id)} count={propCount(o.id)}>
               {o.label}

@@ -104,20 +104,27 @@ function IconAbrasion() {
     </svg>
   );
 }
-function IconPrecision() {
+function IconHeat() {
   return (
     <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="14" cy="14" r="8"/>
-      <line x1="20" y1="20" x2="28" y2="28" strokeWidth="2.2"/>
-      <line x1="14" y1="10" x2="14" y2="18" strokeWidth="1.2" opacity="0.6"/>
-      <line x1="10" y1="14" x2="18" y2="14" strokeWidth="1.2" opacity="0.6"/>
+      <path d="M16 4 C 20 10, 24 13, 24 19 a 8 8 0 0 1 -16 0 c 0 -4, 3 -6, 4 -9 c 2 3, 1 5, 4 6 c 1 -2, 0 -4, 0 -12 Z"/>
+    </svg>
+  );
+}
+function IconCold() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="16" y1="3" x2="16" y2="29"/>
+      <line x1="5" y1="9.5" x2="27" y2="22.5"/>
+      <line x1="27" y1="9.5" x2="5" y2="22.5"/>
+      <path d="M16 3 L13 6 M16 3 L19 6 M16 29 L13 26 M16 29 L19 26" strokeWidth="1.4"/>
     </svg>
   );
 }
 
 // ── Veri tanımları ─────────────────────────────────────────────
 type EnvValue = 'heavy-industry' | 'assembly-general' | 'lab-precision' | 'food-kitchen' | 'cleaning-household';
-type PropValue = 'chemical' | 'water-oil' | 'cut' | 'abrasion' | 'disposable' | 'precision';
+type PropValue = 'chemical' | 'water-oil' | 'cut' | 'abrasion' | 'heat' | 'cold' | 'disposable' | 'precision';
 
 const ENV_OPTS: { value: EnvValue; label: string; desc: string; Icon: React.FC }[] = [
   { value: 'heavy-industry',     label: 'Ağır Sanayi',       desc: 'Kimya tesisi, petrokimya, fabrika',    Icon: IconHeavyIndustry },
@@ -129,10 +136,11 @@ const ENV_OPTS: { value: EnvValue; label: string; desc: string; Icon: React.FC }
 
 const PROP_OPTS: { value: PropValue; label: string; desc: string; Icon: React.FC }[] = [
   { value: 'chemical',   label: 'Kimyasal Dayanım',  desc: 'Asit, solvent, kimyasal madde',    Icon: IconChemical },
-  { value: 'water-oil',  label: 'Su / Yağ Dayanımı', desc: 'Yağ, su, yakıt, sıvı',            Icon: IconWaterOil },
   { value: 'cut',        label: 'Kesme Direnci',      desc: 'Keskin kenar, bıçak, sac, cam',   Icon: IconCut },
   { value: 'abrasion',   label: 'Aşınma Direnci',     desc: 'Pürüzlü yüzey, sürtünme, aşınma', Icon: IconAbrasion },
-  { value: 'precision',  label: 'Hassas Tutuş',       desc: 'İnce yapı, dokunuş hassasiyeti',  Icon: IconPrecision },
+  { value: 'heat',       label: 'Isı Direnci',        desc: 'Temas ısısı, sıcak yüzey (EN 407)', Icon: IconHeat },
+  { value: 'cold',       label: 'Soğuk Direnci',      desc: 'Soğuk hava, soğuk depo (EN 511)', Icon: IconCold },
+  { value: 'water-oil',  label: 'Su / Yağ Dayanımı', desc: 'Yağ, su, yakıt, sıvı',            Icon: IconWaterOil },
 ];
 
 function filterProducts(envs: EnvValue[], props: PropValue[]): Product[] {

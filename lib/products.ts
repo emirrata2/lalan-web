@@ -16,7 +16,8 @@ export type Product = {
   desc: string;
   color: string;
   env: ('heavy-industry' | 'assembly-general' | 'lab-precision' | 'food-kitchen' | 'cleaning-household')[];
-  props: ('chemical' | 'water-oil' | 'cut' | 'abrasion' | 'disposable' | 'precision')[];
+  props: ('chemical' | 'water-oil' | 'cut' | 'abrasion' | 'heat' | 'cold' | 'disposable' | 'precision')[];
+  coating?: 'pu' | 'foam-nitrile' | 'nitrile' | 'full-dip';
   datasheet?: string;
   video?: string;
   pictograms?: ProductPictograms;
@@ -30,13 +31,14 @@ export const PRODUCTS: Product[] = [
     category: 'chemical', categoryLabel: 'Kimyasal',
     img: '/products/chemical/nitrofl-330-15sd.png',
     material: 'nitrile', length: 'medium',
-    tags: ['Kimyasal Direnç', 'Kaymaz Tutuş', 'Kesme Dayanımı'],
+    tags: ['Kimyasal Direnç', 'Kaymaz Tutuş', 'Virüs Bariyeri'],
     features: ['Tam Daldırma', 'Pürüzlü Yüzey', 'Uzun Pazu'],
     specs: { 'Uzunluk': '380mm', 'Kalınlık': '0.50mm', 'Renk': 'Yeşil', 'Astar': 'Pamuk flok' },
     desc: 'Zorlu kimyasal ortamlar için tasarlanmış nitril kauçuk eldiven. Kaymaz yüzeyi ve uzun pazu tasarımıyla kimyasal madde kullanılan sektörlerde üstün koruma sağlar.',
     color: '#003885',
     env: ['food-kitchen', 'lab-precision', 'heavy-industry', 'assembly-general'],
     props: ['chemical', 'water-oil'],
+    coating: 'full-dip',
     datasheet: '/documents/nitrofl-330-15sd.pdf',
     pictograms: {
       images: [
@@ -62,6 +64,7 @@ export const PRODUCTS: Product[] = [
     color: '#1255a8',
     env: ['food-kitchen', 'cleaning-household', 'assembly-general'],
     props: ['water-oil'],
+    coating: 'full-dip',
     datasheet: '/documents/naturafl-300-15bf.pdf',
     video: '/videos/naturafl-300-15bf.mp4',
     pictograms: {
@@ -198,6 +201,7 @@ export const PRODUCTS: Product[] = [
     color: '#004f11',
     env: ['heavy-industry'],
     props: ['chemical', 'water-oil', 'abrasion'],
+    coating: 'full-dip',
     pictograms: {
       images: [
         { src: '/pictograms/ce-cat3.png', label: 'CE · KKD Kategori III' },
@@ -221,6 +225,7 @@ export const PRODUCTS: Product[] = [
     color: '#8c6500',
     env: ['food-kitchen', 'assembly-general', 'heavy-industry'],
     props: ['chemical', 'water-oil', 'abrasion'],
+    coating: 'full-dip',
     pictograms: {
       images: [
         { src: '/pictograms/ce-cat3.png', label: 'CE · KKD Kategori III' },
@@ -242,6 +247,7 @@ export const PRODUCTS: Product[] = [
     color: '#8c6500',
     env: ['heavy-industry'],
     props: ['chemical', 'water-oil'],
+    coating: 'full-dip',
     pictograms: {
       images: [
         { src: '/pictograms/ce-cat3.png', label: 'CE · KKD Kategori III' },
@@ -264,6 +270,7 @@ export const PRODUCTS: Product[] = [
     color: '#003885',
     env: ['cleaning-household', 'assembly-general', 'heavy-industry'],
     props: ['chemical', 'water-oil'],
+    coating: 'full-dip',
     pictograms: {
       images: [
         { src: '/pictograms/ce-cat3.png', label: 'CE · KKD Kategori III' },
@@ -288,6 +295,7 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131A' },
@@ -307,7 +315,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Nitril köpük kaplamasıyla hem kuru hem ıslak tutuşta üstün performans sergileyen genel amaçlı dikişsiz iş eldiveni. Otomotiv, lojistik ve genel üretim ortamları için uygundur.',
     color: '#1a5c8a',
     env: ['assembly-general'],
-    props: ['abrasion'],
+    props: ['abrasion', 'heat'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131A' },
@@ -329,6 +338,7 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general'],
     props: ['abrasion'],
+    coating: 'nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4121X' },
@@ -348,7 +358,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Yüksek görünürlük turuncu rengiyle güvenlik gerektiren ortamlara uygun uzun pazulu dikişsiz iş eldiveni. İnşaat ve dışarıda çalışma koşulları için tercih edilir.',
     color: '#c94000',
     env: ['assembly-general', 'cleaning-household'],
-    props: ['abrasion', 'water-oil'],
+    props: ['abrasion', 'water-oil', 'heat'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4141A' },
@@ -369,7 +380,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Pürüzlü nitril kaplamasıyla ıslak ve kuru yüzeylerde üstün tutuş sağlayan siyah dikişsiz iş eldiveni. Havacılık, mekanik montaj ve kimyasal temas gerektiren işler için geliştirilmiştir.',
     color: '#222',
     env: ['assembly-general', 'heavy-industry', 'lab-precision'],
-    props: ['abrasion', 'water-oil', 'precision'],
+    props: ['abrasion', 'water-oil', 'precision', 'heat'],
+    coating: 'nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131A' },
@@ -391,6 +403,7 @@ export const PRODUCTS: Product[] = [
     color: '#555',
     env: ['assembly-general'],
     props: ['abrasion', 'water-oil'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4121X' },
@@ -411,6 +424,7 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'lab-precision'],
     props: ['abrasion', 'precision'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131X' },
@@ -431,6 +445,7 @@ export const PRODUCTS: Product[] = [
     color: '#1a3a8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'water-oil', 'precision'],
+    coating: 'pu',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 3121A' },
@@ -450,7 +465,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Serideki en hafif model. Elektronik montaj, optik ve hassas parça üretimi için optimize edilmiş dikişsiz iş eldiveni. Minimum ağırlık ile maksimum hassasiyet sunar.',
     color: '#1a5c8a',
     env: ['assembly-general', 'lab-precision'],
-    props: ['abrasion', 'water-oil', 'precision'],
+    props: ['abrasion', 'water-oil', 'precision', 'heat'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 3121X' },
@@ -471,7 +487,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Fizz nitril köpük teknolojisiyle kuru ve ıslak yüzeylerde üstün tutuş, uzun pazu tasarımıyla ek koruma sunan dikişsiz iş eldiveni.',
     color: '#c94000',
     env: ['assembly-general', 'cleaning-household'],
-    props: ['abrasion', 'water-oil'],
+    props: ['abrasion', 'water-oil', 'heat'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4141A' },
@@ -492,7 +509,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Başparmak arası takviyeli nitril köpük avuç kaplamasıyla ıslak ve yağlı ortamlarda güvenli tutuş sağlayan dikişsiz iş eldiveni. EN 407 ısı direnci ile montaj ve genel endüstriyel işler için uygundur.',
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
-    props: ['abrasion', 'water-oil'],
+    props: ['abrasion', 'water-oil', 'heat'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X43B' },
@@ -513,7 +531,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Orta ağırlıkta poliüretan kaplaması ve HPPE karışımı astarıyla hassasiyet ve dayanıklılığı bir arada sunan dikişsiz iş eldiveni. İnce montaj ve genel üretim işleri için idealdir.',
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
-    props: ['abrasion', 'water-oil'],
+    props: ['abrasion', 'water-oil', 'heat'],
+    coating: 'pu',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X43B' },
@@ -534,7 +553,8 @@ export const PRODUCTS: Product[] = [
     desc: 'HPPE karışımı astarı ve başparmak arası takviyesiyle dayanıklı kavrama sunan nitril köpük kaplı dikişsiz iş eldiveni. EN 407 ısı direnci ile genel endüstriyel kullanıma uygundur.',
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
-    props: ['water-oil'],
+    props: ['water-oil', 'heat'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X43C' },
@@ -555,7 +575,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Cam elyaf takviyeli HPPE astarı ve poliüretan kaplamasıyla yüksek aşınma direnci sunan dikişsiz iş eldiveni. Ağır montaj ve endüstriyel elleçleme işleri için geliştirilmiştir.',
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
-    props: ['abrasion', 'water-oil'],
+    props: ['abrasion', 'water-oil', 'heat'],
+    coating: 'pu',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X43C' },
@@ -577,6 +598,7 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['abrasion', 'cut', 'water-oil'],
+    coating: 'pu',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 3X42C' },
@@ -596,7 +618,8 @@ export const PRODUCTS: Product[] = [
     desc: 'HPPE astarı ve nitril köpük kaplamasıyla TDM Seviye E yüksek kesme direnci sunan dikişsiz iş eldiveni. Sac, cam ve keskin kenarlı malzeme elleçleyen ağır endüstriyel işler için geliştirilmiştir.',
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
-    props: ['abrasion', 'cut', 'water-oil'],
+    props: ['abrasion', 'cut', 'water-oil', 'heat'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X44E' },
@@ -618,6 +641,7 @@ export const PRODUCTS: Product[] = [
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
     props: ['water-oil'],
+    coating: 'pu',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4X42F' },
@@ -637,7 +661,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Çift daldırma NBR tam kaplamasıyla kimyasal sıçramalara karşı koruma sağlayan dikişsiz eldiven. EN ISO 374 ve EN 407 sertifikalarıyla kimya, laboratuvar ve endüstriyel temizlik uygulamaları için uygundur.',
     color: '#1a5c8a',
     env: ['heavy-industry', 'lab-precision', 'assembly-general'],
-    props: ['chemical'],
+    props: ['chemical', 'heat'],
+    coating: 'full-dip',
     pictograms: {
       images: [
         { src: '/pictograms/ce-2777.png', label: 'CE 2777 · KKD Kategori III' },
@@ -661,7 +686,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Tam daldırma düz nitril tabanı ve avuç içi köpük nitril kaplamasıyla sıvı bariyeri ve güvenli tutuş sağlayan dikişsiz iş eldiveni. Yağlı ve ıslak ortamlardaki montaj işleri için uygundur.',
     color: '#1a5c8a',
     env: ['assembly-general', 'heavy-industry'],
-    props: ['abrasion', 'water-oil'],
+    props: ['abrasion', 'water-oil', 'heat'],
+    coating: 'foam-nitrile',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4131A' },
@@ -682,7 +708,8 @@ export const PRODUCTS: Product[] = [
     desc: 'Termal polar astarı ve çift kat NBR kaplamasıyla soğuk ortamlarda el ısısını koruyan dikişsiz iş eldiveni. EN 511 soğuk koruması ile soğuk hava depoları ve dış saha çalışmaları için geliştirilmiştir.',
     color: '#1a5c8a',
     env: ['heavy-industry', 'assembly-general'],
-    props: ['abrasion', 'water-oil'],
+    props: ['abrasion', 'water-oil', 'heat', 'cold'],
+    coating: 'full-dip',
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 4232B' },
@@ -704,7 +731,7 @@ export const PRODUCTS: Product[] = [
     desc: 'Çelik takviyeli HPPE astarıyla TDM Seviye E kesme direnci sunan, antimikrobiyal işlemli dikişsiz iş eldiveni. Hijyenin önemli olduğu hassas montaj ve laboratuvar uygulamaları için uygundur.',
     color: '#1a5c8a',
     env: ['lab-precision', 'assembly-general'],
-    props: ['cut', 'water-oil'],
+    props: ['cut', 'water-oil', 'heat'],
     pictograms: {
       images: [
         { src: '/pictograms/en-388.png', label: 'EN 388:2016 — 2X4XE' },
