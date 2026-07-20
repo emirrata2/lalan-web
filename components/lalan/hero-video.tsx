@@ -31,12 +31,15 @@ export default function HeroVideo() {
           backgroundPosition: 'center',
         }}
       >
+        {/* preload="auto" DEĞİL: tarayıcıyı videoyu baştan sona indirmeye zorluyordu ve
+            sayfanın geri kalanıyla bant genişliği yarışına giriyordu. "metadata" ile poster
+            anında görünür, video akış hâlinde gelir. */}
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           poster="/videos/lalan-our-people-poster.jpg"
           className="h-full w-full object-cover"
           src="/videos/lalan-our-people.mp4"
