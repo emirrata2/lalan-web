@@ -4,16 +4,7 @@ import Link from 'next/link';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 import { useI18n, useLocalePath } from './i18n-provider';
-
-// Hero trust bar: en tanınır 6 sertifika. Tam liste /sertifikalar sayfasında.
-const HERO_CERTS = [
-  { name: 'ISO 9001', img: '/certificates/iso-9001.svg' },
-  { name: 'ISO 13485', img: '/certificates/iso-13485.svg' },
-  { name: 'FDA', img: '/certificates/fda.svg' },
-  { name: 'REACH', img: '/certificates/reach.svg' },
-  { name: 'BSCI', img: '/certificates/bsci.svg' },
-  { name: 'Sedex', img: '/certificates/sedex.svg' },
-];
+import { CERTIFICATES } from '@/lib/certificates';
 
 export default function HeroVideo() {
   const lp = useLocalePath();
@@ -135,8 +126,12 @@ export default function HeroVideo() {
             </p>
             <div className="relative w-full py-2">
               <InfiniteSlider duration={35} durationOnHover={70} gap={20}>
-                {/* Yeterli genişlik için sertifikalar tekrarlanır — kesintisiz sonsuz döngü */}
-                {[...HERO_CERTS, ...HERO_CERTS, ...HERO_CERTS].map((cert, i) => (
+                {/* Liste BİR kez verilir: InfiniteSlider içeride {children}{children}
+                    render edip yarı genişlik kadar kaydırarak döngüyü kendisi kuruyor.
+                    Elle tekrarlamak yalnızca gereksiz DOM üretir.
+                    Tam liste (12 sertifika) kullanılıyor — 6 logoyla geniş ekranda aynı
+                    logo aynı anda iki kez görünüyordu. */}
+                {CERTIFICATES.map((cert, i) => (
                   <div
                     key={`${cert.name}-${i}`}
                     className="flex h-[84px] w-[84px] shrink-0 items-center justify-center rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-0.5"
