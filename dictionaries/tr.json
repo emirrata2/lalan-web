@@ -122,6 +122,15 @@
       "offices": "6",
       "continents": "4",
       "percent100": "%100"
+    },
+    "markers": {
+      "lk": "Sri Lanka — Merkez",
+      "tr": "Türkiye & MENA",
+      "om": "Umman",
+      "tn": "Tunus",
+      "gb": "Birleşik Krallık",
+      "my": "Malezya",
+      "br": "Brezilya"
     }
   },
   "common": {

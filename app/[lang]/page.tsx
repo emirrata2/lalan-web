@@ -257,7 +257,7 @@ export default async function Home({
                         style={{ background: isHQ ? '#8ec63f' : isUs ? '#5c93d6' : 'rgba(172,199,255,0.4)' }}
                       />
                       <span className="text-sm font-medium" style={{ color: isHQ || isUs ? 'white' : 'rgba(172,199,255,0.7)' }}>
-                        {m.label}
+                        {(t.markers as Record<string, string>)[m.id] ?? m.label}
                       </span>
                       {isHQ && (
                         <span className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0" style={{ background: 'rgba(142,198,63,0.15)', color: '#8ec63f', border: '1px solid rgba(142,198,63,0.25)' }}>

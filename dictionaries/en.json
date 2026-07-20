@@ -122,6 +122,15 @@
       "offices": "6",
       "continents": "4",
       "percent100": "100%"
+    },
+    "markers": {
+      "lk": "Sri Lanka — Headquarters",
+      "tr": "Türkiye & MENA",
+      "om": "Oman",
+      "tn": "Tunisia",
+      "gb": "United Kingdom",
+      "my": "Malaysia",
+      "br": "Brazil"
     }
   },
   "common": {
