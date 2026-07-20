@@ -1,7 +1,9 @@
 ﻿'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { PRODUCTS, type Product } from '@/lib/products';
+import { useI18n, useLocalePath } from './i18n-provider';
 
 // ── Ortam ikonları ─────────────────────────────────────────────
 function IconHeavyIndustry() {
@@ -126,21 +128,23 @@ function IconCold() {
 type EnvValue = 'heavy-industry' | 'assembly-general' | 'lab-precision' | 'food-kitchen' | 'cleaning-household';
 type PropValue = 'chemical' | 'water-oil' | 'cut' | 'abrasion' | 'heat' | 'cold' | 'disposable' | 'precision';
 
-const ENV_OPTS: { value: EnvValue; label: string; desc: string; Icon: React.FC }[] = [
-  { value: 'heavy-industry',     label: 'Ağır Sanayi',       desc: 'Kimya tesisi, petrokimya, fabrika',    Icon: IconHeavyIndustry },
-  { value: 'assembly-general',   label: 'Montaj / Genel İş', desc: 'Üretim hattı, lojistik, inşaat',      Icon: IconAssembly },
-  { value: 'lab-precision',      label: 'Lab & Hassas İş',   desc: 'Laboratuvar, elektronik, temiz oda',  Icon: IconLabPrecision },
-  { value: 'food-kitchen',       label: 'Gıda / Mutfak',     desc: 'Gıda işleme, mutfak, catering',       Icon: IconFoodKitchen },
-  { value: 'cleaning-household', label: 'Temizlik & Ev',     desc: 'Ev, hastane temizliği, deterjanlı iş', Icon: IconCleaning },
+// Yalnızca değer + ikon sabittir; label/desc dile göre sözlükten okunur
+// (bkz. useOptions aşağıda). Sıra buradaki sıradır.
+const ENV_ICONS: { value: EnvValue; Icon: React.FC }[] = [
+  { value: 'heavy-industry',     Icon: IconHeavyIndustry },
+  { value: 'assembly-general',   Icon: IconAssembly },
+  { value: 'lab-precision',      Icon: IconLabPrecision },
+  { value: 'food-kitchen',       Icon: IconFoodKitchen },
+  { value: 'cleaning-household', Icon: IconCleaning },
 ];
 
-const PROP_OPTS: { value: PropValue; label: string; desc: string; Icon: React.FC }[] = [
-  { value: 'chemical',   label: 'Kimyasal Dayanım',  desc: 'Asit, solvent, kimyasal madde',    Icon: IconChemical },
-  { value: 'cut',        label: 'Kesme Direnci',      desc: 'Keskin kenar, bıçak, sac, cam',   Icon: IconCut },
-  { value: 'abrasion',   label: 'Aşınma Direnci',     desc: 'Pürüzlü yüzey, sürtünme, aşınma', Icon: IconAbrasion },
-  { value: 'heat',       label: 'Isı Direnci',        desc: 'Temas ısısı, sıcak yüzey (EN 407)', Icon: IconHeat },
-  { value: 'cold',       label: 'Soğuk Direnci',      desc: 'Soğuk hava, soğuk depo (EN 511)', Icon: IconCold },
-  { value: 'water-oil',  label: 'Su / Yağ Dayanımı', desc: 'Yağ, su, yakıt, sıvı',            Icon: IconWaterOil },
+const PROP_ICONS: { value: Exclude<PropValue, 'disposable' | 'precision'>; Icon: React.FC }[] = [
+  { value: 'chemical',   Icon: IconChemical },
+  { value: 'cut',        Icon: IconCut },
+  { value: 'abrasion',   Icon: IconAbrasion },
+  { value: 'heat',       Icon: IconHeat },
+  { value: 'cold',       Icon: IconCold },
+  { value: 'water-oil',  Icon: IconWaterOil },
 ];
 
 function filterProducts(envs: EnvValue[], props: PropValue[]): Product[] {
@@ -153,6 +157,14 @@ function filterProducts(envs: EnvValue[], props: PropValue[]): Product[] {
 
 // ── Bileşen ─────────────────────────────────────────────────────
 export default function GloveFinder() {
+  const { dict } = useI18n();
+  const lp = useLocalePath();
+  const t = dict.gloveFinder;
+
+  // İkon (sabit) + etiket (dile göre) birleştirilir.
+  const ENV_OPTS = ENV_ICONS.map(o => ({ ...o, ...t.envs[o.value] }));
+  const PROP_OPTS = PROP_ICONS.map(o => ({ ...o, ...t.props[o.value] }));
+
   const [step, setStep]               = useState<0 | 1>(0);
   const [envs, setEnvs]               = useState<EnvValue[]>([]);
   const [props, setProps]             = useState<PropValue[]>([]);
@@ -224,7 +236,7 @@ export default function GloveFinder() {
             </svg>
           </div>
           <span className="font-black text-white tracking-wide" style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: '1rem' }}>
-            Eldiven Bulucu
+            {t.title}
           </span>
         </div>
         <button
@@ -232,7 +244,7 @@ export default function GloveFinder() {
           className="text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
           style={{ color: 'rgba(172,199,255,0.6)', border: '1px solid rgba(172,199,255,0.15)' }}
         >
-          ↺ Sıfırla
+          {t.reset}
         </button>
       </div>
 
@@ -269,10 +281,10 @@ export default function GloveFinder() {
             {step === 0 && (
               <>
                 <h3 className="font-black text-white text-xl mb-2" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
-                  Kullanım Ortamı
+                  {t.step1Title}
                 </h3>
                 <p className="text-sm mb-6" style={{ color: 'rgba(172,199,255,0.6)' }}>
-                  Eldivenin kullanılacağı ortamları seçin — <strong style={{ color: 'rgba(200,220,255,0.8)' }}>birden fazla seçebilirsiniz.</strong>
+                  {t.step1Desc} <strong style={{ color: 'rgba(200,220,255,0.8)' }}>{t.step1DescStrong}</strong>
                 </p>
                 <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))' }}>
                   {ENV_OPTS.map((opt, i) => {
@@ -316,7 +328,7 @@ export default function GloveFinder() {
                 </div>
                 {envs.length > 0 && (
                   <p className="text-xs mt-3" style={{ color: 'rgba(172,199,255,0.75)' }}>
-                    {envs.length} ortam seçili
+                    {envs.length} {t.envSelected}
                   </p>
                 )}
               </>
@@ -327,17 +339,17 @@ export default function GloveFinder() {
               <>
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="font-black text-white text-xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
-                    Dayanım Gereksinimleri
+                    {t.step2Title}
                   </h3>
                   <span className="text-xs px-2 py-0.5 rounded-full font-bold" style={{ background: 'rgba(172,199,255,0.1)', color: 'rgba(172,199,255,0.6)' }}>
-                    İsteğe bağlı
+                    {t.optional}
                   </span>
                 </div>
                 <p className="text-sm mb-1.5" style={{ color: 'rgba(172,199,255,0.6)' }}>
-                  Birden fazla özellik seçebilirsiniz — seçilen <strong style={{ color: 'rgba(200,220,255,0.85)' }}>tüm özelliklere</strong> sahip eldivenler gösterilir.
+                  {t.step2Desc} <strong style={{ color: 'rgba(200,220,255,0.85)' }}>{t.step2DescStrong}</strong> {t.step2DescTail}
                 </p>
                 <p className="text-xs mb-5" style={{ color: 'rgba(172,199,255,0.75)' }}>
-                  Ortamlar:{' '}
+                  {t.envsLabel}{' '}
                   {envs.map((e, i) => {
                     const label = ENV_OPTS.find(o => o.value === e)?.label ?? e;
                     return <span key={e} style={{ color: '#8ec63f' }}>{i > 0 ? ', ' : ''}{label}</span>;
@@ -399,7 +411,7 @@ export default function GloveFinder() {
                   className="px-5 py-3 rounded-lg text-sm font-bold"
                   style={{ color: 'rgba(172,199,255,0.6)', border: '1px solid rgba(172,199,255,0.15)' }}
                 >
-                  ← Geri
+                  {t.back}
                 </button>
               ) : <div />}
               <button
@@ -414,7 +426,7 @@ export default function GloveFinder() {
                   boxShadow: (step === 0 ? envs.length > 0 : true) ? '0 4px 16px rgba(0,79,17,0.4)' : 'none',
                 }}
               >
-                {step === 1 ? 'Sonuçları Gör →' : 'Devam →'}
+                {step === 1 ? t.seeResults : t.next}
               </button>
             </div>
           </div>
@@ -424,10 +436,10 @@ export default function GloveFinder() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h3 className="font-black text-white text-xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
-                  {results.length > 0 ? `${results.length} Ürün Bulundu` : 'Ürün Bulunamadı'}
+                  {results.length > 0 ? `${results.length} ${t.found}` : t.notFoundTitle}
                 </h3>
                 <p className="text-xs mt-0.5" style={{ color: 'rgba(172,199,255,0.75)' }}>
-                  Seçimlerinize göre önerilen modeller
+                  {t.resultsSubtitle}
                 </p>
               </div>
               <button
@@ -435,7 +447,7 @@ export default function GloveFinder() {
                 className="text-xs font-bold px-3 py-1.5 rounded-lg"
                 style={{ color: 'rgba(172,199,255,0.6)', border: '1px solid rgba(172,199,255,0.15)' }}
               >
-                ← Değiştir
+                {t.change}
               </button>
             </div>
 
@@ -464,7 +476,7 @@ export default function GloveFinder() {
                 {results.map((p, i) => (
                   <Link
                     key={p.id}
-                    href={`/products/${p.id}`}
+                    href={lp(`/products/${p.id}`)}
                     className="block text-left p-5 rounded-xl transition-all duration-200 hover:-translate-y-1"
                     style={{
                       background: 'rgba(255,255,255,0.04)',
@@ -472,9 +484,14 @@ export default function GloveFinder() {
                       animation: `fadeUp 0.3s ${i * 0.04}s both`,
                     }}
                   >
-                    <div className="h-40 mb-4 rounded-lg overflow-hidden flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={p.img} alt={p.name} loading="lazy" decoding="async" className="h-full w-full object-contain p-2" />
+                    <div className="relative h-40 mb-4 rounded-lg overflow-hidden flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                      <Image
+                        src={p.img}
+                        alt={p.name}
+                        fill
+                        sizes="(max-width: 640px) 50vw, 280px"
+                        className="object-contain p-2"
+                      />
                     </div>
                     <div className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: '#8ec63f' }}>{p.categoryLabel}</div>
                     <div className="font-bold text-white text-base mb-2 leading-tight">{p.name}</div>
@@ -488,20 +505,20 @@ export default function GloveFinder() {
                         ) : null;
                       })}
                     </div>
-                    <div className="text-xs font-bold" style={{ color: '#acc7ff' }}>Detayları Gör →</div>
+                    <div className="text-xs font-bold" style={{ color: '#acc7ff' }}>{t.seeDetails}</div>
                   </Link>
                 ))}
               </div>
             ) : (
               <div className="text-center py-10">
-                <p className="text-sm font-bold text-white mb-1">Eşleşen ürün bulunamadı</p>
-                <p className="text-xs mb-4" style={{ color: 'rgba(172,199,255,0.75)' }}>Daha az özellik seçmeyi deneyin</p>
+                <p className="text-sm font-bold text-white mb-1">{t.noMatch}</p>
+                <p className="text-xs mb-4" style={{ color: 'rgba(172,199,255,0.75)' }}>{t.noMatchHint}</p>
                 <button
                   onClick={reset}
                   className="px-4 py-2 rounded-lg text-sm font-bold text-white"
                   style={{ background: 'linear-gradient(135deg,#003608,#005c14)', border: '1px solid rgba(142,198,63,0.3)' }}
                 >
-                  Yeniden Dene
+                  {t.retry}
                 </button>
               </div>
             )}

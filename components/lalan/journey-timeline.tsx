@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useRef, useEffect, useState } from 'react';
+import { useLocalePath } from './i18n-provider';
 
 // Ana sayfa "Lalan Hakkında" için özet yolculuk — /tarihce'deki dikey
 // animasyonlu timeline'ın yatay, kısaltılmış varyasyonu. Aynı yeşil→mavi
@@ -16,6 +17,7 @@ const BEATS: Beat[] = [
 ];
 
 export default function JourneyTimeline() {
+  const lp = useLocalePath();
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -51,7 +53,7 @@ export default function JourneyTimeline() {
           </h3>
         </div>
         <Link
-          href="/tarihce"
+          href={lp("/tarihce")}
           className="inline-flex items-center gap-2 text-sm font-bold transition-all duration-200 hover:gap-3"
           style={{ color: '#8ec63f' }}
         >

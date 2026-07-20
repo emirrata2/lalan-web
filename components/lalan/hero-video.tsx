@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { InfiniteSlider } from '@/components/ui/infinite-slider';
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
+import { useI18n, useLocalePath } from './i18n-provider';
 
 // Hero trust bar: en tanınır 6 sertifika. Tam liste /sertifikalar sayfasında.
 const HERO_CERTS = [
@@ -15,6 +16,9 @@ const HERO_CERTS = [
 ];
 
 export default function HeroVideo() {
+  const lp = useLocalePath();
+  const { dict } = useI18n();
+  const t = dict.home.hero;
   return (
     <section className="relative overflow-hidden">
       {/* ── Arka plan video ── */}
@@ -66,7 +70,7 @@ export default function HeroVideo() {
               animation: 'fadeUp 0.9s 0.35s cubic-bezier(0.16,1,0.3,1) forwards',
             }}
           >
-            Ağaçlardan <span style={{ color: '#8ec63f' }}>Ellerinize</span>
+            {t.titleLead} <span style={{ color: '#8ec63f' }}>{t.titleAccent}</span>
           </h1>
 
           <p
@@ -77,9 +81,7 @@ export default function HeroVideo() {
               animation: 'fadeUp 0.9s 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
             }}
           >
-            Kauçuk ağacının özünden ellerinizi koruyan yüksek performanslı
-            eldivenlere. Lalan Group&apos;un plantasyondan üretime uzanan dikey
-            entegre gücünü Türkiye ve MENA bölgesine taşıyoruz.
+            {t.body}
           </p>
 
           <div
@@ -90,7 +92,7 @@ export default function HeroVideo() {
             }}
           >
             <Link
-              href="/products"
+              href={lp("/products")}
               className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-base font-bold text-white transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
               style={{
                 background: 'linear-gradient(135deg,#003608 0%,#005c14 100%)',
@@ -98,13 +100,13 @@ export default function HeroVideo() {
                 border: '1px solid rgba(142,198,63,0.3)',
               }}
             >
-              Ürünleri Keşfet
+              {t.exploreProducts}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
             <Link
-              href="/eldiven-bulucu"
+              href={lp("/eldiven-bulucu")}
               className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-base font-bold transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
               style={{
                 background: 'rgba(255,255,255,0.06)',
@@ -112,7 +114,7 @@ export default function HeroVideo() {
                 border: '1px solid rgba(172,199,255,0.2)',
               }}
             >
-              Eldiven Bulucu
+              {dict.nav.gloveFinder}
             </Link>
           </div>
         </div>
@@ -126,7 +128,7 @@ export default function HeroVideo() {
               className="text-center text-xs font-bold uppercase tracking-[0.15em]"
               style={{ color: 'rgba(172,199,255,0.6)' }}
             >
-              Lalan Rubbers Sertifikaları
+              {t.certsKicker}
             </p>
             <div className="relative w-full py-2">
               <InfiniteSlider duration={35} durationOnHover={70} gap={20}>

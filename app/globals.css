@@ -104,8 +104,28 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+/* Klavye kullanıcısı için içeriğe atlama bağlantısı.
+   Görünmez durur, yalnızca odaklanınca (Tab) belirir — böylece her sayfada
+   navigasyondaki onlarca linki tek tek geçmek zorunda kalınmaz. */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #003608;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: 1px solid rgba(142, 198, 63, 0.4);
+  transform: translateY(-150%);
+  transition: transform 0.18s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #8ec63f;
+  outline-offset: 2px;
 }
 
 /* Product card hover shadow */
@@ -116,28 +136,6 @@
 .product-card:hover {
   box-shadow: 0 24px 48px rgba(92,147,214,0.14);
   transform: translateY(-4px);
-}
-
-/* Form inputs */
-.lalan-input {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 0.875rem;
-  background: #f5f3f3;
-  border: none;
-  border-bottom: 2px solid #c3c6d3;
-  color: #1b1c1c;
-  outline: none;
-  transition: border-color 0.2s ease;
-  font-family: var(--font-inter), sans-serif;
-}
-.lalan-input:focus {
-  border-bottom-color: #5c93d6;
-}
-
-/* Newsletter button hover */
-.newsletter-btn:hover {
-  background: #3a73bc !important;
 }
 
 /* Footer icon buttons */

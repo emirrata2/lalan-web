@@ -1,0 +1,948 @@
+{
+  "nav": {
+    "products": "Ürünler",
+    "gloveFinder": "Eldiven Bulucu",
+    "aboutLalan": "LALAN Hakkında",
+    "contact": "İletişim",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "language": "Dil",
+    "items": {
+      "lalan": "Lalan",
+      "history": "Tarihçe",
+      "sustainability": "Sürdürülebilirlik",
+      "plantations": "Plantasyonlar",
+      "certificates": "Sertifikalar",
+      "presentations": "Sunumlar & Kataloglar"
+    }
+  },
+  "footer": {
+    "tagline": "LALAN Rubbers ürünlerinin Türkiye ve MENA bölgesi yetkili distribütörü.",
+    "quickLinks": "Hızlı Bağlantılar",
+    "products": "Ürünler",
+    "contact": "İletişim",
+    "contactBlurb": "Teklif, numune ve teknik destek talepleriniz için bize ulaşın.",
+    "allContactInfo": "Tüm iletişim bilgileri →",
+    "rights": "© 2026 Lalan Mena — Türkiye & MENA Bölgesi Yetkili Distribütörü",
+    "categories": {
+      "chemical": "Kimyasal Eldivenler",
+      "disposable": "Tek Kullanımlık",
+      "foodSafe": "Gıdaya Uygun",
+      "industrial": "Endüstriyel",
+      "household": "Ev Tipi",
+      "seamless": "Dikişsiz Örme Eldiven"
+    }
+  },
+  "home": {
+    "hero": {
+      "titleLead": "Ağaçlardan",
+      "titleAccent": "Ellerinize",
+      "body": "Kauçuk ağacının özünden ellerinizi koruyan yüksek performanslı eldivenlere. Lalan Group'un plantasyondan üretime uzanan dikey entegre gücünü Türkiye ve MENA bölgesine taşıyoruz.",
+      "exploreProducts": "Ürünleri Keşfet",
+      "certsKicker": "LALAN Rubbers Sertifikaları"
+    },
+    "finder": {
+      "kicker": "Size Özel",
+      "title": "Doğru Eldiveni Bulun",
+      "body": "Çalışma ortamınızı ve dayanım gereksinimlerinizi seçin — size en uygun modeller anında listelensin."
+    },
+    "sustainability": {
+      "kicker": "Sürdürülebilir Gelecek",
+      "titleLead": "Gezegene Adanmış,",
+      "titleAccent": "Doğa Tarafından",
+      "titleTail": "Onaylanmış.",
+      "body": "Lalan, FSC (Orman Yönetim Konseyi) sertifikalı bir üreticidir. Lalan'ın sürdürülebilirlik çerçevesi, kauçuk plantasyonlarının biyoçeşitliliği korumasını ve bu alanlara bağımlı toplulukları desteklemesini güvence altına alır.",
+      "biodegradable": "Biyobozunur Lateks",
+      "zero": "Sıfır",
+      "zeroDeforestation": "Orman Kaybı Politikası",
+      "certified": "Sertifikalı",
+      "managedArea": "Yönetilen Alan",
+      "discover": "Lalan'ın sürdürülebilirlik girişimlerini keşfedin",
+      "percent100": "%100"
+    },
+    "featured": {
+      "body": "Gıda işleme tesisleri için geliştirilmiş, gıdaya uygun doğal lateks eldiven. Kaymaz dokulu yüzeyi güvenli tutuş sağlarken, ayırt edici kobalt mavi rengi gıda güvenliği denetimlerinde kolay tanınırlık sunar — dayanıklılık ve konfor bir arada.",
+      "tags": [
+        "Gıdaya Uygun",
+        "Doğal Lateks",
+        "Kaymaz Tutuş"
+      ],
+      "viewProduct": "Ürünü İncele",
+      "badge": "Gıdaya Uygun · Kobalt Mavi"
+    },
+    "stats": {
+      "experience": "Yıllık Deneyim",
+      "exportCountries": "İhracat Ülkesi",
+      "employees": "Küresel Çalışan",
+      "annualGloves": "Yıllık Eldiven",
+      "facilities": "Üretim Tesisi",
+      "offices": "Küresel Ofis",
+      "years": "Yıl",
+      "continents": "Kıta"
+    },
+    "global": {
+      "kicker": "Dünya Genelinde",
+      "title": "Küresel Varlık",
+      "body": "Lalan Group, Sri Lanka merkezinden Avrupa, Orta Doğu, Asya ve Güney Amerika'daki ofisleriyle 50'den fazla ülkeye ihracat gerçekleştirmektedir.",
+      "headquarters": "Merkez"
+    },
+    "about": {
+      "kicker": "Lalan Hakkında",
+      "p1": "Lalan Group, kauçuk sektöründe dikey entegre yapısıyla faaliyet gösteren çok sektörlü bir konglomerattır. Geniş kauçuk plantasyonlarından dünya standartlarındaki üretim tesislerine uzanan operasyonlarıyla sektörde öncü konumdadır.",
+      "p2": "Dört kıtada kurumsal varlığını sürdüren Lalan, ham lateksi yüksek performanslı koruyucu ekipmana ve endüstriyel çözümlere dönüştürme konusunda küresel otorite olarak tanınmaktadır.",
+      "more": "Lalan Hakkında Daha Fazla"
+    },
+    "cards": {
+      "rawMaterial": "Hammadde",
+      "plantationsTitle": "Plantasyonlar",
+      "plantationsDesc": "Lalan'ın 17.000 dönümü aşan kendi plantasyonlarından sürdürülebilir kauçuk.",
+      "environment": "Çevre",
+      "sustainabilityTitle": "Sürdürülebilirlik",
+      "sustainabilityDesc": "FSC sertifikalı ormancılık, yenilenebilir enerji ve sıfır orman kaybı ilkesi.",
+      "quality": "Kalite",
+      "certificatesTitle": "Sertifikalar",
+      "certificatesDesc": "ISO 9001, ISO 13485, FDA ve FSC dahil bağımsız kalite belgeleri."
+    },
+    "certs": {
+      "kicker": "Kalite & Uyumluluk",
+      "body": "Lalan Rubbers'ın uluslararası kalite, güvenlik ve sürdürülebilirlik standartlarına bağlılığı bağımsız kuruluşlar tarafından belgelenmiştir."
+    },
+    "contactCta": {
+      "kicker": "İletişime Geç",
+      "title": "Kauçuğun En İyisiyle Ortaklık Kurun",
+      "body": "İhtiyaçlarınızı görüşmeye hazır mısınız? Uzmanlarımız sektörünüze en uygun koruyucu çözümü bulmada size yardımcı olacaktır. Teklif ve sorularınız için doğrudan bize yazın.",
+      "allContactInfo": "Tüm İletişim Bilgileri"
+    },
+    "figures": {
+      "years80": "80+",
+      "countries50": "50+",
+      "employees": "10.000+",
+      "gloves": "2 milyar+",
+      "facilities": "9",
+      "offices": "6",
+      "continents": "4",
+      "percent100": "%100"
+    }
+  },
+  "common": {
+    "skipToContent": "İçeriğe geç",
+    "backToProducts": "Tüm Ürünler",
+    "backToHome": "Ana Sayfaya Dön",
+    "getInTouch": "İletişime Geç"
+  },
+  "notFound": {
+    "code": "Hata 404",
+    "title": "Aradığınız sayfa bulunamadı",
+    "body": "Bağlantı taşınmış veya kaldırılmış olabilir. Aşağıdaki bölümlerden devam edebilir, dilerseniz doğrudan bize ulaşabilirsiniz.",
+    "metaTitle": "Sayfa Bulunamadı | Lalan MENA",
+    "suggestions": {
+      "products": "Tüm eldiven kataloğu",
+      "gloveFinder": "Kullanım alanınıza göre seçim",
+      "certificates": "Standartlar ve belgeler",
+      "about": "Üretici ve kapasite bilgileri"
+    }
+  },
+  "contact": {
+    "metaTitle": "İletişim | Lalan MENA",
+    "metaDescription": "Lalan Rubbers ürünleri için teklif, numune ve teknik destek talepleriniz — Türkiye ve MENA bölgesi yetkili distribütörü ile iletişime geçin.",
+    "kicker": "İletişim",
+    "title": "Teklif, numune ve teknik destek",
+    "intro": "LALAN Rubbers ürünlerinin Türkiye ve MENA bölgesi yetkili distribütörüyüz. Ürün seçimi, teknik föy, sertifika veya fiyat teklifi talepleriniz için doğrudan bize ulaşabilirsiniz.",
+    "labels": {
+      "email": "E-posta",
+      "phone": "Telefon",
+      "whatsapp": "WhatsApp",
+      "address": "Adres",
+      "workingHours": "Çalışma Saatleri",
+      "openInMaps": "Haritada aç →",
+      "legal": "Künye",
+      "legalName": "Ticari Unvan",
+      "taxOffice": "Vergi Dairesi",
+      "taxNumber": "Vergi No",
+      "mersisNo": "Mersis No"
+    },
+    "cta": {
+      "title": "Talebinizi iletin",
+      "body": "İhtiyacınız olan ürün, miktar ve kullanım alanını yazmanız yeterli — uzman ekibimiz sektörünüze uygun çözümle birlikte size geri dönüş yapar.",
+      "button": "Teklif İçin E-posta Gönder",
+      "subject": "Teklif Talebi"
+    }
+  },
+  "product": {
+    "filesTitle": "Ürün ile İlgili Dosyalar",
+    "datasheetTitle": "Ürün Bilgi Föyü (PDF)",
+    "datasheetSub": "Tekli sunum & teknik dosya — indir",
+    "requestDatasheetTitle": "Teknik Föy Talep Et",
+    "requestDatasheetSub": "Bu ürünün föyünü ve belgelerini e-posta ile gönderelim",
+    "requestDatasheetSubject": "Teknik Föy Talebi",
+    "requestDatasheetBody": "ürününün teknik föyünü ve sertifika belgelerini iletebilir misiniz?",
+    "quoteTitle": "Bu Ürün İçin Teklif",
+    "quoteBody": "Adet ve kullanım alanınızı iletin, size özel fiyat ve tedarik planıyla dönüş yapalım.",
+    "quoteButton": "Teklif İste",
+    "quoteSubject": "Teklif Talebi",
+    "quoteFields": {
+      "product": "Ürün",
+      "code": "Ürün kodu",
+      "quantity": "Talep edilen adet",
+      "useCase": "Kullanım alanı",
+      "notes": "Notlar"
+    },
+    "specsTitle": "Teknik Özellikler",
+    "relatedTitle": "Aynı Kategoriden",
+    "media": {
+      "video": "Video",
+      "image": "Görsel"
+    }
+  },
+  "gloveFinder": {
+    "title": "Eldiven Bulucu",
+    "reset": "↺ Sıfırla",
+    "step1Title": "Kullanım Ortamı",
+    "step1Desc": "Eldivenin kullanılacağı ortamları seçin —",
+    "step1DescStrong": "birden fazla seçebilirsiniz.",
+    "envSelected": "ortam seçili",
+    "step2Title": "Dayanım Gereksinimleri",
+    "optional": "İsteğe bağlı",
+    "step2Desc": "Birden fazla özellik seçebilirsiniz — seçilen",
+    "step2DescStrong": "tüm özelliklere",
+    "step2DescTail": "sahip eldivenler gösterilir.",
+    "envsLabel": "Ortamlar:",
+    "back": "← Geri",
+    "next": "Devam →",
+    "seeResults": "Sonuçları Gör →",
+    "found": "Ürün Bulundu",
+    "notFoundTitle": "Ürün Bulunamadı",
+    "seeDetails": "Detayları Gör →",
+    "noMatch": "Eşleşen ürün bulunamadı",
+    "noMatchHint": "Daha az özellik seçmeyi deneyin",
+    "retry": "Yeniden Dene",
+    "envs": {
+      "heavy-industry": {
+        "label": "Ağır Sanayi",
+        "desc": "Kimya tesisi, petrokimya, fabrika"
+      },
+      "assembly-general": {
+        "label": "Montaj / Genel İş",
+        "desc": "Üretim hattı, lojistik, inşaat"
+      },
+      "lab-precision": {
+        "label": "Lab & Hassas İş",
+        "desc": "Laboratuvar, elektronik, temiz oda"
+      },
+      "food-kitchen": {
+        "label": "Gıda / Mutfak",
+        "desc": "Gıda işleme, mutfak, catering"
+      },
+      "cleaning-household": {
+        "label": "Temizlik & Ev",
+        "desc": "Ev, hastane temizliği, deterjanlı iş"
+      }
+    },
+    "props": {
+      "chemical": {
+        "label": "Kimyasal Dayanım",
+        "desc": "Asit, solvent, kimyasal madde"
+      },
+      "cut": {
+        "label": "Kesme Direnci",
+        "desc": "Keskin kenar, bıçak, sac, cam"
+      },
+      "abrasion": {
+        "label": "Aşınma Direnci",
+        "desc": "Pürüzlü yüzey, sürtünme, aşınma"
+      },
+      "heat": {
+        "label": "Isı Direnci",
+        "desc": "Temas ısısı, sıcak yüzey (EN 407)"
+      },
+      "cold": {
+        "label": "Soğuk Direnci",
+        "desc": "Soğuk hava, soğuk depo (EN 511)"
+      },
+      "water-oil": {
+        "label": "Su / Yağ Dayanımı",
+        "desc": "Yağ, su, yakıt, sıvı"
+      }
+    },
+    "resultsSubtitle": "Seçimlerinize göre önerilen modeller",
+    "change": "← Değiştir"
+  },
+  "catalog": {
+    "kicker": "Ürün Kataloğu",
+    "title": "Tüm Ürünler",
+    "intro": "30'dan fazla eldiven modeli — endüstriyel, ev tipi, kimyasal ve tek kullanımlık kategorilerde. Aşağıdaki Eldiven Bulucu ile size özel modeli saniyeler içinde bulun.",
+    "filter": "Filtrele",
+    "reset": "Sıfırla",
+    "productUnit": "ürün",
+    "sectionType": "Ürün Tipi",
+    "sectionCoating": "Kaplama",
+    "sectionProtection": "Koruma & Dayanım",
+    "clearFilters": "Filtreleri temizle ×",
+    "listing": "ürün listeleniyor",
+    "removeAll": "Tüm filtreleri kaldır ×",
+    "emptyTitle": "Bu kombinasyona uygun ürün yok",
+    "emptyBody": "Seçili filtreler çok kısıtlayıcı olabilir. Bazı seçimleri kaldırın.",
+    "showAll": "Tüm Ürünleri Göster",
+    "showLess": "Daha Az Göster",
+    "showMore": "Ürün Daha Göster",
+    "shownOf": "gösteriliyor",
+    "cats": {
+      "food-safe": "Gıdaya Uygun",
+      "chemical": "Kimyasal",
+      "disposable": "Tek Kullanımlık",
+      "industrial": "Endüstriyel",
+      "household": "Ev Tipi",
+      "seamless": "Dikişsiz Örme Eldiven"
+    },
+    "coatings": {
+      "pu": "Poliüretan (PU)",
+      "foam-nitrile": "Nitril Köpük",
+      "nitrile": "Nitril",
+      "full-dip": "Tam Daldırma"
+    },
+    "props": {
+      "chemical": "Kimyasal Direnç",
+      "cut": "Kesme Dayanımı",
+      "abrasion": "Aşınma Direnci",
+      "heat": "Isı Direnci",
+      "cold": "Soğuk Direnci",
+      "water-oil": "Su & Yağ Geçirmez"
+    },
+    "materials": {
+      "natural": "Doğal Lateks",
+      "nitrile": "Nitril"
+    },
+    "inspect": "İncele"
+  },
+  "history": {
+    "badge": "1940 — Günümüz",
+    "titleLead": "Seksen Yılı Aşkın",
+    "titleAccent": "Kauçuk Mirası",
+    "intro": "1940'ta Sri Lanka'da başlayan bir ticaret macerası, bugün dört kıtada faaliyet gösteren ve yılda 2 milyarı aşkın eldiven üreten küresel bir kauçuk devi haline geldi.",
+    "statsTitle": "Lalan Group — 2026 Rakamları",
+    "timelineTitle": "Yolculuğumuz",
+    "featured": "Öne Çıkan",
+    "stats": [
+      {
+        "n": "2 Milyar+",
+        "l": "Yıllık Eldiven\nÜretim Kapasitesi"
+      },
+      {
+        "n": "10.000+",
+        "l": "Küresel Çalışan"
+      },
+      {
+        "n": "9",
+        "l": "Modern Üretim\nTesisi"
+      },
+      {
+        "n": "50+",
+        "l": "İhracat Ülkesi"
+      },
+      {
+        "n": "500.000+",
+        "l": "Yıllık Fidan\nÜretimi"
+      },
+      {
+        "n": "68.8M m²",
+        "l": "FSC® Sertifikalı\nAlan"
+      },
+      {
+        "n": "13",
+        "l": "FSC® Plantasyon\nBölgesi"
+      },
+      {
+        "n": "80+",
+        "l": "Yıllık Deneyim"
+      }
+    ],
+    "milestones": [
+      {
+        "year": "1940",
+        "title": "Bir Ticaret Masasından Başlayan Yolculuk",
+        "desc": "Peter Hapangama ve oğlu David Hapangama, Sri Lanka'nın verimli topraklarında kauçuk ticareti operasyonlarını başlatır. Küçük bir ticaret masasından filizlenen bu girişim, Lalan Group'un temelini atar.",
+        "imgAlt": "1940 — Lalan kauçuk ticareti"
+      },
+      {
+        "year": "1956",
+        "title": "İlk Uluslararası İhracat",
+        "desc": "Lalan, yurt içi kauçuk ticaretinin sınırlarını aşarak ilk kez uluslararası pazarlara açılır. Küresel bir oyuncu haline gelecek grubun dışa açılım yolculuğu başlar.",
+        "imgAlt": "1956 — İlk uluslararası ihracat"
+      },
+      {
+        "year": "1983",
+        "title": "Üçüncü Nesil, Yeni Vizyon",
+        "desc": "David Hapangama'nın oğlu Lalith Hapangama aile işine katılır. Katma değerli üretim konseptlerini şirkete taşıyan Lalith, Lalan'ın sanayi devine dönüşmesinin baş mimarı olur.",
+        "imgAlt": "1983 — Endüstriyel tesis, üçüncü nesil yönetim"
+      },
+      {
+        "year": "1984",
+        "title": "İlk Çeşitlendirme: Baskı & Ambalaj",
+        "desc": "İlk Lalan Baskı ve Ambalaj fabrikası devreye girer. Şirket, çekirdek kauçuk ticaretinin ötesine ilk kez geçerek çok sektörlü yapısının temelini atar.",
+        "imgAlt": "1984 — Baskı ve ambalaj fabrikası makineleri"
+      },
+      {
+        "year": "1987",
+        "title": "Lalan Rubbers Doğuyor",
+        "desc": "İkinci nesil aileye dahil olurken katma değerli üretime geçilir. Sri Lanka'nın Warakapola şehrinde ilk kauçuk eldiven üretim tesisi faaliyete geçer. Zamanla eldiven üretimi, kauçuk ticaretini geride bırakarak grubun ana faaliyet alanı haline gelir.",
+        "imgAlt": "1987 — İlk eldiven üretim tesisi, Warakapola"
+      },
+      {
+        "year": "1988–1998",
+        "title": "Birinci Genişleme: 1'den 6 Tesise",
+        "desc": "Lalan Rubbers'ın birinci üretim genişleme dönemi: tek tesisten altı üretim tesisine ulaşılır. Sri Lanka genelinde kapasite hızla büyür, ihracat ağı derinleşir.",
+        "imgAlt": "1988–1998 — Fabrika genişlemesi, üretim hattı"
+      },
+      {
+        "year": "1998–2000",
+        "title": "Süregelen Büyüme",
+        "desc": "Lalan Rubbers ve Lalan Baskı & Ambalaj'ın kapasiteleri genişlemeye devam eder. Ürün çeşitliliği ve ihracat pazarları derinleşir; grup Sri Lanka'nın önde gelen sanayi kuruluşları arasındaki yerini pekiştirir.",
+        "imgAlt": "1998–2000 — Eldiven üretimi, süregelen büyüme"
+      },
+      {
+        "year": "2003",
+        "title": "Toprakla Gelen Güç: Plantasyonlar",
+        "desc": "Bölgesel bir plantasyon şirketinin satın alınmasıyla Lalan tarım sektörüne adım atar. 17.000 dönümü aşan kauçuk, çay, hindistancevizi ve tarçın plantasyonlarıyla hammaddeden son ürüne dikey entegrasyon sağlanır.",
+        "imgAlt": "2003 — Lalan plantasyon varlıkları"
+      },
+      {
+        "year": "2004–2009",
+        "title": "Birinci Uluslararası Açılım",
+        "desc": "Birleşik Krallık merkezli çeşitli şirketlerin satın alınmasıyla Sri Lanka dışında ilk ticari operasyonlar kurulur. Mühendislik ve turizm sektörlerine çeşitlendirme yapılır; uluslararası kurumsal yapı güçlenir.",
+        "imgAlt": "2004–2009 — Uluslararası açılım"
+      },
+      {
+        "year": "2009–2014",
+        "title": "İkinci Genişleme & Yenilenebilir Enerji",
+        "desc": "İkinci üretim genişleme dönemi: altı tesisten yediye ulaşılır, ürün portföyü dikişsiz iş eldivenlerinden tek kullanımlık nitril eldivenlerine kadar genişler. Yenilenebilir enerji sektörüne ilk yatırımlar yapılır. 2010'da FSC® orman sertifikası alınır.",
+        "imgAlt": "2009–2014 — Üretim genişlemesi"
+      },
+      {
+        "year": "2015–Günümüz",
+        "title": "Üçüncü Genişleme & Dört Kıtada Ticaret",
+        "desc": "Üçüncü üretim genişleme programı üretim kapasitesini büyütür. Ailenin dördüncü nesli işe katılır; Lalan Malaysia, Lalan Brazil, Lalan Turkey ve Lalan Middle East ofisleriyle uluslararası operasyonlar dört kıtaya yayılır. 10.000'den fazla çalışan, yıllık 2 milyarı aşan üretim kapasitesi.",
+        "imgAlt": "2015–Günümüz — Küresel liderlik"
+      }
+    ]
+  },
+  "aboutPage": {
+    "heroKicker": "1940'tan Bu Yana",
+    "heroTitle": "Lalan",
+    "heroSub": "Lalan Hakkında",
+    "heroBody": "Kauçuk sektöründe dikey entegre yapısıyla faaliyet gösteren çok sektörlü bir konglomerat. Plantasyondan ürüne, Sri Lanka'dan dünyaya — 80 yılı aşkın uzmanlık.",
+    "photoAlt": "Lalan kauçuk plantasyonu",
+    "p1": "Lalan Group, kauçuk sektöründe dikey entegre yapısıyla faaliyet gösteren çok sektörlü bir konglomerattır. Geniş kauçuk plantasyonlarından dünya standartlarındaki üretim tesislerine uzanan operasyonlarıyla sektörde öncü konumdadır.",
+    "p2": "Dört kıtada kurumsal varlığını sürdüren Lalan, ham lateksi yüksek performanslı koruyucu ekipmana ve endüstriyel çözümlere dönüştürme konusunda küresel otorite olarak tanınmaktadır.",
+    "p3": "1940 yılında Sri Lanka'da kurulan şirket, bugün tarım, imalat, mühendislik ve ticaret alanlarında faaliyet göstermektedir. Sürdürülebilir kauçuk tedariki ve üretiminde küresel standartları belirleyen Lalan, FSC sertifikalı plantasyonları ve ISO onaylı tesisleriyle sektöre öncülük etmektedir.",
+    "miniStats": [
+      {
+        "n": "80+",
+        "l": "Yıl"
+      },
+      {
+        "n": "10.000+",
+        "l": "Çalışan"
+      },
+      {
+        "n": "4",
+        "l": "Kıta"
+      }
+    ],
+    "factsTitle": "Rakamlarla Lalan",
+    "facts": [
+      {
+        "n": "1940",
+        "l": "Kuruluş Yılı"
+      },
+      {
+        "n": "80+",
+        "l": "Yıllık Deneyim"
+      },
+      {
+        "n": "10.000+",
+        "l": "Küresel Çalışan"
+      },
+      {
+        "n": "9",
+        "l": "Üretim Tesisi"
+      },
+      {
+        "n": "50+",
+        "l": "İhracat Ülkesi"
+      },
+      {
+        "n": "4",
+        "l": "Kıta"
+      },
+      {
+        "n": "2 milyar+",
+        "l": "Yıllık Eldiven"
+      },
+      {
+        "n": "68M+ m²",
+        "l": "Yönetilen Alan"
+      }
+    ],
+    "segmentsTitle": "Lalan'ın İş Kolları",
+    "segmentsSub": "Tarımdan ticarete dört ana faaliyet alanında dikey entegre yapı ile değer zincirinin tamamını kapsayan operasyonlar.",
+    "segments": [
+      {
+        "title": "Plantasyonlar & Tarım",
+        "desc": "68 milyondan fazla m² yönetilen alan üzerinde kauçuk, çay, hindistancevizi ve tarçın plantasyonları. FSC sertifikalı sürdürülebilir ormancılık uygulamaları.",
+        "stat": "68M+ m²",
+        "statLabel": "Yönetilen Alan"
+      },
+      {
+        "title": "Kauçuk İmalatı",
+        "desc": "Sri Lanka başta olmak üzere 9 üretim tesisinde doğal lateksin yüksek performanslı koruyucu eldivenlere ve endüstriyel ürünlere dönüştürüldüğü entegre üretim.",
+        "stat": "9",
+        "statLabel": "Üretim Tesisi"
+      },
+      {
+        "title": "Mühendislik Ürünleri",
+        "desc": "Otomotiv, inşaat ve savunma sanayii için yüksek performanslı kauçuk mühendislik ürünleri. Hassas toleranslar ve uluslararası standartlara tam uyumluluk.",
+        "stat": "500+",
+        "statLabel": "Ürün Çeşidi"
+      },
+      {
+        "title": "Ticaret & Dağıtım",
+        "desc": "50'den fazla ülkede yetkili distribütörler aracılığıyla küresel satış ve lojistik ağı. Türkiye ve MENA bölgesinin yetkili distribütörü olarak hizmet veriyoruz.",
+        "stat": "50+",
+        "statLabel": "İhracat Ülkesi"
+      }
+    ],
+    "officesTitle": "Küresel Ofisler & Varlık",
+    "offices": [
+      {
+        "city": "Colombo",
+        "country": "Sri Lanka",
+        "role": "Genel Merkez"
+      },
+      {
+        "city": "İstanbul",
+        "country": "Türkiye",
+        "role": "Türkiye & MENA Distribütörü"
+      },
+      {
+        "city": "Sohar",
+        "country": "Umman",
+        "role": "Orta Doğu Ofisi"
+      },
+      {
+        "city": "Tunus",
+        "country": "Tunus",
+        "role": "Kuzey Afrika Ofisi"
+      },
+      {
+        "city": "Londra",
+        "country": "İngiltere",
+        "role": "Avrupa Ofisi"
+      },
+      {
+        "city": "Kuala Lumpur",
+        "country": "Malezya",
+        "role": "Asya-Pasifik Ofisi"
+      },
+      {
+        "city": "São Paulo",
+        "country": "Brezilya",
+        "role": "Güney Amerika Ofisi"
+      }
+    ],
+    "timelineTitle": "Seksen Yıllık Yolculuk",
+    "timeline": [
+      {
+        "year": "1940",
+        "title": "Kuruluş",
+        "desc": "Peter Hapangama ve oğlu David, Sri Lanka'nın verimli topraklarında kauçuk ticareti operasyonlarını başlatır."
+      },
+      {
+        "year": "1956",
+        "title": "İlk Uluslararası İhracat",
+        "desc": "Yurt içi ticaretten uluslararası pazarlara açılım — küresel büyümenin ilk adımı."
+      },
+      {
+        "year": "1987",
+        "title": "Lalan Rubbers Doğuyor",
+        "desc": "Warakapola'da ilk kauçuk eldiven üretim tesisi faaliyete geçer; eldiven üretimi grubun temel faaliyet alanına dönüşür."
+      },
+      {
+        "year": "1988–1998",
+        "title": "Hızlı Genişleme",
+        "desc": "1 tesisten 6 tesise ulaşılır; ihracat ağı derinleşir ve kapasite Sri Lanka genelinde hızla büyür."
+      },
+      {
+        "year": "2000'ler",
+        "title": "Küresel Ofisler",
+        "desc": "Londra, İstanbul, Umman, Malezya ve Brezilya'da uluslararası ofisler açılır; 50'den fazla ülkeye doğrudan ihracat başlar."
+      },
+      {
+        "year": "Bugün",
+        "title": "Dünya Lideri",
+        "desc": "Yılda 2 milyar'ı aşkın eldiven üretim kapasitesi, 10.000+ çalışan ve 4 kıtada sürdürülebilir kauçuk çözümleri."
+      }
+    ],
+    "exploreTitle": "Daha Fazla Keşfet",
+    "explore": [
+      {
+        "label": "Tarihçe",
+        "sub": "1940'tan bugüne zaman çizelgesi"
+      },
+      {
+        "label": "Sürdürülebilirlik",
+        "sub": "FSC sertifikaları ve çevre taahhütleri"
+      },
+      {
+        "label": "Plantasyonlar",
+        "sub": "68M+ m² yönetilen alan ve kauçuk tarımı"
+      },
+      {
+        "label": "Sertifikalar",
+        "sub": "ISO, CE ve sektörel uyumluluk belgeleri"
+      },
+      {
+        "label": "Sunumlar & Kataloglar",
+        "sub": "Ürün teknik veri sayfaları ve broşürler"
+      },
+      {
+        "label": "Ürün Kataloğu",
+        "sub": "30'dan fazla eldiven modeli"
+      }
+    ],
+    "kickerSegments": "Faaliyet Alanları",
+    "kickerOffices": "Dünya Genelinde",
+    "kickerTimeline": "1940'tan Bugüne",
+    "kickerExplore": "Konuya Göre Gez"
+  },
+  "sustainabilityPage": {
+    "kicker": "Sürdürülebilir Gelecek",
+    "titleLead": "Gezegene Adanmış,",
+    "titleAccent": "Doğa Tarafından",
+    "titleTail": "Onaylanmış",
+    "intro": "Sürdürülebilirlik, Lalan Group için sonradan benimsenen bir ilke değil; işin kuruluşundan bu yana taşınan bir değerdir. Lalan, ormanları korur, yerel toplulukları destekler ve geleceğe sorumlu bir hammadde zinciri bırakır.",
+    "bannerStats": [
+      {
+        "n": "68.796.559 m²",
+        "l": "Yönetilen Alan"
+      },
+      {
+        "n": "13",
+        "l": "FSC® Plantasyonu"
+      },
+      {
+        "n": "17.500+",
+        "l": "Dönüm Plantasyon"
+      },
+      {
+        "n": "2010",
+        "l": "FSC® Sertifika Yılı"
+      }
+    ],
+    "pillarsTitle": "Lalan'ın Sürdürülebilirlik Sütunları",
+    "pillars": [
+      {
+        "title": "FSC® Sertifikalı Orman Yönetimi",
+        "desc": "2010'dan bu yana FSC® (Orman Yönetim Konseyi) sertifikası kesintisiz yenilenmektedir. Lalan'ın plantasyonları biyoçeşitlilik, su kaynakları ve yerel toplulukları koruyacak şekilde yönetilir.",
+        "stat": "10+",
+        "statLabel": "Yıl Kesintisiz FSC®"
+      },
+      {
+        "title": "Sıfır Orman Kaybı Politikası",
+        "desc": "Lalan'ın tüm plantasyon alanları mevcut orman alanlarını koruyacak şekilde planlanmıştır. Doğal habitatların tahrip edilmemesi Lalan'ın temel ilkeleri arasındadır.",
+        "stat": "0",
+        "statLabel": "Orman Kaybı"
+      },
+      {
+        "title": "Dikey Entegrasyon & İzlenebilirlik",
+        "desc": "Lalan'ın kendi plantasyonlarından üretilen lateks, hammadde kaynağından son ürüne kadar tam izlenebilirlik sağlar. Tedarik zincirinin her adımı bağımsız denetim altındadır.",
+        "stat": "%100",
+        "statLabel": "Lateks İzlenebilirliği"
+      },
+      {
+        "title": "%100 Biyobozunur Lateks",
+        "desc": "Doğal kauçuk lateksi, petrol bazlı sentetik alternatiflerin aksine tamamen biyobozunurdur. Lalan ürünlerinin büyük bölümü bu sürdürülebilir hammaddeden üretilmektedir.",
+        "stat": "%100",
+        "statLabel": "Biyobozunur"
+      },
+      {
+        "title": "Topluluk Desteği",
+        "desc": "Lalith Hapangama Vakfı aracılığıyla plantasyon bölgelerindeki yerel topluluklara eğitim, sağlık ve altyapı desteği sağlanmaktadır. Küçük çiftçilere fidan ve geri alım garantisi verilmektedir.",
+        "stat": "500K+",
+        "statLabel": "Fidan Üretimi"
+      },
+      {
+        "title": "Yenilenebilir Enerji",
+        "desc": "2009-2014 döneminde yenilenebilir enerji sektörüne yapılan yatırımlarla üretim tesislerinde enerji tüketiminin çevresel etkisi azaltılmaktadır.",
+        "stat": "2009",
+        "statLabel": "Yatırım Başlangıcı"
+      }
+    ],
+    "fscKicker": "FSC® Sertifikası",
+    "fscTitle": "Orman Yönetim Konseyi Onaylı Üretim",
+    "fscP1": "FSC® (Forest Stewardship Council — Orman Yönetim Konseyi), dünyada en güvenilir orman yönetim sertifikasyon kuruluşudur. Lalan, 2010'dan bu yana Almanya merkezli FSC tarafından akredite bağımsız bir denetim kuruluşu aracılığıyla bu sertifikayı kesintisiz sürdürmektedir.",
+    "fscP2": "Lalan'ın FSC sertifikası, plantasyonlarının biyoçeşitlilik korumasını, su kaynaklarının muhafazasını ve bölge halkının geçim kaynaklarını desteklemesini güvence altına alır.",
+    "fscP3": "FSC® sertifikalı ürünler talep üzerine temin edilebilmektedir. Sertifika detayları ve ürün kapsamı için iletişime geçiniz.",
+    "fscFacts": [
+      {
+        "label": "Sertifika Başlangıcı",
+        "value": "2010"
+      },
+      {
+        "label": "Ardışık Yenileme",
+        "value": "10+ yıl"
+      },
+      {
+        "label": "Sertifika Kuruluşu",
+        "value": "FSC, Almanya"
+      },
+      {
+        "label": "Kapsam",
+        "value": "Tüm plantasyonlar"
+      }
+    ]
+  },
+  "plantationsPage": {
+    "kicker": "Plantasyonlar & Tarım",
+    "titleLead": "Topraktan Gelen",
+    "titleAccent": "Güç",
+    "intro": "2003'ten bu yana 17.500 dönümü aşan plantasyon alanlarıyla Lalan, hammaddeyi kontrol eden nadir üreticilerden biridir. Lalan'ın lateksi kendi toprağından, kendi standartlarında yetişir.",
+    "stats": [
+      {
+        "n": "17.500+",
+        "l": "Dönüm Plantasyon"
+      },
+      {
+        "n": "13",
+        "l": "FSC® Sertifikalı Bölge"
+      },
+      {
+        "n": "68.8M m²",
+        "l": "Yönetilen Alan"
+      },
+      {
+        "n": "2003",
+        "l": "Plantasyon Sektörüne Giriş"
+      }
+    ],
+    "cropsTitle": "Yetiştirilen Ürünler",
+    "cropsSub": "Kauçuk ağacı (Hevea brasiliensis) Lalan'ın temel ürünü olmakla birlikte, çeşitlendirme stratejisi kapsamında birden fazla tropikal ürün yetiştirilmektedir.",
+    "crops": [
+      {
+        "name": "Kauçuk",
+        "desc": "Ana ürün. Doğal lateksin tüm üretim sürecinde izlenebilirliğini sağlayan entegre kauçuk plantasyonları."
+      },
+      {
+        "name": "Çay",
+        "desc": "Sri Lanka'nın dünyaca ünlü seylan çayı üretiminin önemli bir parçası."
+      },
+      {
+        "name": "Hindistancevizi",
+        "desc": "Tropikal iklimde yetişen hindistancevizi plantasyonları çeşitlendirilmiş tarımsal portföyün parçasıdır."
+      },
+      {
+        "name": "Tarçın",
+        "desc": "Sri Lanka tarçını (Cinnamomum verum), gurme ve ilaç endüstrisi için yüksek kaliteli ürün."
+      },
+      {
+        "name": "Ormancılık",
+        "desc": "FSC sertifikalı sürdürülebilir ormancılık uygulamaları; biyoçeşitliliği koruma temel ilkedir."
+      }
+    ],
+    "qualityTitle": "Lalan'ın Kalite Politikası",
+    "qualitySub": "Lalan'da kalite, bir departmanın değil tüm organizasyonun sorumluluğudur.",
+    "qualityItems": [
+      {
+        "title": "Hammadde İzlenebilirliği",
+        "desc": "Lalan'ın kendi plantasyonlarından elde edilen lateks, kaynaktan son ürüne kadar her aşamada takip edilebilir. Bu entegre yapı, hammadde kalitesinin doğrudan kontrol altında tutulmasını ve uluslararası standartlara uyumu mümkün kılar."
+      },
+      {
+        "title": "Merkezi Kauçuk Fidanlığı (CRN)",
+        "desc": "Sri Lanka'nın en büyük kauçuk fidanlığı olma özelliğini taşıyan CRN, Rubber Development Department of Sri Lanka tarafından sertifikalandırılmıştır. Küçük çiftçilere yüksek verimli fidan ve geri alım garantisi sunulmaktadır."
+      },
+      {
+        "title": "Bağımsız Denetim & Sertifikasyon",
+        "desc": "Tüm kalite standartları (ISO, FSC, BRC vb.) bağımsız akreditasyon kuruluşları tarafından yıllık denetimlerle doğrulanmaktadır. Şeffaflık ve hesap verebilirlik Lalan'ın kurumsal değerleri arasında yer almaktadır."
+      },
+      {
+        "title": "Sürekli İyileştirme",
+        "desc": "Lalan'ın Ar-Ge faaliyetleri, ürün geliştirme süreçleri ve üretim teknolojileri sürekli güncellenmektedir. 1988'den bu yana 1 tesisten 7 modern tesise ulaşılan büyüme, bu anlayışın somut göstergesidir."
+      }
+    ],
+    "docsTitle": "Belgeler & Raporlar",
+    "docsSub": "Lalan'ın FSC® sertifikasyon belgeleri, plantasyon yönetim planları ve agri bölümü politikaları.",
+    "download": "İndir",
+    "docs": [
+      {
+        "title": "Agri Bölümü Politikaları 2022",
+        "desc": "Lalan Rubbers Agri Division'ın güncel politika belgesi — çevre, iş güvenliği, kimyasal kullanım ve FSC uyum standartları."
+      },
+      {
+        "title": "Agri Bölümü Politikaları 2021",
+        "desc": "Amendment IV — FSC sertifikası kapsamında kauçuk, orman ve tarım alanlarına uygulanan operasyonel politikalar."
+      },
+      {
+        "title": "FSC® Orman Yönetim Planı 2018–22",
+        "desc": "FSC Manual: Lalan'ın 68,8 milyon m² sertifikalı alanına ait beş yıllık orman yönetim planı ve sürdürülebilirlik hedefleri."
+      }
+    ],
+    "featured": "Öne Çıkan",
+    "crnTitle": "Sri Lanka'nın En Büyük Kauçuk Fidanlığı",
+    "crnBody": "Merkezi Kauçuk Fidanlığı (Central Rubber Nursery — CRN), Sri Lanka Kauçuk Kalkınma Departmanı tarafından sertifikalandırılmış ve ülkedeki en büyük fidanlık unvanını taşımaktadır. CRN, küçük çiftçilere yüksek verimli kauçuk fidanı sağlamakta ve geri alım garantisiyle yerel üreticilerin sürdürülebilir gelir elde etmesine katkıda bulunmaktadır."
+  },
+  "presentationsPage": {
+    "kicker": "Dokümanlar",
+    "titleLead": "Sunumlar &",
+    "titleAccent": "Kataloglar",
+    "intro": "Ürün teknik sunumlarını PDF olarak indirin; genel şirket sunumu ve katalog için iletişime geçin.",
+    "generalTitle": "Genel Sunum & Katalog",
+    "generalCards": [
+      {
+        "name": "Lalan Rubbers — Genel Sunum",
+        "subtitle": "Şirket profili, ürün yelpazesi ve sertifikalar"
+      },
+      {
+        "name": "Lalan Rubbers — Corporate Overview",
+        "subtitle": "Company profile, product range and certifications"
+      }
+    ],
+    "requestPrompt": "Genel sunum talep etmek ister misiniz?",
+    "requestBody": "Şirket profilimiz, kapasite bilgilerimiz ve tam ürün kataloğumuz içeren sunum dosyaları talep üzerine gönderilmektedir.",
+    "requestBtn": "Sunum Talep Et",
+    "singleTitle": "Tekli Ürün Sunumları",
+    "download": "PDF İndir",
+    "subtitles": [
+      "Kobalt Mavi · Gıdaya Uygun",
+      "Yeşil Kimyasal · Kimyasal Direnç",
+      "Ekonomik · Tek Kullanımlık Nitril",
+      "Pudrasız · Nitril · Tek Kullanımlık",
+      "Güçlü · 5g Nitril",
+      "Extra Güçlü · 6.3g Nitril",
+      "Anti-statik · Elektronik Sektör"
+    ],
+    "footerTitle": "Daha Fazla Ürün Bilgisi mi Gerekiyor?",
+    "footerBody": "Katalogda yer almayan ürünler için teknik veri sayfası ve özel ürün sunumları talep üzerine hazırlanmaktadır.",
+    "allProducts": "Tüm Ürünler",
+    "contact": "İletişime Geç"
+  },
+  "certsPage": {
+    "kicker": "Kalite & Uyumluluk",
+    "titleLead": "Küresel Standartlarla",
+    "titleAccent": "Belgelenmiş Kalite",
+    "intro": "Lalan Rubbers, uluslararası kalite, güvenlik, sosyal sorumluluk ve çevresel standartlara uygunluğunu bağımsız kuruluşlar tarafından düzenli olarak denetlettirmektedir.",
+    "badge": "Uluslararası Sertifika & Standart",
+    "policyTitle": "Politika Belgeleri",
+    "policyCountUnit": "Belge",
+    "footerTitle": "Sertifika Belgelerine İhtiyacınız mı Var?",
+    "footerBody": "Resmi sertifika kopyaları ve uyumluluk dokümanları talep üzerine sağlanmaktadır.",
+    "presentations": "Sunumlar & Kataloglar",
+    "contact": "İletişime Geç",
+    "certs": {
+      "ISO 9001": {
+        "scope": "Kalite Yönetim Sistemi",
+        "desc": "Lalan'ın ürün ve hizmetlerinin müşteri ve mevzuat gerekliliklerini tutarlı biçimde karşılamasını güvence altına alan uluslararası kalite yönetim sistemi standardı."
+      },
+      "ISO 13485": {
+        "scope": "Tıbbi Cihaz Kalite Yönetimi",
+        "desc": "Lalan'ın laboratuvar ve tıbbi cihaz sektörüne yönelik kalite yönetim sisteminin uluslararası standartlarla uyumluluğunu belgeleyen sertifika. Medikal sınıf eldivenler için zorunludur."
+      },
+      "FDA": {
+        "scope": "ABD Gıda Teması Onayı",
+        "desc": "Lalan'ın gıdaya uygun eldivenleri FDA Title 21 CFR kapsamında sertifikalandırılmıştır; eldiven bileşenlerinin gıda güvenliği düzenlemelerine uyduğunu ve \"gıda veya gıda ambalajında kullanımı genel olarak güvenli maddeler\" içerdiğini belgeler."
+      },
+      "FDA 510(k)": {
+        "scope": "Tıbbi Cihaz Piyasa Öncesi Bildirimi",
+        "desc": "ABD'de tıbbi cihaz olarak pazarlanan Lalan eldivenlerinin FDA piyasa öncesi bildirim sürecini (510k) başarıyla tamamladığını; güvenlik ve etkinlik gerekliliklerini karşıladığını gösterir."
+      },
+      "Health Canada": {
+        "scope": "Kanada Piyasası Uyumluluğu",
+        "desc": "Lalan eldivenlerinin Kanada Gıda ve İlaç Yasası (FDA) ile yönetmelikleri (FDR) kapsamındaki gereklilikleri karşıladığını belgeleyen Kanada federal sağlık otoritesi onayı."
+      },
+      "REACH": {
+        "scope": "Kimyasal Madde Güvenliği",
+        "desc": "Lalan'ın AB kimyasal maddeler tüzüğünü benimsediğini; üretim sürecinde kullanılan kimyasalların insan sağlığı ve çevreye yönelik risklerini AB düzenlemelerine uygun şekilde yönettiğini belgeler."
+      },
+      "BSCI": {
+        "scope": "Sosyal Uyumluluk Denetimi",
+        "desc": "Lalan, BSCI sosyal denetim metodolojisini kullanarak tüm tesislerindeki çalışma koşullarını sürekli iyileştirmekte ve en yüksek düzeyde sürdürmektedir. İnsan hakları, etik iş pratikleri ve tedarik zinciri şeffaflığını kapsar."
+      },
+      "Sedex": {
+        "scope": "Sorumlu Tedarik Zinciri",
+        "desc": "Sedex (Supplier Ethical Data Exchange), Lalan'ın etik ve sosyal uyumluluk performansına ilişkin bilgileri kataloglayıp ortaklarıyla paylaşmasına olanak tanıyarak sürdürülebilir ve şeffaf bir tedarik zinciri güvencesi sağlar."
+      },
+      "BRC Global Standards": {
+        "scope": "Gıda Güvenliği & Kalitesi",
+        "desc": "Gıda sektörü tedarikçileri için küresel standart. BRC Tüketici Ürünleri Sertifikasyonu kapsamında Lalan, ürün tasarımının güvenliği, yasallığı ve kalitesinin yanı sıra üretim ortamının gıda güvenliğine uygunluğunu belgeler."
+      },
+      "GOTS": {
+        "scope": "Organik Tekstil Standardı",
+        "desc": "GOTS, Lalan'ın üretim sürecinde toksik ağartıcı, boya ve diğer kimyasalların kullanımını sınırlayan organik tekstil üretim sertifikasyonudur. Hammaddeden etiketlemeye kadar tüm zinciri kapsar."
+      },
+      "ASTM International": {
+        "scope": "Malzeme & Test Standartları",
+        "desc": "Lalan, ASTM standartlarını ürün kalitesini artırmak, sağlık ve güvenliği güçlendirmek, pazar erişimini kolaylaştırmak ve müşterilere ürünlere güvenebileceklerini göstermek amacıyla uygulamaktadır."
+      },
+      "Sanitized®": {
+        "scope": "Antimikrobiyal Koruma",
+        "desc": "SANITIZED® antimikrobiyal işlemi, seçili Lalan ürünleri üzerinde uygulanarak eldivenlerin bakteri, küf, küf mantarı, yosun veya toz akarlarının kolonizasyonuna ve çoğalmasına karşı korunmasını sağlar."
+      }
+    },
+    "certGroups": {
+      "quality-medical": "Kalite & Tıbbi",
+      "market-access": "Pazar Erişimi",
+      "chemical-env": "Kimyasal & Çevre",
+      "social-ethical": "Sosyal & Etik"
+    },
+    "policies": {
+      "Kalite Politikası": "Kalite Politikası",
+      "Tüm Politikalar": "Tüm Politikalar Özeti 2022",
+      "LRP.CP.02": "Rüşvet & Yolsuzluk Karşıtı",
+      "LRP.CP.05": "Etik Ticaret",
+      "LRP.CP.08": "Özgür İstihdam",
+      "LRP.CP.09": "Sendika Özgürlüğü",
+      "LRP.CP.29": "Disiplin",
+      "LRP.CP.34": "Gizlilik & Raporlama Mekanizması",
+      "LRP.CP.03": "Çocuk İşçiliği Karşıtı",
+      "LRP.CP.07": "Zorla Çalıştırma Karşıtı",
+      "LRP.CP.11": "Taciz Karşıtı",
+      "LRP.CP.16": "Ayrım Gözetmeme",
+      "LRP.CP.18": "İşçi-Yönetim İlişkileri",
+      "LRP.CP.20": "Sosyal Sorumluluk",
+      "LRP.CP.21": "Ücret & Maaş",
+      "LRP.CP.24": "Çalışma Saatleri",
+      "LRP.CP.25": "Genç Çalışanlar",
+      "LRP.CP.26": "İşe Alım & Emeklilik",
+      "LRP.CP.30": "Şikayet Politikası (Sinhala)",
+      "LRP.CP.32": "İnsan Hakları",
+      "LRP.CP.33": "Çalışan Veri Gizliliği",
+      "LRP.CP.06": "Çevre Politikası",
+      "LRP.CP.22": "Atık Yönetimi",
+      "LRP.CP.23": "Su Yönetimi",
+      "LRP.CP.31": "Hava Emisyonu",
+      "LRP.CP.01": "Alkol & Uyuşturucu",
+      "LRP.CP.04": "Temizlik",
+      "LRP.CP.10": "Cam & Kırılgan Malzeme",
+      "LRP.CP.12": "İş Sağlığı & Güvenliği",
+      "LRP.CP.13": "Hijyen",
+      "LRP.CP.14": "Metal Kontrol",
+      "LRP.CP.15": "Sigara Yasağı",
+      "LRP.CP.17": "Kişisel İlaç",
+      "LRP.CP.19": "Güvenlik"
+    },
+    "policyGroups": {
+      "quality-general": "Kalite & Genel",
+      "ethics-legal": "İş Etiği & Hukuk",
+      "social-hr": "Sosyal & İnsan Hakları",
+      "env-sustain": "Çevre & Sürdürülebilirlik",
+      "facility-safety": "Tesis & Üretim Güvenliği"
+    },
+    "categoriesLabel": "Farklı Uyumluluk Kategorisi",
+    "certBodies": {
+      "REACH": "ECHA (Avrupa)",
+      "Sanitized®": "Sanitized AG (İsviçre)"
+    },
+    "policyCodes": {
+      "Kalite Politikası": "Kalite Politikası",
+      "Tüm Politikalar": "Tüm Politikalar"
+    }
+  }
+}

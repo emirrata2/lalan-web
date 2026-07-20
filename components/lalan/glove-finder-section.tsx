@@ -1,7 +1,10 @@
 ﻿'use client';
 import GloveFinder from './glove-finder';
+import { useI18n } from './i18n-provider';
 
 export default function GloveFinderSection() {
+  const { dict } = useI18n();
+  const t = dict.home.finder;
   return (
     <div
       className="py-28 md:py-36 relative"
@@ -15,16 +18,16 @@ export default function GloveFinderSection() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8">
         <div className="text-center mb-12">
           <div className="text-xs font-bold uppercase tracking-[0.15em] mb-4" style={{ color: '#8ec63f' }}>
-            Size Özel
+            {t.kicker}
           </div>
           <h2
             className="font-black text-white tracking-tight mb-4"
             style={{ fontFamily: 'var(--font-manrope), sans-serif', fontSize: 'clamp(2rem, 3.5vw, 2.8rem)' }}
           >
-            Doğru Eldiveni Bulun
+            {t.title}
           </h2>
           <p className="text-base leading-relaxed max-w-[52ch] mx-auto" style={{ color: 'rgba(172,199,255,0.65)' }}>
-            Çalışma ortamınızı ve dayanım gereksinimlerinizi seçin — size en uygun modeller anında listelensin.
+            {t.body}
           </p>
         </div>
 

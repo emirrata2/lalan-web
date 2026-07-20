@@ -1,7 +1,9 @@
 'use client';
 import { useState, useMemo, useCallback } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { PRODUCTS, type Product } from '@/lib/products';
+import { useI18n, useLocalePath } from './i18n-provider';
 
 // ── Filter definitions ────────────────────────────────────────
 
@@ -29,11 +31,6 @@ const PROP_OPTIONS = [
   { id: 'cold',      label: 'Soğuk Direnci' },
   { id: 'water-oil', label: 'Su & Yağ Geçirmez' },
 ] as const;
-
-const MATERIAL_LABEL: Record<string, string> = {
-  natural:              'Doğal Lateks',
-  nitrile:              'Nitril',
-};
 
 // ── Generic helpers ───────────────────────────────────────────
 
@@ -123,10 +120,13 @@ function CheckPill({
 
 // ── Product card ──────────────────────────────────────────────
 function ProductCard({ product }: { product: Product }) {
+  const { dict } = useI18n();
+  const lp = useLocalePath();
+  const t = dict.catalog;
   const [hovered, setHovered] = useState(false);
   return (
     <Link
-      href={`/products/${product.id}`}
+      href={lp(`/products/${product.id}`)}
       className="block select-none"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -141,13 +141,12 @@ function ProductCard({ product }: { product: Product }) {
           transform: hovered ? 'scale(1.02)' : 'scale(1)',
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={product.img}
           alt={product.name}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-contain"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-contain"
           style={{
             padding: '9%',
             transition: 'transform 0.65s cubic-bezier(0.16,1,0.3,1)',
@@ -166,7 +165,7 @@ function ProductCard({ product }: { product: Product }) {
               backdropFilter: 'blur(8px)',
             }}
           >
-            {product.categoryLabel}
+            {t.cats[product.category as keyof typeof t.cats] ?? product.categoryLabel}
           </span>
         </div>
 
@@ -189,7 +188,7 @@ function ProductCard({ product }: { product: Product }) {
               transform: hovered ? 'translateY(0)' : 'translateY(12px)',
             }}
           >
-            İncele
+            {t.inspect}
           </span>
         </div>
       </div>
@@ -202,7 +201,7 @@ function ProductCard({ product }: { product: Product }) {
           {product.name}
         </h3>
         <p className="text-xs font-medium uppercase tracking-wider mt-1.5" style={{ color: 'rgba(172,199,255,0.4)' }}>
-          {MATERIAL_LABEL[product.material] ?? product.material}
+          {t.materials[product.material as keyof typeof t.materials] ?? product.material}
         </p>
         <div className="flex flex-wrap gap-1.5 mt-3">
           {product.features.slice(0, 2).map(f => (
@@ -237,6 +236,13 @@ function ActiveChip({ label, onRemove }: { label: string; onRemove: () => void }
 const PAGE_SIZE = 9;
 
 export default function ProductsCatalog() {
+  const { dict } = useI18n();
+  const tc = dict.catalog;
+  // Filtre seçenekleri: id/sıra sabit (CAT_OPTIONS...), etiket dile göre sözlükten
+  const catOpts  = useMemo(() => CAT_OPTIONS.map(o  => ({ id: o.id, label: tc.cats[o.id] })), [tc]);
+  const coatOpts = useMemo(() => COAT_OPTIONS.map(o => ({ id: o.id, label: tc.coatings[o.id] })), [tc]);
+  const propOpts = useMemo(() => PROP_OPTIONS.map(o => ({ id: o.id, label: tc.props[o.id] })), [tc]);
+
   const [selCats,  setSelCats]  = useState<Set<string>>(new Set());
   const [selCoats, setSelCoats] = useState<Set<string>>(new Set());
   const [selProps, setSelProps] = useState<Set<string>>(new Set());
@@ -273,15 +279,15 @@ export default function ProductsCatalog() {
   // Build active chip labels for the summary bar
   const activeChips = [
     ...Array.from(selCats).map(id => ({
-      label: CAT_OPTIONS.find(o => o.id === id)?.label ?? id,
+      label: catOpts.find(o => o.id === id)?.label ?? id,
       remove: () => toggleCat(id),
     })),
     ...Array.from(selCoats).map(id => ({
-      label: COAT_OPTIONS.find(o => o.id === id)?.label ?? id,
+      label: coatOpts.find(o => o.id === id)?.label ?? id,
       remove: () => toggleCoat(id),
     })),
     ...Array.from(selProps).map(id => ({
-      label: PROP_OPTIONS.find(o => o.id === id)?.label ?? id,
+      label: propOpts.find(o => o.id === id)?.label ?? id,
       remove: () => toggleProp(id),
     })),
   ];
@@ -302,10 +308,10 @@ export default function ProductsCatalog() {
         <div className="px-5 py-5 flex items-center justify-between" style={{ borderBottom: '1px solid rgba(172,199,255,0.07)' }}>
           <div>
             <p className="font-black text-white text-sm" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>
-              Filtrele
+              {tc.filter}
             </p>
             <p className="text-[10px] font-bold uppercase tracking-[0.15em] mt-0.5" style={{ color: 'rgba(172,199,255,0.4)' }}>
-              {filtered.length} / {PRODUCTS.length} ürün
+              {filtered.length} / {PRODUCTS.length} {tc.productUnit}
             </p>
           </div>
           {hasFilters && (
@@ -314,14 +320,14 @@ export default function ProductsCatalog() {
               className="text-[10px] font-bold px-2.5 py-1 rounded-full transition-opacity hover:opacity-70"
               style={{ background: 'rgba(255,80,80,0.12)', color: 'rgba(255,130,130,0.9)', border: '1px solid rgba(255,80,80,0.2)' }}
             >
-              Sıfırla
+              {tc.reset}
             </button>
           )}
         </div>
 
         {/* Ürün Tipi */}
-        <Section title="Ürün Tipi">
-          {CAT_OPTIONS.map(o => (
+        <Section title={tc.sectionType}>
+          {catOpts.map(o => (
             <CheckPill key={o.id} active={selCats.has(o.id)} onClick={() => toggleCat(o.id)} count={catCount(o.id)}>
               {o.label}
             </CheckPill>
@@ -329,8 +335,8 @@ export default function ProductsCatalog() {
         </Section>
 
         {/* Kaplama */}
-        <Section title="Kaplama">
-          {COAT_OPTIONS.map(o => (
+        <Section title={tc.sectionCoating}>
+          {coatOpts.map(o => (
             <CheckPill key={o.id} active={selCoats.has(o.id)} onClick={() => toggleCoat(o.id)} count={coatCount(o.id)}>
               {o.label}
             </CheckPill>
@@ -338,8 +344,8 @@ export default function ProductsCatalog() {
         </Section>
 
         {/* Koruma & Dayanım */}
-        <Section title="Koruma & Dayanım">
-          {PROP_OPTIONS.map(o => (
+        <Section title={tc.sectionProtection}>
+          {propOpts.map(o => (
             <CheckPill key={o.id} active={selProps.has(o.id)} onClick={() => toggleProp(o.id)} count={propCount(o.id)}>
               {o.label}
             </CheckPill>
@@ -353,7 +359,7 @@ export default function ProductsCatalog() {
         {/* Mobile filter chips */}
         <div className="lg:hidden mb-6 space-y-3">
           <div className="flex flex-wrap gap-2">
-            {CAT_OPTIONS.map(o => (
+            {catOpts.map(o => (
               <button
                 key={o.id}
                 type="button"
@@ -372,7 +378,7 @@ export default function ProductsCatalog() {
           </div>
           {hasFilters && (
             <button onClick={resetAll} className="text-xs font-bold" style={{ color: 'rgba(255,130,130,0.8)' }}>
-              Filtreleri temizle ×
+              {tc.clearFilters}
             </button>
           )}
         </div>
@@ -392,7 +398,7 @@ export default function ProductsCatalog() {
           style={{ borderBottom: '1px solid rgba(172,199,255,0.07)' }}
         >
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(172,199,255,0.4)' }}>
-            {filtered.length} ürün listeleniyor
+            {filtered.length} {tc.listing}
           </p>
           {hasFilters && (
             <button
@@ -400,7 +406,7 @@ export default function ProductsCatalog() {
               className="hidden lg:block text-[10px] font-bold uppercase tracking-wider transition-colors hover:text-white"
               style={{ color: 'rgba(172,199,255,0.35)' }}
             >
-              Tüm filtreleri kaldır ×
+              {tc.removeAll}
             </button>
           )}
         </div>
@@ -409,16 +415,16 @@ export default function ProductsCatalog() {
         {filtered.length === 0 && (
           <div className="flex flex-col items-center py-24 gap-4">
             <div className="text-4xl mb-2" style={{ opacity: 0.3 }}>◈</div>
-            <p className="text-lg font-bold text-white">Bu kombinasyona uygun ürün yok</p>
+            <p className="text-lg font-bold text-white">{tc.emptyTitle}</p>
             <p className="text-sm" style={{ color: 'rgba(172,199,255,0.5)' }}>
-              Seçili filtreler çok kısıtlayıcı olabilir. Bazı seçimleri kaldırın.
+              {tc.emptyBody}
             </p>
             <button
               onClick={resetAll}
               className="mt-2 px-6 py-2.5 rounded-full text-sm font-bold transition-all hover:-translate-y-0.5"
               style={{ background: 'rgba(142,198,63,0.15)', color: '#8ec63f', border: '1px solid rgba(142,198,63,0.25)' }}
             >
-              Tüm Ürünleri Göster
+              {tc.showAll}
             </button>
           </div>
         )}
@@ -442,19 +448,19 @@ export default function ProductsCatalog() {
             >
               {showAll ? (
                 <>
-                  Daha Az Göster
+                  {tc.showLess}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 15l-6-6-6 6" /></svg>
                 </>
               ) : (
                 <>
-                  {hiddenCount} Ürün Daha Göster
+                  {hiddenCount} {tc.showMore}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M6 9l6 6 6-6" /></svg>
                 </>
               )}
             </button>
             {!showAll && (
               <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'rgba(172,199,255,0.3)' }}>
-                {visible.length} / {filtered.length} gösteriliyor
+                {visible.length} / {filtered.length} {tc.shownOf}
               </p>
             )}
           </div>

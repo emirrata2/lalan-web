@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import type { Product } from '@/lib/products';
 
 // 360° GLB viewer is shelved — dynamic import kept for future use
@@ -105,13 +106,14 @@ export default function ProductMedia({ product }: { product: Product }) {
             border: '1px solid rgba(172,199,255,0.08)',
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          {/* Ürün sayfasının LCP görseli — lazy değil, priority ile yüklenir. */}
+          <Image
             src={product.img}
             alt={product.name}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-contain"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 42vw"
+            className="object-contain"
             style={{ padding: '5%' }}
           />
         </div>

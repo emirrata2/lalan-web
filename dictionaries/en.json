@@ -1,0 +1,948 @@
+{
+  "nav": {
+    "products": "Products",
+    "gloveFinder": "Glove Finder",
+    "aboutLalan": "About LALAN",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "items": {
+      "lalan": "Lalan",
+      "history": "Our Journey",
+      "sustainability": "Sustainability",
+      "plantations": "Plantations",
+      "certificates": "Certifications",
+      "presentations": "Presentations & Catalogues"
+    }
+  },
+  "footer": {
+    "tagline": "Authorised distributor of LALAN Rubbers products for Türkiye and the MENA region.",
+    "quickLinks": "Quick Links",
+    "products": "Products",
+    "contact": "Contact",
+    "contactBlurb": "Get in touch for quotes, samples and technical support.",
+    "allContactInfo": "All contact details →",
+    "rights": "© 2026 Lalan Mena — Authorised Distributor for Türkiye & the MENA Region",
+    "categories": {
+      "chemical": "Chemical Gloves",
+      "disposable": "Disposable",
+      "foodSafe": "Food Safe",
+      "industrial": "Industrial",
+      "household": "Household",
+      "seamless": "Seamless Knitted Gloves"
+    }
+  },
+  "home": {
+    "hero": {
+      "titleLead": "From Trees",
+      "titleAccent": "to Your Hands",
+      "body": "From the sap of the rubber tree to high-performance gloves that protect your hands. We bring Lalan Group's vertically integrated strength — from plantation to production — to Türkiye and the MENA region.",
+      "exploreProducts": "Explore Products",
+      "certsKicker": "LALAN Rubbers Certifications"
+    },
+    "finder": {
+      "kicker": "Tailored to You",
+      "title": "Find the Right Glove",
+      "body": "Select your working environment and protection requirements — the best-matching models are listed instantly."
+    },
+    "sustainability": {
+      "kicker": "A Sustainable Future",
+      "titleLead": "Devoted to the Planet,",
+      "titleAccent": "Approved by",
+      "titleTail": "Nature.",
+      "body": "Lalan is an FSC (Forest Stewardship Council) certified manufacturer. Lalan's sustainability framework ensures its rubber plantations protect biodiversity and support the communities that depend on them.",
+      "biodegradable": "Biodegradable Latex",
+      "zero": "Zero",
+      "zeroDeforestation": "Deforestation Policy",
+      "certified": "Certified",
+      "managedArea": "Managed Area",
+      "discover": "Discover Lalan's sustainability initiatives",
+      "percent100": "100%"
+    },
+    "featured": {
+      "body": "A food-safe natural latex glove developed for food processing facilities. Its textured non-slip surface gives a secure grip, while the distinctive cobalt blue colour makes it easy to spot during food safety inspections — durability and comfort together.",
+      "tags": [
+        "Food Safe",
+        "Natural Latex",
+        "Non-Slip Grip"
+      ],
+      "viewProduct": "View Product",
+      "badge": "Food Safe · Cobalt Blue"
+    },
+    "stats": {
+      "experience": "Years of Experience",
+      "exportCountries": "Export Countries",
+      "employees": "Employees Worldwide",
+      "annualGloves": "Gloves per Year",
+      "facilities": "Production Facilities",
+      "offices": "Global Offices",
+      "years": "Years",
+      "continents": "Continents"
+    },
+    "global": {
+      "kicker": "Worldwide",
+      "title": "Global Presence",
+      "body": "From its headquarters in Sri Lanka, Lalan Group exports to more than 50 countries through offices across Europe, the Middle East, Asia and South America.",
+      "headquarters": "Headquarters"
+    },
+    "about": {
+      "kicker": "About Lalan",
+      "p1": "Lalan Group is a multi-sector conglomerate built on vertical integration in the rubber industry. Its operations run from extensive rubber plantations through to world-class production facilities, placing it at the forefront of the sector.",
+      "p2": "With a corporate presence across four continents, Lalan is recognised as a global authority in transforming raw latex into high-performance protective equipment and industrial solutions.",
+      "more": "More About Lalan"
+    },
+    "cards": {
+      "rawMaterial": "Raw Material",
+      "plantationsTitle": "Plantations",
+      "plantationsDesc": "Sustainable rubber from Lalan's own plantations, spanning over 17,000 acres.",
+      "environment": "Environment",
+      "sustainabilityTitle": "Sustainability",
+      "sustainabilityDesc": "FSC-certified forestry, renewable energy and a zero deforestation policy.",
+      "quality": "Quality",
+      "certificatesTitle": "Certifications",
+      "certificatesDesc": "Independent quality credentials including ISO 9001, ISO 13485, FDA and FSC."
+    },
+    "certs": {
+      "kicker": "Quality & Compliance",
+      "body": "Lalan Rubbers' commitment to international quality, safety and sustainability standards is certified by independent bodies."
+    },
+    "contactCta": {
+      "kicker": "Get in Touch",
+      "title": "Partner with the Best in Rubber",
+      "body": "Ready to discuss your requirements? Our specialists will help you find the protective solution best suited to your industry. Write to us directly with your quote requests and questions.",
+      "allContactInfo": "All Contact Details"
+    },
+    "figures": {
+      "years80": "80+",
+      "countries50": "50+",
+      "employees": "10,000+",
+      "gloves": "2 billion+",
+      "facilities": "9",
+      "offices": "6",
+      "continents": "4",
+      "percent100": "100%"
+    }
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "backToProducts": "All Products",
+    "backToHome": "Back to Home",
+    "getInTouch": "Get in Touch"
+  },
+  "notFound": {
+    "code": "Error 404",
+    "title": "We couldn't find that page",
+    "body": "The link may have moved or been removed. You can continue from the sections below, or contact us directly.",
+    "metaTitle": "Page Not Found | Lalan MENA",
+    "suggestions": {
+      "products": "The full glove catalogue",
+      "gloveFinder": "Find gloves by application",
+      "certificates": "Standards and documentation",
+      "about": "Manufacturer and capacity details"
+    }
+  },
+  "contact": {
+    "metaTitle": "Contact | Lalan MENA",
+    "metaDescription": "Quotes, samples and technical support for Lalan Rubbers products — get in touch with the authorised distributor for Türkiye and the MENA region.",
+    "kicker": "Contact",
+    "title": "Quotes, samples and technical support",
+    "intro": "We are the authorised distributor of LALAN Rubbers products for Türkiye and the MENA region. Contact us directly for product selection, technical datasheets, certification documents or pricing.",
+    "labels": {
+      "email": "Email",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "address": "Address",
+      "workingHours": "Working Hours",
+      "openInMaps": "Open in Maps →",
+      "legal": "Company Details",
+      "legalName": "Registered Name",
+      "taxOffice": "Tax Office",
+      "taxNumber": "Tax No",
+      "mersisNo": "Mersis No"
+    },
+    "cta": {
+      "title": "Send us your request",
+      "body": "Just tell us the product, quantity and application — our team will get back to you with a solution suited to your industry.",
+      "button": "Email Us for a Quote",
+      "subject": "Quote Request"
+    }
+  },
+  "product": {
+    "filesTitle": "Product Documents",
+    "datasheetTitle": "Product Datasheet (PDF)",
+    "datasheetSub": "Single presentation & technical file — download",
+    "requestDatasheetTitle": "Request Datasheet",
+    "requestDatasheetSub": "We'll email you this product's datasheet and documentation",
+    "requestDatasheetSubject": "Datasheet Request",
+    "requestDatasheetBody": "could you please send the technical datasheet and certification documents for this product?",
+    "quoteTitle": "Request a Quote",
+    "quoteBody": "Tell us your quantity and application, and we'll come back with tailored pricing and a supply plan.",
+    "quoteButton": "Request Quote",
+    "quoteSubject": "Quote Request",
+    "quoteFields": {
+      "product": "Product",
+      "code": "Product code",
+      "quantity": "Quantity required",
+      "useCase": "Application",
+      "notes": "Notes"
+    },
+    "specsTitle": "Technical Specifications",
+    "relatedTitle": "More in This Category",
+    "media": {
+      "video": "Video",
+      "image": "Image"
+    }
+  },
+  "gloveFinder": {
+    "title": "Glove Finder",
+    "reset": "↺ Reset",
+    "step1Title": "Working Environment",
+    "step1Desc": "Select where the gloves will be used —",
+    "step1DescStrong": "you can choose more than one.",
+    "envSelected": "environment(s) selected",
+    "step2Title": "Protection Requirements",
+    "optional": "Optional",
+    "step2Desc": "You can select several properties — only gloves with",
+    "step2DescStrong": "all selected properties",
+    "step2DescTail": "are shown.",
+    "envsLabel": "Environments:",
+    "back": "← Back",
+    "next": "Continue →",
+    "seeResults": "See Results →",
+    "found": "Product(s) Found",
+    "notFoundTitle": "No Products Found",
+    "seeDetails": "View Details →",
+    "noMatch": "No matching products",
+    "noMatchHint": "Try selecting fewer properties",
+    "retry": "Try Again",
+    "envs": {
+      "heavy-industry": {
+        "label": "Heavy Industry",
+        "desc": "Chemical plant, petrochemical, factory"
+      },
+      "assembly-general": {
+        "label": "Assembly / General",
+        "desc": "Production line, logistics, construction"
+      },
+      "lab-precision": {
+        "label": "Lab & Precision",
+        "desc": "Laboratory, electronics, clean room"
+      },
+      "food-kitchen": {
+        "label": "Food / Kitchen",
+        "desc": "Food processing, kitchen, catering"
+      },
+      "cleaning-household": {
+        "label": "Cleaning & Household",
+        "desc": "Home, hospital cleaning, detergents"
+      }
+    },
+    "props": {
+      "chemical": {
+        "label": "Chemical Resistance",
+        "desc": "Acids, solvents, chemicals"
+      },
+      "cut": {
+        "label": "Cut Resistance",
+        "desc": "Sharp edges, blades, sheet metal, glass"
+      },
+      "abrasion": {
+        "label": "Abrasion Resistance",
+        "desc": "Rough surfaces, friction, wear"
+      },
+      "heat": {
+        "label": "Heat Resistance",
+        "desc": "Contact heat, hot surfaces (EN 407)"
+      },
+      "cold": {
+        "label": "Cold Resistance",
+        "desc": "Cold weather, cold storage (EN 511)"
+      },
+      "water-oil": {
+        "label": "Water / Oil Resistance",
+        "desc": "Oil, water, fuel, liquids"
+      }
+    },
+    "resultsSubtitle": "Recommended models based on your selection",
+    "change": "← Change"
+  },
+  "catalog": {
+    "kicker": "Product Catalogue",
+    "title": "All Products",
+    "intro": "More than 30 glove models — across industrial, household, chemical and disposable categories. Use the Glove Finder below to find your ideal model in seconds.",
+    "filter": "Filter",
+    "reset": "Reset",
+    "productUnit": "products",
+    "sectionType": "Product Type",
+    "sectionCoating": "Coating",
+    "sectionProtection": "Protection & Resistance",
+    "clearFilters": "Clear filters ×",
+    "listing": "products listed",
+    "removeAll": "Remove all filters ×",
+    "emptyTitle": "No products match this combination",
+    "emptyBody": "The selected filters may be too restrictive. Try removing some.",
+    "showAll": "Show All Products",
+    "showLess": "Show Less",
+    "showMore": "More Products",
+    "shownOf": "shown",
+    "cats": {
+      "food-safe": "Food Safe",
+      "chemical": "Chemical",
+      "disposable": "Disposable",
+      "industrial": "Industrial",
+      "household": "Household",
+      "seamless": "Seamless Knitted"
+    },
+    "coatings": {
+      "pu": "Polyurethane (PU)",
+      "foam-nitrile": "Foam Nitrile",
+      "nitrile": "Nitrile",
+      "full-dip": "Full Dip"
+    },
+    "props": {
+      "chemical": "Chemical Resistance",
+      "cut": "Cut Resistance",
+      "abrasion": "Abrasion Resistance",
+      "heat": "Heat Resistance",
+      "cold": "Cold Resistance",
+      "water-oil": "Water & Oil Resistant"
+    },
+    "materials": {
+      "natural": "Natural Latex",
+      "nitrile": "Nitrile"
+    },
+    "inspect": "View"
+  },
+  "history": {
+    "badge": "1940 — Present",
+    "titleLead": "Over Eighty Years",
+    "titleAccent": "of Rubber Heritage",
+    "intro": "A trading venture that began in Sri Lanka in 1940 has become a global rubber giant operating across four continents and producing over 2 billion gloves a year.",
+    "statsTitle": "Lalan Group — 2026 Figures",
+    "timelineTitle": "Our Journey",
+    "featured": "Featured",
+    "stats": [
+      {
+        "n": "2 Billion+",
+        "l": "Annual Glove\nProduction Capacity"
+      },
+      {
+        "n": "10,000+",
+        "l": "Employees Worldwide"
+      },
+      {
+        "n": "9",
+        "l": "Modern Production\nFacilities"
+      },
+      {
+        "n": "50+",
+        "l": "Export Countries"
+      },
+      {
+        "n": "500,000+",
+        "l": "Saplings Produced\nAnnually"
+      },
+      {
+        "n": "68.8M m²",
+        "l": "FSC® Certified\nArea"
+      },
+      {
+        "n": "13",
+        "l": "FSC® Plantation\nRegions"
+      },
+      {
+        "n": "80+",
+        "l": "Years of Experience"
+      }
+    ],
+    "milestones": [
+      {
+        "year": "1940",
+        "title": "A Journey That Began at a Trading Desk",
+        "desc": "Peter Hapangama and his son David Hapangama launch rubber trading operations in the fertile soils of Sri Lanka. Sprouting from a small trading desk, this venture lays the foundation of the Lalan Group.",
+        "imgAlt": "1940 — Lalan rubber trading"
+      },
+      {
+        "year": "1956",
+        "title": "First International Export",
+        "desc": "Lalan crosses the boundaries of domestic rubber trade and reaches international markets for the first time. The group's journey toward becoming a global player begins.",
+        "imgAlt": "1956 — First international export"
+      },
+      {
+        "year": "1983",
+        "title": "Third Generation, New Vision",
+        "desc": "David Hapangama's son Lalith Hapangama joins the family business. Bringing value-added manufacturing concepts to the company, Lalith becomes the chief architect of Lalan's transformation into an industrial giant.",
+        "imgAlt": "1983 — Industrial facility, third-generation management"
+      },
+      {
+        "year": "1984",
+        "title": "First Diversification: Printing & Packaging",
+        "desc": "The first Lalan Printing and Packaging factory comes online. The company moves beyond its core rubber trade for the first time, laying the foundation of its multi-sector structure.",
+        "imgAlt": "1984 — Printing and packaging factory machinery"
+      },
+      {
+        "year": "1987",
+        "title": "Lalan Rubbers Is Born",
+        "desc": "As the second generation joins the family, the shift to value-added manufacturing begins. The first rubber glove production facility opens in Warakapola, Sri Lanka. Over time, glove manufacturing overtakes rubber trading to become the group's core business.",
+        "imgAlt": "1987 — First glove production facility, Warakapola"
+      },
+      {
+        "year": "1988–1998",
+        "title": "First Expansion: From 1 to 6 Facilities",
+        "desc": "Lalan Rubbers' first production expansion period: from a single facility to six production sites. Capacity grows rapidly across Sri Lanka and the export network deepens.",
+        "imgAlt": "1988–1998 — Factory expansion, production line"
+      },
+      {
+        "year": "1998–2000",
+        "title": "Continued Growth",
+        "desc": "The capacities of Lalan Rubbers and Lalan Printing & Packaging keep expanding. Product variety and export markets deepen; the group cements its place among Sri Lanka's leading industrial enterprises.",
+        "imgAlt": "1998–2000 — Glove production, continued growth"
+      },
+      {
+        "year": "2003",
+        "title": "Strength From the Land: Plantations",
+        "desc": "With the acquisition of a regional plantation company, Lalan steps into agriculture. With over 17,000 acres of rubber, tea, coconut and cinnamon plantations, vertical integration from raw material to finished product is achieved.",
+        "imgAlt": "2003 — Lalan plantation assets"
+      },
+      {
+        "year": "2004–2009",
+        "title": "First International Expansion",
+        "desc": "With the acquisition of various UK-based companies, the first commercial operations outside Sri Lanka are established. Diversification into engineering and tourism follows; the international corporate structure strengthens.",
+        "imgAlt": "2004–2009 — International expansion"
+      },
+      {
+        "year": "2009–2014",
+        "title": "Second Expansion & Renewable Energy",
+        "desc": "The second production expansion period: from six facilities to seven, with the portfolio widening from seamless work gloves to disposable nitrile gloves. The first investments in renewable energy are made. FSC® forest certification is obtained in 2010.",
+        "imgAlt": "2009–2014 — Production expansion"
+      },
+      {
+        "year": "2015–Present",
+        "title": "Third Expansion & Trade Across Four Continents",
+        "desc": "The third production expansion program grows manufacturing capacity. The fourth generation of the family joins; international operations spread across four continents with the Lalan Malaysia, Lalan Brazil, Lalan Turkey and Lalan Middle East offices. Over 10,000 employees and an annual capacity exceeding 2 billion gloves.",
+        "imgAlt": "2015–Present — Global leadership"
+      }
+    ]
+  },
+  "aboutPage": {
+    "heroKicker": "Since 1940",
+    "heroTitle": "Lalan",
+    "heroSub": "About Lalan",
+    "heroBody": "A multi-sector conglomerate built on vertical integration in the rubber industry. From plantation to product, from Sri Lanka to the world — over 80 years of expertise.",
+    "photoAlt": "Lalan rubber plantation",
+    "p1": "Lalan Group is a multi-sector conglomerate built on vertical integration in the rubber industry. Its operations run from extensive rubber plantations through to world-class production facilities, placing it at the forefront of the sector.",
+    "p2": "With a corporate presence across four continents, Lalan is recognised as a global authority in transforming raw latex into high-performance protective equipment and industrial solutions.",
+    "p3": "Founded in Sri Lanka in 1940, the company today operates across agriculture, manufacturing, engineering and trade. Setting global standards in sustainable rubber sourcing and production, Lalan leads the sector with its FSC-certified plantations and ISO-approved facilities.",
+    "miniStats": [
+      {
+        "n": "80+",
+        "l": "Years"
+      },
+      {
+        "n": "10,000+",
+        "l": "Employees"
+      },
+      {
+        "n": "4",
+        "l": "Continents"
+      }
+    ],
+    "factsTitle": "Lalan in Numbers",
+    "facts": [
+      {
+        "n": "1940",
+        "l": "Year Founded"
+      },
+      {
+        "n": "80+",
+        "l": "Years of Experience"
+      },
+      {
+        "n": "10,000+",
+        "l": "Employees Worldwide"
+      },
+      {
+        "n": "9",
+        "l": "Production Facilities"
+      },
+      {
+        "n": "50+",
+        "l": "Export Countries"
+      },
+      {
+        "n": "4",
+        "l": "Continents"
+      },
+      {
+        "n": "2 billion+",
+        "l": "Gloves per Year"
+      },
+      {
+        "n": "68M+ m²",
+        "l": "Managed Area"
+      }
+    ],
+    "segmentsTitle": "Lalan's Business Lines",
+    "segmentsSub": "From agriculture to trade, operations that span the entire value chain across four core business areas with a vertically integrated structure.",
+    "segments": [
+      {
+        "title": "Plantations & Agriculture",
+        "desc": "Rubber, tea, coconut and cinnamon plantations across more than 68 million m² of managed land. FSC-certified sustainable forestry practices.",
+        "stat": "68M+ m²",
+        "statLabel": "Managed Area"
+      },
+      {
+        "title": "Rubber Manufacturing",
+        "desc": "Integrated production across 9 facilities, led by Sri Lanka, where natural latex is transformed into high-performance protective gloves and industrial products.",
+        "stat": "9",
+        "statLabel": "Production Facilities"
+      },
+      {
+        "title": "Engineering Products",
+        "desc": "High-performance rubber engineering products for the automotive, construction and defence industries. Precise tolerances and full compliance with international standards.",
+        "stat": "500+",
+        "statLabel": "Product Types"
+      },
+      {
+        "title": "Trade & Distribution",
+        "desc": "A global sales and logistics network through authorised distributors in more than 50 countries. We serve as the authorised distributor for Türkiye and the MENA region.",
+        "stat": "50+",
+        "statLabel": "Export Countries"
+      }
+    ],
+    "officesTitle": "Global Offices & Presence",
+    "offices": [
+      {
+        "city": "Colombo",
+        "country": "Sri Lanka",
+        "role": "Headquarters"
+      },
+      {
+        "city": "Istanbul",
+        "country": "Türkiye",
+        "role": "Türkiye & MENA Distributor"
+      },
+      {
+        "city": "Sohar",
+        "country": "Oman",
+        "role": "Middle East Office"
+      },
+      {
+        "city": "Tunis",
+        "country": "Tunisia",
+        "role": "North Africa Office"
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom",
+        "role": "Europe Office"
+      },
+      {
+        "city": "Kuala Lumpur",
+        "country": "Malaysia",
+        "role": "Asia-Pacific Office"
+      },
+      {
+        "city": "São Paulo",
+        "country": "Brazil",
+        "role": "South America Office"
+      }
+    ],
+    "timelineTitle": "An Eighty-Year Journey",
+    "timeline": [
+      {
+        "year": "1940",
+        "title": "Founding",
+        "desc": "Peter Hapangama and his son David launch rubber trading operations in the fertile soils of Sri Lanka."
+      },
+      {
+        "year": "1956",
+        "title": "First International Export",
+        "desc": "Expansion from domestic trade to international markets — the first step of global growth."
+      },
+      {
+        "year": "1987",
+        "title": "Lalan Rubbers Is Born",
+        "desc": "The first rubber glove production facility opens in Warakapola; glove manufacturing becomes the group's core business."
+      },
+      {
+        "year": "1988–1998",
+        "title": "Rapid Expansion",
+        "desc": "From 1 facility to 6; the export network deepens and capacity grows rapidly across Sri Lanka."
+      },
+      {
+        "year": "2000s",
+        "title": "Global Offices",
+        "desc": "International offices open in London, Istanbul, Oman, Malaysia and Brazil; direct exports to more than 50 countries begin."
+      },
+      {
+        "year": "Today",
+        "title": "World Leader",
+        "desc": "An annual capacity exceeding 2 billion gloves, 10,000+ employees and sustainable rubber solutions across 4 continents."
+      }
+    ],
+    "exploreTitle": "Explore More",
+    "explore": [
+      {
+        "label": "Our Journey",
+        "sub": "Timeline from 1940 to today"
+      },
+      {
+        "label": "Sustainability",
+        "sub": "FSC certifications and environmental commitments"
+      },
+      {
+        "label": "Plantations",
+        "sub": "68M+ m² of managed land and rubber farming"
+      },
+      {
+        "label": "Certifications",
+        "sub": "ISO, CE and sector compliance documents"
+      },
+      {
+        "label": "Presentations & Catalogues",
+        "sub": "Product technical data sheets and brochures"
+      },
+      {
+        "label": "Product Catalogue",
+        "sub": "More than 30 glove models"
+      }
+    ],
+    "kickerSegments": "Business Areas",
+    "kickerOffices": "Worldwide",
+    "kickerTimeline": "Since 1940",
+    "kickerExplore": "Browse by Topic"
+  },
+  "sustainabilityPage": {
+    "kicker": "A Sustainable Future",
+    "titleLead": "Devoted to the Planet,",
+    "titleAccent": "Approved by",
+    "titleTail": "Nature",
+    "intro": "Sustainability is not a principle Lalan Group adopted later; it is a value carried since the founding of the business. Lalan protects forests, supports local communities and leaves behind a responsible raw-material chain for the future.",
+    "bannerStats": [
+      {
+        "n": "68,796,559 m²",
+        "l": "Managed Area"
+      },
+      {
+        "n": "13",
+        "l": "FSC® Plantations"
+      },
+      {
+        "n": "17,500+",
+        "l": "Acres of Plantation"
+      },
+      {
+        "n": "2010",
+        "l": "FSC® Certification Year"
+      }
+    ],
+    "pillarsTitle": "Lalan's Sustainability Pillars",
+    "pillars": [
+      {
+        "title": "FSC® Certified Forest Management",
+        "desc": "The FSC® (Forest Stewardship Council) certification has been renewed without interruption since 2010. Lalan's plantations are managed to protect biodiversity, water resources and local communities.",
+        "stat": "10+",
+        "statLabel": "Years of Uninterrupted FSC®"
+      },
+      {
+        "title": "Zero Deforestation Policy",
+        "desc": "All of Lalan's plantation areas are planned to preserve existing forest land. Not destroying natural habitats is among Lalan's core principles.",
+        "stat": "0",
+        "statLabel": "Deforestation"
+      },
+      {
+        "title": "Vertical Integration & Traceability",
+        "desc": "Latex produced from Lalan's own plantations provides full traceability from raw material to finished product. Every step of the supply chain is under independent audit.",
+        "stat": "100%",
+        "statLabel": "Latex Traceability"
+      },
+      {
+        "title": "100% Biodegradable Latex",
+        "desc": "Natural rubber latex, unlike petroleum-based synthetic alternatives, is fully biodegradable. The majority of Lalan products are made from this sustainable raw material.",
+        "stat": "100%",
+        "statLabel": "Biodegradable"
+      },
+      {
+        "title": "Community Support",
+        "desc": "Through the Lalith Hapangama Foundation, education, health and infrastructure support is provided to local communities in plantation regions. Small farmers are given saplings and a buy-back guarantee.",
+        "stat": "500K+",
+        "statLabel": "Saplings Produced"
+      },
+      {
+        "title": "Renewable Energy",
+        "desc": "Through investments in the renewable energy sector during 2009–2014, the environmental impact of energy consumption at production facilities is being reduced.",
+        "stat": "2009",
+        "statLabel": "Investment Start"
+      }
+    ],
+    "fscKicker": "FSC® Certification",
+    "fscTitle": "Forest Stewardship Council Approved Production",
+    "fscP1": "The FSC® (Forest Stewardship Council) is the world's most trusted forest-management certification body. Since 2010, Lalan has maintained this certification without interruption through an independent audit body accredited by the Germany-based FSC.",
+    "fscP2": "Lalan's FSC certification ensures that its plantations protect biodiversity, conserve water resources and support the livelihoods of local communities.",
+    "fscP3": "FSC® certified products are available on request. Please contact us for certificate details and product scope.",
+    "fscFacts": [
+      {
+        "label": "Certification Start",
+        "value": "2010"
+      },
+      {
+        "label": "Consecutive Renewals",
+        "value": "10+ years"
+      },
+      {
+        "label": "Certifying Body",
+        "value": "FSC, Germany"
+      },
+      {
+        "label": "Scope",
+        "value": "All plantations"
+      }
+    ]
+  },
+  "plantationsPage": {
+    "kicker": "Plantations & Agriculture",
+    "titleLead": "Strength From",
+    "titleAccent": "the Land",
+    "intro": "With over 17,500 acres of plantation land since 2003, Lalan is one of the rare manufacturers that controls its raw material. Lalan's latex grows on its own soil, to its own standards.",
+    "stats": [
+      {
+        "n": "17,500+",
+        "l": "Acres of Plantation"
+      },
+      {
+        "n": "13",
+        "l": "FSC® Certified Regions"
+      },
+      {
+        "n": "68.8M m²",
+        "l": "Managed Area"
+      },
+      {
+        "n": "2003",
+        "l": "Entry into Plantations"
+      }
+    ],
+    "cropsTitle": "Crops Grown",
+    "cropsSub": "While the rubber tree (Hevea brasiliensis) is Lalan's core crop, several tropical crops are cultivated as part of its diversification strategy.",
+    "crops": [
+      {
+        "name": "Rubber",
+        "desc": "The core crop. Integrated rubber plantations that ensure traceability of natural latex throughout the entire production process."
+      },
+      {
+        "name": "Tea",
+        "desc": "A significant part of Sri Lanka's world-renowned Ceylon tea production."
+      },
+      {
+        "name": "Coconut",
+        "desc": "Coconut plantations grown in the tropical climate are part of the diversified agricultural portfolio."
+      },
+      {
+        "name": "Cinnamon",
+        "desc": "Sri Lanka cinnamon (Cinnamomum verum), a high-quality product for the gourmet and pharmaceutical industries."
+      },
+      {
+        "name": "Forestry",
+        "desc": "FSC-certified sustainable forestry practices; protecting biodiversity is a core principle."
+      }
+    ],
+    "qualityTitle": "Lalan's Quality Policy",
+    "qualitySub": "At Lalan, quality is the responsibility of the entire organisation, not a single department.",
+    "qualityItems": [
+      {
+        "title": "Raw-Material Traceability",
+        "desc": "Latex obtained from Lalan's own plantations can be tracked at every stage from source to finished product. This integrated structure makes it possible to keep raw-material quality under direct control and to comply with international standards."
+      },
+      {
+        "title": "Central Rubber Nursery (CRN)",
+        "desc": "The CRN, which holds the distinction of being Sri Lanka's largest rubber nursery, is certified by the Rubber Development Department of Sri Lanka. High-yield saplings and a buy-back guarantee are offered to small farmers."
+      },
+      {
+        "title": "Independent Audit & Certification",
+        "desc": "All quality standards (ISO, FSC, BRC, etc.) are verified through annual audits by independent accreditation bodies. Transparency and accountability are among Lalan's corporate values."
+      },
+      {
+        "title": "Continuous Improvement",
+        "desc": "Lalan's R&D activities, product development processes and production technologies are continuously updated. Growth from 1 facility to 7 modern facilities since 1988 is a concrete demonstration of this mindset."
+      }
+    ],
+    "docsTitle": "Documents & Reports",
+    "docsSub": "Lalan's FSC® certification documents, plantation management plans and agri division policies.",
+    "download": "Download",
+    "docs": [
+      {
+        "title": "Agri Division Policies 2022",
+        "desc": "Lalan Rubbers Agri Division's current policy document — environment, occupational safety, chemical use and FSC compliance standards."
+      },
+      {
+        "title": "Agri Division Policies 2021",
+        "desc": "Amendment IV — operational policies applied to rubber, forest and agricultural areas under FSC certification."
+      },
+      {
+        "title": "FSC® Forest Management Plan 2018–22",
+        "desc": "FSC Manual: the five-year forest management plan and sustainability targets for Lalan's 68.8 million m² certified area."
+      }
+    ],
+    "featured": "Featured",
+    "crnTitle": "Sri Lanka's Largest Rubber Nursery",
+    "crnBody": "The Central Rubber Nursery (CRN) is certified by the Rubber Development Department of Sri Lanka and holds the title of the country's largest nursery. The CRN supplies high-yield rubber saplings to small farmers and, through a buy-back guarantee, helps local growers earn a sustainable income."
+  },
+  "presentationsPage": {
+    "kicker": "Documents",
+    "titleLead": "Presentations &",
+    "titleAccent": "Catalogues",
+    "intro": "Download product technical presentations as PDFs; contact us for the general company presentation and catalogue.",
+    "generalTitle": "General Presentation & Catalogue",
+    "generalCards": [
+      {
+        "name": "Lalan Rubbers — General Presentation",
+        "subtitle": "Company profile, product range and certifications"
+      },
+      {
+        "name": "Lalan Rubbers — Corporate Overview",
+        "subtitle": "Company profile, product range and certifications"
+      }
+    ],
+    "requestPrompt": "Would you like to request the general presentation?",
+    "requestBody": "Presentation files containing our company profile, capacity details and full product catalogue are sent on request.",
+    "requestBtn": "Request Presentation",
+    "singleTitle": "Individual Product Presentations",
+    "download": "Download PDF",
+    "subtitles": [
+      "Cobalt Blue · Food Safe",
+      "Green Chemical · Chemical Resistance",
+      "Economical · Disposable Nitrile",
+      "Powder-Free · Nitrile · Disposable",
+      "Strong · 5g Nitrile",
+      "Extra Strong · 6.3g Nitrile",
+      "Anti-Static · Electronics Sector"
+    ],
+    "footerTitle": "Need More Product Information?",
+    "footerBody": "For products not in the catalogue, technical data sheets and custom product presentations are prepared on request.",
+    "allProducts": "All Products",
+    "contact": "Get in Touch"
+  },
+  "certsPage": {
+    "kicker": "Quality & Compliance",
+    "titleLead": "Quality Certified to",
+    "titleAccent": "Global Standards",
+    "intro": "Lalan Rubbers has its compliance with international quality, safety, social responsibility and environmental standards regularly audited by independent bodies.",
+    "badge": "International Certifications & Standards",
+    "policyTitle": "Policy Documents",
+    "policyCountUnit": "Documents",
+    "footerTitle": "Need Certification Documents?",
+    "footerBody": "Official certificate copies and compliance documents are provided on request.",
+    "presentations": "Presentations & Catalogues",
+    "contact": "Get in Touch",
+    "certs": {
+      "ISO 9001": {
+        "scope": "Quality Management System",
+        "desc": "The international quality management system standard that ensures Lalan's products and services consistently meet customer and regulatory requirements."
+      },
+      "ISO 13485": {
+        "scope": "Medical Device Quality Management",
+        "desc": "A certificate documenting that Lalan's quality management system for the laboratory and medical device sector complies with international standards. Mandatory for medical-grade gloves."
+      },
+      "FDA": {
+        "scope": "US Food-Contact Approval",
+        "desc": "Lalan's food-safe gloves are certified under FDA Title 21 CFR, documenting that the glove components comply with food safety regulations and contain \"substances generally recognized as safe for use in food or food packaging.\""
+      },
+      "FDA 510(k)": {
+        "scope": "Medical Device Premarket Notification",
+        "desc": "Demonstrates that Lalan gloves marketed as medical devices in the US have successfully completed the FDA premarket notification process (510k) and meet safety and efficacy requirements."
+      },
+      "Health Canada": {
+        "scope": "Canadian Market Compliance",
+        "desc": "Approval from Canada's federal health authority documenting that Lalan gloves meet the requirements under the Canadian Food and Drugs Act (FDA) and its Regulations (FDR)."
+      },
+      "REACH": {
+        "scope": "Chemical Substance Safety",
+        "desc": "Documents that Lalan adopts the EU chemicals regulation and manages the risks to human health and the environment of the chemicals used in production in line with EU regulations."
+      },
+      "BSCI": {
+        "scope": "Social Compliance Audit",
+        "desc": "Using the BSCI social audit methodology, Lalan continuously improves and maintains working conditions across all its facilities at the highest level. Covers human rights, ethical business practices and supply chain transparency."
+      },
+      "Sedex": {
+        "scope": "Responsible Supply Chain",
+        "desc": "Sedex (Supplier Ethical Data Exchange) allows Lalan to catalogue and share information on its ethical and social compliance performance with its partners, ensuring a sustainable and transparent supply chain."
+      },
+      "BRC Global Standards": {
+        "scope": "Food Safety & Quality",
+        "desc": "A global standard for food-sector suppliers. Under BRC Consumer Products Certification, Lalan documents the safety, legality and quality of product design as well as the food-safety suitability of the production environment."
+      },
+      "GOTS": {
+        "scope": "Organic Textile Standard",
+        "desc": "GOTS is an organic textile production certification that restricts the use of toxic bleaches, dyes and other chemicals in Lalan's production process. It covers the entire chain from raw material to labelling."
+      },
+      "ASTM International": {
+        "scope": "Material & Testing Standards",
+        "desc": "Lalan applies ASTM standards to improve product quality, strengthen health and safety, facilitate market access and demonstrate to customers that they can rely on the products."
+      },
+      "Sanitized®": {
+        "scope": "Antimicrobial Protection",
+        "desc": "The SANITIZED® antimicrobial treatment is applied to selected Lalan products to protect gloves against the colonisation and proliferation of bacteria, mould, mildew, algae or dust mites."
+      }
+    },
+    "certGroups": {
+      "quality-medical": "Quality & Medical",
+      "market-access": "Market Access",
+      "chemical-env": "Chemical & Environment",
+      "social-ethical": "Social & Ethical"
+    },
+    "policies": {
+      "Kalite Politikası": "Quality Policy",
+      "Tüm Politikalar": "All Policies Summary 2022",
+      "LRP.CP.02": "Anti-Bribery & Corruption",
+      "LRP.CP.05": "Ethical Trading",
+      "LRP.CP.08": "Free Employment",
+      "LRP.CP.09": "Freedom of Association",
+      "LRP.CP.29": "Disciplinary",
+      "LRP.CP.34": "Confidentiality & Reporting Mechanism",
+      "LRP.CP.03": "Anti-Child Labour",
+      "LRP.CP.07": "Anti-Forced Labour",
+      "LRP.CP.11": "Anti-Harassment",
+      "LRP.CP.16": "Non-Discrimination",
+      "LRP.CP.18": "Labour-Management Relations",
+      "LRP.CP.20": "Social Responsibility",
+      "LRP.CP.21": "Wages & Salaries",
+      "LRP.CP.24": "Working Hours",
+      "LRP.CP.25": "Young Workers",
+      "LRP.CP.26": "Recruitment & Retirement",
+      "LRP.CP.30": "Grievance Policy (Sinhala)",
+      "LRP.CP.32": "Human Rights",
+      "LRP.CP.33": "Employee Data Privacy",
+      "LRP.CP.06": "Environmental Policy",
+      "LRP.CP.22": "Waste Management",
+      "LRP.CP.23": "Water Management",
+      "LRP.CP.31": "Air Emissions",
+      "LRP.CP.01": "Alcohol & Drugs",
+      "LRP.CP.04": "Cleaning",
+      "LRP.CP.10": "Glass & Brittle Material",
+      "LRP.CP.12": "Occupational Health & Safety",
+      "LRP.CP.13": "Hygiene",
+      "LRP.CP.14": "Metal Control",
+      "LRP.CP.15": "No Smoking",
+      "LRP.CP.17": "Personal Medication",
+      "LRP.CP.19": "Security"
+    },
+    "policyGroups": {
+      "quality-general": "Quality & General",
+      "ethics-legal": "Business Ethics & Legal",
+      "social-hr": "Social & Human Rights",
+      "env-sustain": "Environment & Sustainability",
+      "facility-safety": "Facility & Production Safety"
+    },
+    "categoriesLabel": "Compliance Categories",
+    "certBodies": {
+      "REACH": "ECHA (Europe)",
+      "Sanitized®": "Sanitized AG (Switzerland)"
+    },
+    "policyCodes": {
+      "Kalite Politikası": "Quality Policy",
+      "Tüm Politikalar": "All Policies"
+    }
+  }
+}

@@ -1,8 +1,12 @@
 ﻿'use client';
 
 import AuroraContained from '@/components/ui/aurora-contained';
+import { useI18n, useLocalePath } from './i18n-provider';
 
 export default function SustainabilitySection() {
+  const lp = useLocalePath();
+  const { dict } = useI18n();
+  const t = dict.home.sustainability;
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Aurora shader fills the entire section */}
@@ -21,7 +25,7 @@ export default function SustainabilitySection() {
                 <path d="M7 17.5C5.07 16.08 4 13.87 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.87-1.07 4.08-3 5.5" stroke="#8ec63f" strokeWidth="0.5"/>
               </svg>
               <span className="text-[#8ec63f] font-bold tracking-[0.15em] text-xs uppercase">
-                Sürdürülebilir Gelecek
+                {t.kicker}
               </span>
             </div>
 
@@ -29,38 +33,36 @@ export default function SustainabilitySection() {
               className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight mb-8"
               style={{ fontFamily: 'var(--font-manrope), sans-serif' }}
             >
-              Gezegene Adanmış,{' '}
-              <span className="text-[#8ec63f]">Doğa Tarafından</span> Onaylanmış.
+              {t.titleLead}{' '}
+              <span className="text-[#8ec63f]">{t.titleAccent}</span> {t.titleTail}
             </h2>
 
             <p className="text-[rgba(172,199,255,0.75)] text-lg leading-relaxed mb-10 max-w-[52ch]">
-              Lalan, FSC (Orman Yönetim Konseyi) sertifikalı bir üreticidir. Lalan&apos;ın sürdürülebilirlik
-              çerçevesi, kauçuk plantasyonlarının biyoçeşitliliği korumasını ve bu alanlara
-              bağımlı toplulukları desteklemesini güvence altına alır.
+              {t.body}
             </p>
 
             <div className="flex flex-wrap items-center gap-8 mb-10">
               <div>
-                <span className="block text-white font-black text-3xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>%100</span>
-                <span className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-wider">Biyobozunur Lateks</span>
+                <span className="block text-white font-black text-3xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>{t.percent100}</span>
+                <span className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-wider">{t.biodegradable}</span>
               </div>
               <div className="h-8 w-px bg-[#8ec63f]/20 hidden sm:block" />
               <div>
-                <span className="block text-white font-black text-3xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>Sıfır</span>
-                <span className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-wider">Orman Kaybı Politikası</span>
+                <span className="block text-white font-black text-3xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>{t.zero}</span>
+                <span className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-wider">{t.zeroDeforestation}</span>
               </div>
               <div className="h-8 w-px bg-[#8ec63f]/20 hidden sm:block" />
               <div>
                 <span className="block text-white font-black text-3xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>FSC</span>
-                <span className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-wider">Sertifikalı</span>
+                <span className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-wider">{t.certified}</span>
               </div>
             </div>
 
             <a
-              href="/surdurulebilirlik"
+              href={lp("/surdurulebilirlik")}
               className="inline-flex items-center gap-2 text-[#8ec63f] font-bold hover:gap-4 transition-all duration-200 text-sm"
             >
-              Lalan&apos;ın sürdürülebilirlik girişimlerini keşfedin
+              {t.discover}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -85,7 +87,7 @@ export default function SustainabilitySection() {
               style={{ background: 'rgba(0,79,17,0.9)', backdropFilter: 'blur(12px)', border: '1px solid rgba(175,220,120,0.2)' }}
             >
               <div className="text-[#8ec63f] font-black text-2xl" style={{ fontFamily: 'var(--font-manrope), sans-serif' }}>68.796.559 m²</div>
-              <div className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-widest leading-tight mt-1">Yönetilen Alan</div>
+              <div className="text-[rgba(172,199,255,0.75)] text-xs uppercase font-bold tracking-widest leading-tight mt-1">{t.managedArea}</div>
             </div>
           </div>
 
